@@ -1,0 +1,18 @@
+<div
+  *ngIf="promotion.showCountDown"
+  class="promotions-wrapper__timer"
+  data-cy="promotions-wrapper-timer"
+>
+  <div class="timer" data-cy="timer">
+    <span data-cy="timer-day">{{ promotion.countdownDayCount }}</span> :
+    <span data-cy="timer-hours">{{ time | date: 'hh' }}</span> :
+    <span data-cy="timer-minutes">{{ time | date: 'mm' }}</span> :
+    <span data-cy="timer-seconds">{{ time | date: 'ss' }}</span>
+  </div>
+  <div class="timer__text" data-cy="timer-text">
+    <span data-cy="timer-day-title">{{ 'common_day' | translate }}</span>
+    <span data-cy="timer-hours-title">{{ 'hrs' | translate }}</span>
+    <span data-cy="timer-mimutes-title">{{ 'minute' | translate }}</span>
+    <span data-cy="timer-seconds-title">{{ 'second' | translate }}</span>
+  </div>
+</div>

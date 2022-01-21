@@ -1,0 +1,15 @@
+<div class="slot-game-container p-2 pt-0">
+  <div #iframeWrapper>
+    <crc-w-slot-casino-player-presentation
+      [gameName]="gameName"
+      [gameType]="gameType"
+      [iframeSrc]="src$ | async"
+      [slotHeight]="slotHeight"
+      (openInNewWindow)="inNewWindow()"
+      (addToFavorites)="addSlotToFavorites()"
+      (switchToMultiGame)="onSwitchToMultiGame()"
+      [isSlotFavorite]="$isSlotFavorite | async"
+      [isFullScreen]="isFullScreen"
+    ></crc-w-slot-casino-player-presentation>
+  </div>
+</div>

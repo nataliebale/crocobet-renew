@@ -1,0 +1,43 @@
+<ng-container *ngIf="filterItems">
+  <button *ngIf="extendable" (click)="onSeeMoreBtnClick()" class="see-more-btn">
+    {{ title }}
+    <img
+      class="see-more-btn__arrow"
+      src="assets/icons/filters/arrow.svg"
+      alt="arrow"
+      [ngClass]="{ active: showDropdown }"
+    />
+  </button>
+  <div [ngStyle]="{ height: getDropdownHeight() }" class="filters__body">
+    <div #dropdown class="filters__body-content">
+      <div
+        *ngFor="let item of filterItems"
+        class="filters__item"
+        [class.extendable]="extendable"
+      >
+        <button
+          (click)="onSelect(item)"
+          class="link text-uppercase"
+          id="filter-item-{{ item.filter }}"
+          [ngClass]="{
+            active: item?.active
+          }"
+        >
+          <img
+            *ngIf="item?.iconUrl"
+            src="{{ item.iconUrl }}"
+            alt="Logo"
+            class="link__icon"
+          />
+          {{ item?.name | translate }}
+          <span class="link__total-count" *ngIf="item?.totalCount">
+            {{ item?.totalCount }}
+          </span>
+        </button>
+        <span class="filters__item--new" *ngIf="item?.isNew">
+          {{ 'NEW' | translate | uppercase }}
+        </span>
+      </div>
+    </div>
+  </div>
+</ng-container>

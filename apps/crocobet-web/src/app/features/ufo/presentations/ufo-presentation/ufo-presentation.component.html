@@ -1,0 +1,8 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <iframe *ngIf="ufoGameLink" [src]="ufoGameLink | safeUrl" class="ufo">
+      </iframe>
+    </div>
+  </div>
+</div>

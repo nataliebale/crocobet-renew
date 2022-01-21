@@ -1,0 +1,79 @@
+@use 'libs/ui/src/styles/variables';
+@use 'libs/ui/src/styles/mixins';
+
+$card-bg: #1f252d;
+$card-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+$selected-card-bg: #414c57;
+$light-blue: #cfe2fb;
+
+.cashier {
+  $root: &;
+  @include mixins.flex(flex-start, stretch);
+
+  height: 100%;
+  padding: 12px;
+  transition: background-color 0.2s linear;
+  border-radius: variables.$border-radius-sm;
+  background-color: $card-bg;
+  box-shadow: $card-box-shadow;
+  cursor: pointer;
+
+  &__icon {
+    flex: 0 0 32px;
+    height: 40px;
+    margin-right: 12px;
+    background-color: variables.$color-grey;
+    mask-image: url('/assets/icons/place.svg');
+  }
+
+  &__info {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &--selected {
+    background-color: $selected-card-bg;
+
+    #{$root}__icon {
+      background-color: variables.$color-green;
+    }
+  }
+
+  &__address {
+    min-height: 55px;
+    color: rgba(variables.$color-white, 0.8);
+    font: 13px/1.5 variables.$font-regular;
+  }
+
+  &__working-hours {
+    align-self: flex-end;
+    text-align: right;
+  }
+
+  &__title {
+    color: variables.$color-grey;
+    font: variables.$font-size-md variables.$font-regular;
+
+    .open {
+      color: variables.$color-green;
+    }
+
+    .closes-soon {
+      color: $light-blue;
+    }
+
+    .closed {
+      color: variables.$color-red;
+    }
+  }
+}
+
+.mt-6 {
+  margin-top: 6px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}

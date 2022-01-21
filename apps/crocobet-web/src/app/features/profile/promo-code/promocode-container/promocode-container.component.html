@@ -1,0 +1,85 @@
+<crc-w-promocode-presentation
+  [promoCode]="promoCode"
+  [captchaCode]="captchaCode$ | async"
+  [enteredCaptchaValid]="isEnteredCaptchaValid$ | async"
+  [personalData]="personalData$ | async"
+  (getCaptcha)="onGetCaptcha($event)"
+  (captchaClose$)="onCaptchaClose()"
+  (captchaUpdated$)="onCaptchaUpdated($event)"
+  (checkCaptchaValidity$)="onCheckCaptchaValidity($event)"
+  (submitCaptcha)="onSubmitCaptcha()"
+></crc-w-promocode-presentation>
+
+<crc-shared-popup
+  *ngIf="promoCodeResult$ | async as promoCodeResult"
+  (closed)="onCloseAndReset()"
+  [title]="'promocode_text' | translate"
+  size="sm"
+  class="custom-bg-colors-2"
+>
+  <div
+    *ngIf="!promoCodeResult.loading; else loader"
+    class="promocode-status"
+    data-cy="promocode-status"
+  >
+    <ng-container *ngIf="!promoCodeResult.success; else success">
+      <img
+        class="promocode-status__img"
+        data-cy="promocode-status-img"
+        src="/assets/icons/error.svg"
+        alt="Status"
+      />
+
+      <span
+        class="promocode-status__message"
+        data-cy="promocode-status-message"
+      >
+        {{ 'wrong_promocode' | translate }}
+      </span>
+    </ng-container>
+
+    <ng-template #success>
+      <img
+        class="promocode-status__img"
+        data-cy="promocode-status-img"
+        src="/assets/icons/success.svg"
+        alt="Status"
+      />
+
+      <span
+        class="promocode-status__message"
+        data-cy="promocode-status-message"
+      >
+        <span
+          class="promocode-status__message--first"
+          data-cy="promocode-status-message-first"
+          >{{ 'success_promocode' | translate }}</span
+        >
+        <span>
+          {{ 'you_have_been_credited' }}
+          {{ promoCodeResult.prize?.amount }}
+          {{ promoCodeResult.prize?.name | translate }}
+        </span>
+      </span>
+    </ng-template>
+
+    <div
+      class="promocode-status__button"
+      data-cy="promocode-status-button"
+      (click)="onCloseAndReset()"
+    >
+      {{ 'daily-gifts-loos-agree' | translate }}
+    </div>
+  </div>
+
+  <ng-template #loader>
+    <div class="promocode-loader">
+      <img
+        class="promocode-loader__loader rotate"
+        data-cy="promocode-loader"
+        src="/assets/icons/loader.svg"
+        alt="loader"
+      />
+    </div>
+  </ng-template>
+</crc-shared-popup>

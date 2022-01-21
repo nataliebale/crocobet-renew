@@ -1,0 +1,11 @@
+<crc-login-header-presentation
+  (captchaClosed$)="onCaptchaClose()"
+  (captchaUpdated$)="onCaptchaUpdated($event)"
+  (checkCaptchaValidity$)="onCheckCaptchaValidity($event)"
+  (signIn$)="onSignIn($event)"
+  (resetPassword$)="onResetPassword()"
+  [isLoggedIn]="isLoggedIn$ | async"
+  [captcha]="captchaCode$ | async"
+  [enteredCaptchaValid]="enteredCaptchaValid$ | async"
+  [loginPopupShowState]="showAuthModal$ | async"
+></crc-login-header-presentation>

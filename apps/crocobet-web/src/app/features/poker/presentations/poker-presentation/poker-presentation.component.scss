@@ -1,0 +1,146 @@
+@use 'variables';
+@use 'mixins';
+
+$poker-row-border-bottom: #161f38;
+$scrollbar-thumb-bg: #6a7787;
+$scrollbar-margin: 2px 2px 16px 13px;
+
+.poker {
+  margin-bottom: 54px;
+
+  &__main {
+    display: grid;
+    grid-gap: 8px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 360px;
+  }
+
+  &__play {
+    border-radius: 6px;
+    background: url('/assets/images/poker/poker-play.png') no-repeat center;
+    background-size: cover;
+  }
+
+  &__spin {
+    border-radius: 6px;
+    background: url('/assets/images/poker/poker-spin.png') no-repeat center;
+    background-size: cover;
+  }
+
+  &__tournaments {
+    border-radius: 6px;
+    background: url('/assets/images/poker/poker-tournaments.png') no-repeat
+      center;
+    background-size: cover;
+  }
+}
+
+.poker-play {
+  &__title {
+    padding: 30px;
+    color: #fff;
+    font-size: 18px;
+  }
+
+  &__btn-container {
+    padding: 20px;
+  }
+
+  &__btn {
+    border-radius: 8px;
+    font-size: 18px;
+  }
+}
+
+.tournaments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 14px 4px 0;
+  color: #fff;
+  gap: 15px;
+
+  &__header {
+    font-size: 18px;
+    gap: 8px;
+  }
+}
+
+.table {
+  @include mixins.scrollbar(
+    2px,
+    $scrollbar-margin,
+    4px,
+    $scrollbar-thumb-bg,
+    transparent
+  );
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+
+  &__header {
+    width: 100%;
+    padding: 14px 0;
+    border-radius: 4px;
+    background: variables.$primary;
+    font-size: 14px;
+  }
+
+  &__heading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__body {
+    width: 100%;
+    height: 260px;
+    overflow-y: scroll;
+
+    @include mixins.desktop-1620 {
+      height: 255px;
+    }
+  }
+
+  &__row {
+    align-items: center;
+    justify-content: flex-start;
+    height: 42px;
+    border-bottom: 1px solid rgba($poker-row-border-bottom, 0.5);
+    border-radius: 4px;
+    font-size: 13px;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+
+    &--green {
+      color: #189541;
+    }
+  }
+}
+
+.start-date {
+  width: 90px;
+
+  @include mixins.desktop-1620 {
+    width: inherit;
+  }
+}
+
+.start-time {
+  width: 80px;
+
+  @include mixins.desktop-1620 {
+    width: inherit;
+  }
+}
+
+.money {
+  word-spacing: 2px;
+}

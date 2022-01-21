@@ -1,0 +1,37 @@
+<div class="deposit-cards">
+  <crc-w-deposit-cards-container
+    [slidesPerView]="slidesPerView"
+    [slidesPerViewTablet]="slidesPerViewTablet"
+    [isFastDeposit]="isFastDeposit"
+    (cardSelected)="onCardSelected($event)"
+    (showAddCardPopup)="onShowAddCardPopup($event)"
+  >
+  </crc-w-deposit-cards-container>
+</div>
+
+<div class="deposit-amount">
+  <div class="deposit-form">
+    <h4 class="deposit-form__header">{{ 'common_amount' | translate }}</h4>
+
+    <form
+      [formGroup]="paymentForm"
+      [class.deposit-form__payment]="!isFastDeposit"
+    >
+      <crc-w-deposit-amount-container
+        controlName="transactionAmount"
+        [isDepositButtonVisible]="isDepositButtonVisible"
+        [isFastDeposit]="isFastDeposit"
+        (openDepositPopup)="onOpenDepositPopup()"
+      >
+      </crc-w-deposit-amount-container>
+    </form>
+  </div>
+</div>
+
+<crc-w-deposit-popup-container
+  *ngIf="isDepositPopupVisible"
+  [paymentAmount]="paymentAmount"
+  [paymentObj]="paymentFormFragment"
+  (closePopup)="onClosePopup()"
+>
+</crc-w-deposit-popup-container>

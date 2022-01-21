@@ -1,0 +1,12 @@
+<div *ngIf="filterItems" class="provider-filters">
+  <div
+    [class.filters__body_active]="showDropdown"
+    class="provider-filters__body"
+  >
+    <crc-shared-filters
+      [extendable]="true"
+      [filterItems]="filterItems"
+      (selectedChange)="selectedChange.emit($event)"
+    ></crc-shared-filters>
+  </div>
+</div>

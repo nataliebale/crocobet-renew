@@ -1,0 +1,13 @@
+<select
+  class="form-input form-input__select"
+  [disabled]="disabled"
+  [(ngModel)]="value"
+  (change)="onChange(value)"
+  (keyup)="keyUpped.emit($event)"
+  (blur)="onTouched()"
+  (focus)="focused.emit($event)"
+>
+  <option *ngFor="let item of data" [value]="item.value">
+    {{ item.label }}
+  </option>
+</select>

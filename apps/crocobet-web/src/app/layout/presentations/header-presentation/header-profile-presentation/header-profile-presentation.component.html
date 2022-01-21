@@ -1,0 +1,149 @@
+<div class="profile" data-cy="profile" (crcClickOutside)="closePopup()">
+  <div class="profile__img-wrapper" data-cy="profile-img-wrapper">
+    <img
+      alt="Profile Img"
+      class="profile__img"
+      data-cy="profile-img"
+      src="/assets/images/profile-img.png"
+    />
+
+    <span class="profile__indicator" data-cy="profile-indicator">
+      <img
+        *ngIf="verificationStatus === VerificationStatus.VERIFIED"
+        alt="Verified Badge"
+        src="/assets/icons/header/verified.svg"
+        data-cy="verified-budge"
+      />
+      <img
+        *ngIf="verificationStatus !== VerificationStatus.VERIFIED"
+        alt="Verified Badge"
+        src="/assets/icons/header/unverified.svg"
+        data-cy="unverified-budge"
+      />
+    </span>
+  </div>
+
+  <div class="profile__info" data-cy="profile-info" *ngIf="personalData">
+    <div
+      (click)="togglePopup()"
+      class="profile__toggle"
+      data-cy="profile-toggle"
+    >
+      <p class="profile__username" data-cy="profile-username">
+        {{ personalData.loginName }}
+      </p>
+      <img alt="Arrow Down" src="/assets/icons/header/arrow-down.svg" />
+    </div>
+    <p
+      *ngIf="
+        verificationStatus === VerificationStatus.VERIFIED;
+        else codeHidden
+      "
+      class="profile__code"
+      data-cy="profile-code"
+    >
+      <span #container>
+        <span
+          (click)="closePopup()"
+          (cbOnSuccess)="showCopyTooltip()"
+          [cbContent]="pinCode"
+          [container]="container"
+          ngxClipboard
+        >
+          {{ pinCode }}
+        </span>
+      </span>
+    </p>
+
+    <div
+      *ngIf="isCopyTooltipVisible"
+      class="profile__copy-tooltip"
+      data-cy="profile-copy-tooltip"
+    >
+      <span>პინ-კოდი დაკოპირებულია</span>
+    </div>
+
+    <ng-template #codeHidden>
+      <span
+        class="profile__code profile__code--hidden"
+        data-cy="profile-code-hidden"
+      >
+        ******
+      </span>
+    </ng-template>
+  </div>
+
+  <div
+    [class.dropdown--visible]="isPopupVisible"
+    class="profile__dropdown dropdown"
+    data-cy="profile-dropdown"
+  >
+    <div class="dropdown__header" data-cy="dropdown-header">
+      <ng-container
+        *ngIf="
+          verificationStatus === VerificationStatus.VERIFIED;
+          else notVerified
+        "
+      >
+        <span class="dropdown__title" data-cy="dropdown-title">{{
+          'get_secret_card' | translate
+        }}</span>
+
+        <button
+          routerLink="/profile/secret-card"
+          (click)="closePopup()"
+          class="btn btn--sm btn--success"
+          data-cy="order-btn"
+        >
+          {{ 'secret_card_submit' | translate }}
+        </button>
+      </ng-container>
+
+      <ng-template #notVerified>
+        <span class="dropdown__title" data-cy="dropdown-title">{{
+          'account_not_verified' | translate
+        }}</span>
+        <a
+          (click)="closePopup()"
+          routerLink="/profile/verification"
+          class="btn btn--sm btn--danger"
+          data-cy="verification-btn"
+          >{{ 'VERIFICATION' | translate }}</a
+        >
+      </ng-template>
+    </div>
+    <div class="dropdown__body" data-cy="dropdown-body">
+      <ul class="dropdown__menu" data-cy="dropdown-menu" *ngIf="userMenuItems">
+        <li
+          *ngFor="let item of userMenuItems; let last = last"
+          [class.dropdown__item--last]="last"
+          class="dropdown__item"
+          [id]="item.name"
+          [routerLink]="item.link"
+        >
+          <a *ngIf="!last" class="dropdown__link" (click)="closePopup()">
+            <img
+              [alt]="item.name | translate"
+              class="dropdown__img"
+              src="assets/icons/menu-items/{{ item.value }}.svg"
+            />
+            <span>{{ item.name | translate }}</span>
+          </a>
+          <a
+            *ngIf="last"
+            (click)="logOut()"
+            class="dropdown__link dropdown__link dropdown__link--small"
+            role="button"
+          >
+            <img
+              [alt]="item.name | translate"
+              class="dropdown__img"
+              src="assets/icons/menu-items/{{ item.value }}.svg"
+            />
+            <span>{{ item.name | translate }}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

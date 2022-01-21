@@ -1,0 +1,177 @@
+<form [formGroup]="form">
+  <div class="row gx-2">
+    <div class="col-12 mb-12">
+      <crc-shared-material-input
+        [class.error]="controlHasErrors('loginName')"
+        [placeholder]="'register_loginName' | translate"
+        formControlName="loginName"
+        data-cy="login-name"
+      ></crc-shared-material-input>
+      <div class="message" data-cy="message">
+        <div
+          *ngIf="controlHasErrors('loginName')?.required"
+          class="mt-1"
+          data-cy="login-name-required"
+        >
+          {{ 'form_error_required' | translate }}
+        </div>
+        <div
+          *ngIf="
+            (form.get('loginName').statusChanges | async) === 'INVALID' &&
+            controlHasErrors('loginName')?.taken
+          "
+          class="mt-1"
+          data-cy="login-name-in-use"
+        >
+          {{ 'form_login_already_in_use' | translate }}
+        </div>
+        <div
+          *ngIf="controlHasErrors('loginName')?.minlength"
+          class="mt-1"
+          data-cy="first-name-latin"
+        >
+          {{ 'form_min_length' | translate }}
+        </div>
+      </div>
+    </div>
+    <div class="col-6 mb-12">
+      <crc-shared-material-input
+        [class.error]="controlHasErrors('password')"
+        [showToggleHideTextIcon]="true"
+        [placeholder]="'header.password' | translate"
+        formControlName="password"
+        type="password"
+        class="
+          width-100
+          no-icons
+          form-control--lg
+          show-icon
+          icon--right
+          register-input
+        "
+        data-cy="password"
+      ></crc-shared-material-input>
+    </div>
+    <div class="col-6 mb-12">
+      <crc-shared-material-input
+        [class.error]="controlHasErrors('confirmPassword')"
+        [showToggleHideTextIcon]="true"
+        [placeholder]="'register_confirmPassword' | translate"
+        formControlName="confirmPassword"
+        type="password"
+        class="
+          width-100
+          no-icons
+          form-control--lg
+          show-icon
+          icon--right
+          register-input
+        "
+        data-cy="confirm-password"
+      ></crc-shared-material-input>
+      <div class="message">
+        <div
+          *ngIf="
+            controlHasErrors('confirmPassword')?.match ||
+            controlHasErrors('password')?.match
+          "
+          class="mt-1"
+          data-cy="login-name-required"
+        >
+          {{ 'passwords_does_not_match' | translate }}
+        </div>
+      </div>
+    </div>
+    <div class="col-12 mb-30">
+      <div class="form-control-suggests" data-cy="form-control-suggests">
+        <p
+          class="form-control-suggest message"
+          [class.success]="
+            !controlHasErrors('password', true)?.required &&
+            !controlHasErrors('password', true)?.upperCase &&
+            !controlHasErrors('password', true)?.lowerCase
+          "
+          data-cy="big-and-small-symbols"
+        >
+          {{ 'register_passwordValidation_1' | translate }}
+        </p>
+        <p
+          class="form-control-suggest message"
+          [class.success]="
+            !controlHasErrors('password', true)?.required &&
+            !controlHasErrors('password', true)?.number
+          "
+          data-cy="number-symbols"
+        >
+          {{ 'register_passwordValidation_2' | translate }}
+        </p>
+        <p
+          class="form-control-suggest message"
+          [class.success]="
+            !controlHasErrors('password', true)?.required &&
+            !controlHasErrors('password', true)?.minlength &&
+            !controlHasErrors('password', true)?.maxlength
+          "
+          data-cy="min-max-symbols"
+        >
+          {{ 'register_passwordValidation_3' | translate }}
+        </p>
+        <p
+          class="form-control-suggest message"
+          [class.success]="
+            !controlHasErrors('password', true)?.required &&
+            !controlHasErrors('password', true)?.containsValue &&
+            !controlHasErrors('loginName', true)?.containsValue
+          "
+          data-cy="min-max-symbols"
+        >
+          {{ 'userName_password_not_matched' | translate }}
+        </p>
+      </div>
+    </div>
+    <ng-container *ngIf="!verificationCodeSuccess">
+      <div class="col-12 mb-20 mt-10">
+        <div class="custom-checkbox" data-cy="custom-checkbox">
+          <div
+            class="custom-checkbox__container"
+            data-cy="custom-checkbox-container"
+          >
+            <input
+              formControlName="iAgree"
+              class="custom-checkbox__input"
+              type="checkbox"
+              id="confirm-checkbox"
+              data-cy="confirm-checkbox"
+            />
+            <label
+              for="confirm-checkbox"
+              class="custom-checkbox__label"
+              data-cy="confirm-checkbox-label"
+            ></label>
+          </div>
+          <div
+            [class.error]="controlHasErrors('iAgree')"
+            class="custom-checkbox__checkmark"
+            data-cy="custom-checkbox-checkmark"
+          >
+            <div>
+              {{ 'agree-intro' | translate }}
+              <a routerLink="/">
+                {{ 'register.terms_and_conditions' | translate }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button
+        (click)="onCheckDocumentId()"
+        [class.register__btn--secondary]="invalidStatus"
+        class="btn btn--block btn--success register__btn"
+        type="button"
+        data-cy="register-btn"
+      >
+        {{ 'header.register' | translate }}
+      </button>
+    </ng-container>
+  </div>
+</form>

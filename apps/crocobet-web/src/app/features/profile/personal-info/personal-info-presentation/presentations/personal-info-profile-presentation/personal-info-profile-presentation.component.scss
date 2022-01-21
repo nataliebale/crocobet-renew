@@ -1,0 +1,100 @@
+@use 'variables';
+@use 'mixins';
+
+.personal-profile {
+  @include mixins.flex(space-between, center);
+
+  &__photo {
+    @include mixins.flex(center, center);
+
+    position: relative;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+
+    &--wrapper {
+      @include mixins.flex(flex-start, center);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      opacity: 0.6;
+      background-color: #000;
+      cursor: pointer;
+    }
+
+    &--tooltip {
+      @include mixins.flex(center, center);
+
+      position: absolute;
+      top: 36px;
+      left: 25px;
+      width: 159px;
+      height: 30px;
+      border-radius: 4px;
+      opacity: 0.8;
+      background-color: #d9e3ef;
+      font-family: variables.$font-regular;
+      font-size: 13px;
+    }
+  }
+
+  &__edit {
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  &__user-photo,
+  &__edit {
+    position: absolute;
+    padding: 5px;
+  }
+
+  &__user {
+    @include mixins.flex(center, flex-start);
+
+    flex-direction: column;
+    margin-left: 10px;
+
+    &--username {
+      color: variables.$color-white;
+      font-family: variables.$font-regular;
+      font-size: 15px;
+    }
+
+    &--pincode {
+      margin-top: 4px;
+      color: #96a5b8;
+      font-size: 13px;
+    }
+  }
+
+  &__status {
+    @include mixins.flex(flex-end, center);
+
+    color: variables.$color-white;
+    font-size: 14px;
+  }
+
+  &__text {
+    margin-left: 12px;
+  }
+
+  &__img {
+    width: 22px;
+  }
+}
+
+.verified {
+  color: #189541;
+}
+
+.unverified {
+  display: block;
+  padding-top: 3px;
+  color: #ff2929;
+}

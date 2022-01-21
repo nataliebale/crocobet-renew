@@ -1,0 +1,121 @@
+<div class="register" data-cy="register">
+  <div class="register__wrapper" data-cy="register-wrapper">
+    <div class="register__title mb-20" data-cy="register-title">
+      {{ 'register_step_two' | translate }}
+    </div>
+    <form [formGroup]="personalInfoForm" data-cy="personal-info">
+      <crc-w-personal-info-form-presentation
+        [verificationCodeSuccess]="verificationCodeSuccess"
+        [cities]="cities"
+        [countries]="countries"
+        [days]="days"
+        [months]="months"
+        [years]="years"
+        [touched]="personalInfoFormTouched"
+      ></crc-w-personal-info-form-presentation>
+    </form>
+    <div class="register__title mt-30 mb-20" data-cy="register-step-one">
+      {{ 'register_step_one' | translate }}
+    </div>
+    <form
+      [formGroup]="accountDetailsForm"
+      [class.disabled]="verificationCodeSuccess"
+      class="form"
+    >
+      <crc-w-account-details-form-presentation
+        (checkDocumentId$)="onCheckDocumentId()"
+        [verificationCodeSuccess]="verificationCodeSuccess"
+        [invalidStatus]="!personalInfoForm.valid || !accountDetailsForm.valid"
+      ></crc-w-account-details-form-presentation>
+    </form>
+    <div *ngIf="verificationCodeSuccess">
+      <div class="register__title mb-20" data-cy="register-pending-second-step">
+        {{ 'verification_pending_secondStep' | translate }}
+      </div>
+      <div
+        class="custom-input-wrapper mb-12"
+        data-cy="custom-input-wrapper"
+        [class.error]="
+          verifySmsCodeControl.errors &&
+          verifySmsCodeControl.dirty &&
+          verifySmsCodeControl.touched
+        "
+      >
+        <input
+          [formControl]="verifySmsCodeControl"
+          [placeholder]="'registration_sms_code_text' | translate"
+          type="text"
+          class="custom-input"
+          data-cy="custom-input"
+        />
+        <button
+          (click)="onResendSms()"
+          [disabled]="(countDown$ | async) > 0"
+          class="btn btn--secondary btn--custom"
+          data-cy="resend-sms"
+        >
+          <span
+            class="success-bg"
+            data-cy="success-bg"
+            [style.width.%]="successBtnWidth"
+          ></span>
+          <ng-container
+            *ngIf="countDown$ | async as countDown; else resendTemplate"
+          >
+            <img
+              data-cy="timer-img"
+              src="/assets/icons/timer.svg"
+              alt="Timer"
+            />
+            {{ countDown }}
+          </ng-container>
+          <ng-template #resendTemplate>
+            <img
+              data-cy="resend-img"
+              src="/assets/icons/resend.svg"
+              alt="RESEND"
+            />
+            RESEND
+          </ng-template>
+        </button>
+      </div>
+      <div
+        *ngIf="
+          verifySmsCodeControl.errors &&
+          verifySmsCodeControl.dirty &&
+          verifySmsCodeControl.touched
+        "
+        class="message mb-12"
+      >
+        <div *ngIf="verifySmsCodeControl.errors?.required">
+          {{ 'form_error_required' | translate }}
+        </div>
+        <div
+          *ngIf="
+            verifySmsCodeControl.errors?.minlength ||
+            verifySmsCodeControl.errors?.maxlength ||
+            verifySmsCodeControl.errors?.pattern
+          "
+        >
+          {{ 'form_required_numbers' | translate }}
+        </div>
+      </div>
+      <div class="message message--light mb-30" data-cy="message-sms-sent">
+        {{ 'register_sms_sent' | translate }}
+      </div>
+      <button
+        (click)="onRegister()"
+        [class.btn--secondary]="verifySmsCodeControl.invalid"
+        [disabled]="verifySmsCodeControl.invalid"
+        class="btn btn--success btn--block register__btn"
+        data-cy="register-btn"
+        type="button"
+      >
+        {{ 'common_confirm' | translate }}
+      </button>
+      <div *ngIf="registerFailed" class="message mt-12" data-cy="register-fail">
+        {{ 'register_api_error_423' | translate }}
+      </div>
+    </div>
+  </div>
+</div>

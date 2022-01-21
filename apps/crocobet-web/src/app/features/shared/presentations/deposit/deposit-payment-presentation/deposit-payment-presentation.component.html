@@ -1,0 +1,12 @@
+<div class="deposit-amount">
+  <h4 class="deposit-amount__header">{{ 'common_amount' | translate }}</h4>
+
+  <form [formGroup]="paymentForm" class="deposit-amount__payment">
+    <crc-w-deposit-amount-container
+      controlName="transactionAmount"
+      [isDepositButtonVisible]="true"
+      (openDepositPopup)="onOpenDepositPopup()"
+    >
+    </crc-w-deposit-amount-container>
+  </form>
+</div>

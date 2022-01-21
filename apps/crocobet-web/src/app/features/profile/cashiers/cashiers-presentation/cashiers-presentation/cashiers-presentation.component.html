@@ -1,0 +1,33 @@
+<div class="container-fluid my-12">
+  <div class="row align-items-stretch g-12">
+    <div *ngIf="mapLoaded" class="col-12 mt-12">
+      <div class="maps-wrapper">
+        <google-map [options]="mapOptions" width="100%" height="240px">
+          <map-marker
+            *ngFor="let cashier of cashierPlaces"
+            (mapClick)="onCashierSelected(cashier)"
+            [position]="getMarkerPosition(cashier)"
+            [options]="markerOptions"
+            [icon]="
+              isCashierSelected(cashier)
+                ? '/assets/icons/selectedPlace.svg'
+                : '/assets/icons/place.svg'
+            "
+          ></map-marker>
+        </google-map>
+      </div>
+    </div>
+    <ng-container *ngIf="cashierPlaces?.length; else noCashiers">
+      <div *ngFor="let cashier of cashierPlaces" class="col-6 col-xxl-4">
+        <crc-w-cashier-item-presentation
+          (cashierSelected$)="onCashierSelected($event)"
+          [cashier]="cashier"
+          [selected]="isCashierSelected(cashier)"
+        ></crc-w-cashier-item-presentation>
+      </div>
+    </ng-container>
+    <ng-template #noCashiers>
+      <div class="no-cashiers">{{ 'no_cashiers_found' | translate }}</div>
+    </ng-template>
+  </div>
+</div>

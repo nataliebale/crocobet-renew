@@ -1,0 +1,20 @@
+@use 'reset';
+@use 'mixins';
+@use 'grid';
+@use 'buttons';
+@use 'forms';
+@use 'fonts';
+@use 'animations';
+@use 'select';
+
+//@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@use '~@ng-select/ng-select/scss/default.theme';
+
+.overflow-hidden {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.text-center {
+  text-align: center;
+}

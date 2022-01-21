@@ -1,0 +1,25 @@
+<div class="header align-items-center justify-content-end">
+
+  <ng-container *ngIf="isLoggedIn$ | async; else signInTemplate">
+    <ng-container *ngIf="personalData$ | async as personalData">
+      <ng-container *ngIf="personalData?.customerId">
+        <crc-header-promotions-container></crc-header-promotions-container>
+
+        <crc-header-deposit-container></crc-header-deposit-container>
+
+        <div class="header__separator"></div>
+
+        <crc-header-balance-container></crc-header-balance-container>
+
+        <div class="header__separator"></div>
+
+        <crc-header-profile-container></crc-header-profile-container>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+
+  <ng-template #signInTemplate>
+    <crc-w-header-login-container></crc-w-header-login-container>
+  </ng-template>
+
+</div>

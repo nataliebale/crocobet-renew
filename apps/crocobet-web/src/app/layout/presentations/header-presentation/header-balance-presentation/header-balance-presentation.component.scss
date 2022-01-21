@@ -1,0 +1,38 @@
+@use 'variables';
+
+$balance-column-gap: 5px;
+
+$balance-title-row-gap: 4px;
+
+$balance-title-img: 13px;
+
+.balance {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: variables.$color-white;
+  gap: $balance-column-gap;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: $balance-title-row-gap;
+  }
+
+  &__sum {
+    color: variables.$color-green;
+    font-size: variables.$font-size-md;
+    cursor: pointer;
+  }
+}
+
+.balance-title {
+  font-size: variables.$font-size-sm;
+  cursor: pointer;
+  user-select: none;
+
+  &__img {
+    width: $balance-title-img;
+  }
+}

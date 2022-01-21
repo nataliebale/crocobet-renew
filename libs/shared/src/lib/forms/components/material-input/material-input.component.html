@@ -1,0 +1,47 @@
+<div
+  *ngIf="showToggleHideTextIcon; else normal"
+  class="material-input-container"
+>
+  <input
+    [(ngModel)]="value"
+    (input)="onChange(value)"
+    (keyup)="keyUpped.emit($event)"
+    (blur)="onTouched()"
+    (focus)="focused.emit($event)"
+    [class.invalid]="control?.dirty && control?.touched && control?.invalid"
+    [class.text-default]="typeToggled"
+    [type]="typeToggled ? 'text' : 'password'"
+    [mask]="mask"
+    class="material-input pr-40"
+    required
+  />
+  <label class="material-input-label">{{ placeholder }}</label>
+  <button
+    tabindex="-1"
+    class="type-toggler"
+    type="button"
+    (click)="onToggleHideText()"
+  >
+    <img
+      alt="Type toggler"
+      src="assets/icons/header/{{ typeToggled ? 'eye-on' : 'eye-off' }}.svg"
+    />
+  </button>
+</div>
+<ng-template #normal>
+  <div class="material-input-container">
+    <input
+      [(ngModel)]="value"
+      (input)="onChange(value)"
+      (keyup)="keyUpped.emit($event)"
+      (blur)="onTouched()"
+      (focus)="focused.emit($event)"
+      [class.invalid]="control?.dirty && control?.touched && control?.invalid"
+      [type]="type"
+      [mask]="mask"
+      class="material-input"
+      required
+    />
+    <label class="material-input-label">{{ placeholder }}</label>
+  </div>
+</ng-template>

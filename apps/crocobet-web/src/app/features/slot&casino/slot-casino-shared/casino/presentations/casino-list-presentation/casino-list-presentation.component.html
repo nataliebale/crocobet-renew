@@ -1,0 +1,32 @@
+<div *ngIf="items?.length; else empty" class="games-list">
+  <ng-container *ngFor="let item of items; index as i">
+    <div class="item" [ngClass]="{ 'item-large': i === 0 && firstItemLarge }">
+      <div class="item__cover" (click)="onPlayClick(item)">
+        <div
+          class="item__cover-img"
+          style='background-image: url("{{ item?.image }}");'
+        ></div>
+        <button class="item__play-btn">
+          {{ 'play_name' | translate }}
+        </button>
+      </div>
+      <div class="item__title">
+        {{ item?.name }}
+        <span class="item__title--bid"
+          >Max:
+          <span class="item__title--max">{{ item?.limits?.max }}</span></span
+        >
+        <span class="item__title--bid"
+          >Min:
+          <span class="item__title--min">{{ item?.limits?.min }}</span></span
+        >
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<ng-template #empty>
+  <span class="games-list__empty">
+    {{ 'empty_casino_text' | translate }}
+  </span>
+</ng-template>

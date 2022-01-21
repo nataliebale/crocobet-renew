@@ -1,0 +1,73 @@
+@use 'variables';
+
+$btn-padding-md: 12px 48px;
+$btn-padding-sm: 10.5px 14px;
+
+.btn {
+  padding: $btn-padding-md;
+  transition: 0.2s background-color linear;
+  border: 0;
+  border-radius: 4px;
+  color: variables.$color-white;
+  font-size: 14px;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.65;
+    pointer-events: none;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &--sm {
+    width: 120px;
+    height: 36px;
+    padding: $btn-padding-sm;
+  }
+
+  &--lg {
+    width: 272px;
+    height: 60px;
+    padding: $btn-padding-sm;
+    font-size: variables.$font-size-xl;
+  }
+
+  &--success {
+    background-color: variables.$color-green;
+
+    &:hover {
+      background-color: darken(variables.$color-green, 5%);
+    }
+  }
+
+  &--secondary {
+    background-color: variables.$secondary-2;
+
+    &:hover {
+      background-color: darken(variables.$secondary-2, 5%);
+    }
+  }
+
+  &--dark {
+    background-color: variables.$color-dark;
+
+    &:hover {
+      background-color: lighten(variables.$color-dark, 5%);
+    }
+  }
+
+  &--danger {
+    background-color: variables.$color-red;
+
+    &:hover {
+      background-color: lighten(variables.$color-red, 5%);
+    }
+  }
+
+  &--block {
+    display: block;
+    width: 100%;
+  }
+}

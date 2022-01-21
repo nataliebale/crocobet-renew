@@ -1,0 +1,57 @@
+<div class="personal-profile">
+  <div class="personal-profile__photo--wrapper">
+    <div class="personal-profile__photo">
+      <img
+        class="personal-profile__user-photo"
+        src="/assets/images/profile-img.png"
+        alt="Edit Photo"
+      />
+      <img
+        (mouseenter)="showTooltip = true"
+        (mouseleave)="showTooltip = false"
+        class="personal-profile__edit"
+        src="assets/icons/personal-info/edit.svg"
+        alt="Edit Photo"
+      />
+
+      <span *ngIf="showTooltip" class="personal-profile__photo--tooltip">{{
+        'change_avatar' | translate
+      }}</span>
+    </div>
+
+    <div class="personal-profile__user">
+      <span class="personal-profile__user--username">{{
+        personalData.loginName
+      }}</span>
+      <span class="personal-profile__user--pincode">{{
+        personalData.pinCode
+      }}</span>
+    </div>
+  </div>
+
+  <div class="personal-profile__status">
+    <img
+      class="personal-profile__img"
+      src="/assets/icons/personal-info/{{
+        verificationStatus === VerificationStatus.VERIFIED
+          ? 'verified'
+          : 'unverified'
+      }}.svg"
+      alt="Status Image"
+    />
+    <p class="personal-profile__text">
+      {{ 'your_profile' | translate }}
+      <span
+        [class.verified]="verificationStatus === VerificationStatus.VERIFIED"
+        [class.unverified]="
+          verificationStatus === VerificationStatus.UNVERIFIED
+        "
+        >{{
+          verificationStatus === VerificationStatus.VERIFIED
+            ? 'is_verified'
+            : ('is_not_verified' | translate)
+        }}!</span
+      >
+    </p>
+  </div>
+</div>

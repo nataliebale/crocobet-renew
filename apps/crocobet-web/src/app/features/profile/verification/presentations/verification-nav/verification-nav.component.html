@@ -1,0 +1,10 @@
+<nav class="verification__nav">
+  <a
+    *ngFor="let item of verificationNav"
+    [routerLink]="item.link"
+    [routerLinkActiveOptions]="{ exact: true }"
+    routerLinkActive="active"
+    class="verification__link"
+    >{{ item.label | translate }}</a
+  >
+</nav>

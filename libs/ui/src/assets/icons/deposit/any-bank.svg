@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <defs>
+        <clipPath id="clip-path">
+            <path id="Rectangle_10158" data-name="Rectangle 10158" transform="translate(-11618 -4151)" style="stroke:#707070;fill:#fff" d="M0 0h24v24H0z"/>
+        </clipPath>
+        <style>
+            .cls-3{fill:#fff}
+        </style>
+    </defs>
+    <g id="Mask_Group_1385" data-name="Mask Group 1385" transform="translate(11618 4151)" style="clip-path:url(#clip-path)">
+        <g id="credit-card_1_" data-name="credit-card (1)" transform="translate(-11618 -4147.25)">
+            <path id="Path_87347" data-name="Path 87347" class="cls-3" d="M24 7.016V5.75a2.625 2.625 0 0 0-2.625-2.625H2.625A2.625 2.625 0 0 0 0 5.75v1.266a.234.234 0 0 0 .234.234h23.532A.234.234 0 0 0 24 7.016z" transform="translate(0 -3.125)"/>
+            <path id="Path_87348" data-name="Path 87348" class="cls-3" d="M0 8.047v8.016a2.625 2.625 0 0 0 2.625 2.625h18.75A2.625 2.625 0 0 0 24 16.063V8.047a.234.234 0 0 0-.234-.234H.234A.234.234 0 0 0 0 8.047zm6 6.141a.75.75 0 0 1-.75.75H4.5a.75.75 0 0 1-.75-.75v-.75a.75.75 0 0 1 .75-.75h.75a.75.75 0 0 1 .75.75z" transform="translate(0 -2.188)"/>
+        </g>
+    </g>
+</svg>

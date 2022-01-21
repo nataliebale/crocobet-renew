@@ -1,0 +1,21 @@
+@use 'variables';
+
+$provider-filters-bg-color: #272d36;
+$provider-filters-bg-color: #272d36;
+
+button {
+  border: 0;
+}
+
+.provider-filters {
+  overflow: hidden;
+  background-color: $provider-filters-bg-color;
+
+  &__body {
+    overflow: hidden;
+
+    &_active {
+      height: auto;
+    }
+  }
+}

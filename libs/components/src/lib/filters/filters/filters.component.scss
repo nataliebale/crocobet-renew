@@ -1,0 +1,131 @@
+$filters-text-default: #d9e3ef;
+$filters-text-green: #15af44;
+$filters-text-light-grey: #1f2329;
+$filters-text-white: #fff;
+
+button {
+  border: 0;
+}
+
+.filters__body {
+  transition: 0.2s;
+}
+
+.filters__item {
+  display: inline-block;
+  position: relative;
+
+  &.extendable::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 1px;
+    background: $filters-text-light-grey;
+  }
+}
+
+.filters__item--new {
+  position: absolute;
+  top: 2px;
+  right: 1px;
+  padding: 2px 6px 2px 7px;
+  border-radius: 2px;
+  opacity: 1;
+  background-color: $filters-text-green;
+  color: $filters-text-white;
+  font-size: 10px;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.link {
+  position: relative;
+  min-height: 52px;
+  margin: 0 10px;
+  padding: 15px 10px 16px;
+  opacity: 0.6;
+  background-color: transparent;
+  color: $filters-text-default;
+  font-size: 14px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.84px;
+  line-height: normal;
+  text-align: left;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 10px 10px 0 0;
+    opacity: 0;
+    background-color: $filters-text-green;
+  }
+
+  &__icon {
+    width: 18px;
+    margin-right: 5px;
+    transform: translateY(3px);
+    filter: grayscale(100%) brightness(250%);
+  }
+
+  &:hover,
+  &.active {
+    opacity: 1;
+    color: $filters-text-white;
+
+    .link__icon {
+      filter: none;
+    }
+
+    .link__total-count {
+      color: $filters-text-green;
+    }
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &__total-count {
+    position: absolute;
+    top: 7px;
+    right: -10px;
+    width: 20px;
+    opacity: 0.7;
+    color: $filters-text-white;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.66px;
+    text-align: left;
+  }
+}
+
+.see-more-btn {
+  padding: 17px 20px 13px;
+  float: right;
+  background: transparent;
+  color: $filters-text-white;
+  cursor: pointer;
+
+  &__arrow {
+    width: 14px;
+    margin-left: 12px;
+    transform: rotate(180deg);
+    transition: 0.2s;
+
+    &.active {
+      transform: rotate(0);
+    }
+  }
+}

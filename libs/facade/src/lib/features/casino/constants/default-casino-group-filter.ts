@@ -1,0 +1,6 @@
+import { CASINO_ALL_GROUP_FILTER_ITEM } from './all-group-filter-item';
+
+export const DEFAULT_CASINO_GROUP_FILTER = CASINO_ALL_GROUP_FILTER_ITEM;
+
+export const DEFAULT_CASINO_GROUP_FILTER_TYPE_ITEM =
+  DEFAULT_CASINO_GROUP_FILTER.filter ?? '';

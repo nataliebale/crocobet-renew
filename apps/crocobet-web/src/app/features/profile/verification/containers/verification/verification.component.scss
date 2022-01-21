@@ -1,0 +1,60 @@
+@use 'variables';
+@use 'mixins';
+
+$gray: #343f4d;
+$verification-title-padding: 25px 20px 23px 20px;
+$verification-tabs-padding: 0 10px;
+$alert-width: 400px;
+$alert-padding: 23px 20px 22px 20px;
+$alert-border-radius: 4px;
+
+.verification {
+  &__tabs {
+    padding: $verification-tabs-padding;
+    border-bottom: 1px solid $gray;
+  }
+
+  &__title {
+    padding: $verification-title-padding;
+    color: variables.$color-white;
+    font-size: variables.$font-size-xl;
+  }
+
+  &__body {
+    &--not-verified {
+      @include mixins.flex(center, center);
+
+      flex-direction: column;
+      text-align: center;
+
+      padding: {
+        top: 120px;
+      }
+    }
+  }
+}
+
+.text-success {
+  color: variables.$color-green;
+}
+
+.alert {
+  @include mixins.flex(space-between, center);
+
+  width: $alert-width;
+  padding: $alert-padding;
+  border-radius: $alert-border-radius;
+  background-color: $gray;
+}
+
+.color-white-dark {
+  color: rgba(variables.$color-white, 0.8);
+}
+
+.color-white {
+  color: variables.$color-white;
+}
+
+.font-regular {
+  font-family: variables.$font-regular;
+}

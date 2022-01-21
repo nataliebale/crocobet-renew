@@ -1,0 +1,103 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div
+    *ngIf="
+      submitted &&
+      !form.valid &&
+      usernameC.errors?.required &&
+      passwordC.errors?.required
+    "
+    class="form-error-message"
+  >
+    <img src="/assets/icons/login-modal-error.svg" class="mr-12" alt="Error" />
+    <span>{{ 'form_error_required' | translate }}</span>
+  </div>
+
+  <div *ngIf="loginFailed && form.valid" class="form-error-message">
+    <img src="/assets/icons/login-modal-error.svg" class="mr-12" alt="Error" />
+    <span>{{ 'login_api_error_500' | translate }}</span>
+  </div>
+
+  <div *ngIf="usernameC.errors?.pattern" class="form-error-message">
+    <img src="/assets/icons/login-modal-error.svg" class="mr-12" alt="Error" />
+    <span>{{ 'form_required_latin_only' | translate }}</span>
+  </div>
+
+  <div class="input-group">
+    <div class="form-control-wrapper">
+      <label class="mb-2 d-inline-block" data-cy="username-label">{{
+        'header.username' | translate
+        }}</label>
+      <crc-shared-text-input
+        [class.error]="
+          (loginFailed && form.valid) ||
+          (submitted && !form.valid && usernameC.errors?.required)
+          || usernameC.errors?.pattern
+        "
+        class="control-block form-control--lg"
+        type="text"
+        placeholder="{{ 'header.username' | translate }}"
+        formControlName="login"
+        data-cy="form-login"
+      >
+      </crc-shared-text-input>
+    </div>
+    <div class="form-control-wrapper mb-0">
+      <label class="mb-2 d-inline-block" data-cy="password-label">{{
+        'header.password' | translate
+        }}</label>
+      <crc-shared-text-input
+        [showToggleHideTextIcon]="true"
+        [class.error]="
+          (loginFailed && form.valid) ||
+          (submitted && !form.valid && passwordC.errors)
+        "
+        class="control-block form-control--lg"
+        type="password"
+        placeholder="{{ 'header.password' | translate }}"
+        formControlName="password"
+        data-cy="form-password"
+      ></crc-shared-text-input>
+    </div>
+    <crc-shared-captcha-prompt
+      *ngIf="captcha?.length"
+      (captchaValidValueEntered$)="onEnterCaptchaValidValue($event)"
+      (captchaValueEntered$)="onCheckCaptchaValidity($event)"
+      (captchaClosed$)="onCaptchaClosed()"
+      (captchaUpdated$)="onCaptchaUpdated()"
+      [captcha]="captcha"
+      [enteredCaptchaValid]="enteredCaptchaValid"
+      class="center"
+    >
+    </crc-shared-captcha-prompt>
+  </div>
+
+  <div
+    (click)="onResetPassword()"
+    class="text mt-12 mb-30"
+    data-cy="password-recovery"
+  >
+    {{ 'password_recovery' | translate }}
+  </div>
+
+  <button
+    class="btn btn--success btn--block custom-btn"
+    data-cy="login-dialog-form-submit"
+  >
+    {{ 'm.login_button_title' | translate }}
+  </button>
+</form>
+
+<div class="text text--center mt-20 mb-20" data-cy="text-center">
+  {{ 'dont_have_an_account_question' | translate }}
+</div>
+
+<div>
+  <button
+    (click)="onRegister()"
+    class="btn btn--secondary btn--block custom-btn"
+    data-cy="register-dialog-form-submit"
+    type="button"
+  >
+    {{ 'header.register' | translate }}
+  </button>
+</div>

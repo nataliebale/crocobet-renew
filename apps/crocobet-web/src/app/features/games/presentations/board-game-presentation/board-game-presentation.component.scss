@@ -1,0 +1,136 @@
+@use 'variables';
+@use 'mixins';
+
+$board-game-content-bg: #200910;
+$active-before-border: 4px;
+$width: 2px;
+$opacity: 0.7;
+$margin: 2px 2px 16px 13px;
+$border-radius: 2px;
+$thumb-bg: #572534;
+
+.board-game {
+  &__header {
+    display: block;
+    position: relative;
+    height: 160px;
+    border-radius: 6px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+
+    &--title {
+      position: relative;
+      z-index: 2;
+      padding: 15px 30px;
+      color: variables.$color-white;
+      font-size: variables.$font-size-xl;
+      font-weight: normal;
+    }
+  }
+
+  &__content {
+    height: 324px;
+    margin-top: 8px;
+    padding: 0 0 16px;
+    border-radius: 6px;
+    background-color: $board-game-content-bg;
+
+    &--tabs {
+      @include mixins.flex(center, center);
+
+      cursor: pointer;
+    }
+
+    &--title {
+      position: relative;
+      padding: 18px 0 15px;
+      opacity: 0.6;
+      color: variables.$color-white;
+      font-family: variables.$font-regular;
+      font-size: variables.$font-size-lg;
+      font-weight: normal;
+      letter-spacing: 0.64px;
+      text-align: center;
+    }
+  }
+}
+
+.weekly-rating {
+  margin-left: 20px;
+}
+
+.board-game-table {
+  padding: 0 4px;
+
+  &__content {
+    height: 224px;
+    overflow-y: scroll;
+    opacity: 0.8;
+    color: variables.$color-white;
+    font-size: 13px;
+
+    @include mixins.desktop-1750 {
+      height: 210px;
+    }
+
+    &--currency {
+      margin-right: 10px;
+    }
+
+    &--time {
+      margin-left: 10px;
+    }
+  }
+}
+
+@include mixins.scrollbar(
+  $width,
+  $margin,
+  $border-radius,
+  $thumb-bg,
+  transparent
+);
+
+.active {
+  opacity: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 132px;
+    height: 3px;
+    transform: translate(-50%, 0);
+    border-top-left-radius: $active-before-border;
+    border-top-right-radius: $active-before-border;
+    opacity: 0.7;
+    background-color: variables.$color-green;
+  }
+}
+
+.no-tabs {
+  opacity: 1;
+}
+
+.domino {
+  ::-webkit-scrollbar-thumb {
+    background-color: #123312;
+  }
+
+  .board-game__content {
+    background-color: #050f02;
+  }
+}
+
+.bura {
+  ::-webkit-scrollbar-thumb {
+    background-color: #163047;
+  }
+
+  .board-game__content {
+    background-color: #091621;
+  }
+}

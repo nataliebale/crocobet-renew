@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <defs>
+        <clipPath id="clip-path">
+            <path id="Rectangle_518" data-name="Rectangle 518" class="cls-1" transform="translate(0 .325)" d="M0 0h20v20H0z"/>
+        </clipPath>
+        <style>
+            .cls-1{fill:#96a5b8}
+        </style>
+    </defs>
+    <g id="icon" transform="translate(0 -.325)" style="clip-path:url(#clip-path)">
+        <g id="user_7_" data-name="user (7)" transform="translate(1.049)">
+            <g id="Group_523" data-name="Group 523" transform="translate(3.76)">
+                <g id="Group_522" data-name="Group 522">
+                    <path id="Path_741" data-name="Path 741" class="cls-1" d="M10 0a5.193 5.193 0 1 0 5.193 5.193A5.207 5.207 0 0 0 10 0z" transform="translate(-4.809)"/>
+                </g>
+            </g>
+            <g id="Group_525" data-name="Group 525" transform="translate(0 10.757)">
+                <g id="Group_524" data-name="Group 524">
+                    <path id="Path_742" data-name="Path 742" class="cls-1" d="M18.913 14.535a4.841 4.841 0 0 0-.522-.952 6.455 6.455 0 0 0-4.467-2.812.956.956 0 0 0-.658.159 5.535 5.535 0 0 1-6.531 0 .851.851 0 0 0-.658-.159 6.408 6.408 0 0 0-4.467 2.812 5.582 5.582 0 0 0-.522.952.482.482 0 0 0 .023.431 9.046 9.046 0 0 0 .612.907 8.617 8.617 0 0 0 1.043 1.179 13.592 13.592 0 0 0 1.043.907 10.341 10.341 0 0 0 12.336 0 9.97 9.97 0 0 0 1.043-.907 10.471 10.471 0 0 0 1.043-1.179 7.95 7.95 0 0 0 .612-.907.387.387 0 0 0 .07-.431z" transform="translate(-1.049 -10.757)"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

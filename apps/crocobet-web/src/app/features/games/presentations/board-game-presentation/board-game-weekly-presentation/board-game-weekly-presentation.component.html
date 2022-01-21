@@ -1,0 +1,43 @@
+<div class="container-fluid" [class]="gameClass">
+  <div
+    *ngFor="let weeklyratingItem of weeklyRatingItems"
+    class="row board-game__content--item"
+    data-cy="board-game-content-item"
+  >
+    <div class="col-4 d-flex align-items-center">
+      <div
+        class="board-game__content--title"
+        data-cy="board-game-content-title"
+      >
+        <span
+          class="board-game__content--day"
+          data-cy="board-game-content-day"
+          >{{ weeklyratingItem.position | translate }}</span
+        >
+      </div>
+    </div>
+
+    <div class="col-4 d-flex align-items-center">
+      <div
+        class="board-game__content--title"
+        data-cy="board-game-content-title"
+      >
+        {{ weeklyratingItem.user }}
+      </div>
+    </div>
+    <div class="col-4 d-flex align-items-center">
+      <div
+        class="board-game__content--title"
+        data-cy="board-game-content-title"
+      >
+        <ng-container *ngIf="!isNumber(weeklyratingItem.prize)">
+          {{ weeklyratingItem.prize }}
+        </ng-container>
+
+        <ng-container *ngIf="isNumber(weeklyratingItem.prize)">
+          {{ weeklyratingItem.prize | mask: 'separator':' ' }} ₾
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

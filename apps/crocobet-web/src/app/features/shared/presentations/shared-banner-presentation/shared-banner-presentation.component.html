@@ -1,0 +1,47 @@
+<div *ngIf="banners?.length">
+  <ng-template #slide let-banner>
+    <p class="countdown" *ngIf="banner.showCountDown">
+      <span [ngPlural]="banner.countdownDayCount">
+        <ng-template ngPluralCase="=0">
+          <crc-shared-timer-countdown
+            [time]="banner.countdownTime"
+          ></crc-shared-timer-countdown>
+        </ng-template>
+        <ng-template ngPluralCase="=1"
+          >{{ banner.countdownDayCount }} day</ng-template
+        >
+        <ng-template ngPluralCase="other"
+          >{{ banner.countdownDayCount }} days</ng-template
+        >
+      </span>
+      left until the end of the promotion
+    </p>
+
+    <crc-shared-swiper-slide-default [image]="banner">
+    </crc-shared-swiper-slide-default>
+
+    <div class="row title justify-content-start" data-cy="main-banner-content">
+      <div class="col-12">
+        <span class="title__main" data-cy="main-banner-content-title">{{
+          banner.title
+        }}</span>
+      </div>
+      <div class="col-12">
+        <span class="title__desc" data-cy="main-banner-content-desc">{{
+          banner.desc
+        }}</span>
+      </div>
+    </div>
+  </ng-template>
+
+  <div class="banners">
+    <crc-shared-swiper
+      *ngIf="banners"
+      [images]="banners"
+      [autoPlay]="banners?.length > 1"
+      [switcher]="banners?.length > 1"
+      [templateRef]="{ template: slide, context: banners }"
+    >
+    </crc-shared-swiper>
+  </div>
+</div>

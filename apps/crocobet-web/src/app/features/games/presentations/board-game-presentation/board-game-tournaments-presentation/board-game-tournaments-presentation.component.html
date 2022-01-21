@@ -1,0 +1,76 @@
+<div class="container-fluid" [class]="gameClass">
+  <ng-container *ngFor="let tournamentItem of tournamentItems">
+    <div
+      *ngIf="currentTime <= tournamentItem.startDate"
+      class="row board-game__content--item"
+      data-cy="board-game-content-item"
+    >
+      <div class="col-2 d-flex align-items-center">
+        <div
+          class="board-game__content--title"
+          data-cy="board-game-content-title"
+        >
+          <span
+            class="board-game__content--day"
+            data-cy="board-game-content-day"
+          >
+            <ng-container *ngIf="isToday(tournamentItem.startDate)">
+              {{ 'Today' | translate }}
+            </ng-container>
+
+            <ng-container *ngIf="!isToday(tournamentItem.startDate)">
+              {{ tournamentItem.startDate | date: 'dd.MM.yyy' }}
+            </ng-container>
+          </span>
+        </div>
+      </div>
+
+      <div class="col-2 d-flex align-items-center">
+        <span
+          class="board-game__content--time"
+          data-cy="board-game-content-time"
+        >
+          {{ tournamentItem.startDate | date: 'HH:mm' }}
+        </span>
+      </div>
+
+      <div class="col-4 d-flex align-items-center">
+        <div
+          class="board-game__content--title"
+          data-cy="board-game-content-title"
+        >
+          <ng-container *ngIf="!isNumber(tournamentItem.registrationPrice)">
+            {{ tournamentItem.registrationPrice }}
+          </ng-container>
+
+          <ng-container *ngIf="isNumber(tournamentItem.registrationPrice)">
+            <span
+              *ngIf="tournamentItem.registrationPrice !== 0; else freeroll"
+              class="board-game__buy-in"
+            >
+              {{ tournamentItem.registrationPrice | mask: 'separator':' ' }} ₾
+            </span>
+
+            <ng-template #freeroll>
+              {{ 'p2p_freeroll' | translate }}
+            </ng-template>
+          </ng-container>
+        </div>
+      </div>
+      <div class="col-4 d-flex align-items-center">
+        <div
+          class="board-game__content--title"
+          data-cy="board-game-content-title"
+        >
+          <ng-container *ngIf="!isNumber(tournamentItem.prizeMoney)">
+            {{ tournamentItem.prizeMoney }}
+          </ng-container>
+
+          <ng-container *ngIf="isNumber(tournamentItem.prizeMoney)">
+            {{ tournamentItem.prizeMoney | mask: 'separator':' ' }} ₾
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

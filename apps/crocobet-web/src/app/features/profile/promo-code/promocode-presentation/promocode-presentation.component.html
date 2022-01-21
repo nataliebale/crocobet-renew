@@ -1,0 +1,40 @@
+<div class="promocode" data-cy="promocode">
+  <crc-w-profile-content-title
+    [title]="'user_promocode' | translate"
+    data-cy="promocode-title"
+  ></crc-w-profile-content-title>
+  <span class="promocode__text"
+    >{{ 'write_promocode_and_get_prize' | translate }}!</span
+  >
+
+  <div class="promocode__body" data-cy="promocode-body">
+    <input
+      class="promocode__input"
+      type="text"
+      placeholder="{{ 'promo_code' | translate }}"
+      [formControl]="promoCode"
+    />
+    <button
+      [disabled]="promoCode.value.length === 0"
+      class="promocode__button"
+      (click)="onGetCaptcha()"
+    >
+      {{ 'common_send' | translate }}
+    </button>
+  </div>
+</div>
+
+<div *ngIf="showCaptcha" class="layer"></div>
+<div *ngIf="showCaptcha" class="captcha-wrapper">
+  <crc-shared-captcha-prompt
+    class="center"
+    *ngIf="captchaCode?.length && showCaptcha"
+    [captcha]="captchaCode"
+    [enteredCaptchaValid]="enteredCaptchaValid"
+    (captchaClosed$)="onCaptchaClose()"
+    (captchaUpdated$)="onCaptchaUpdated(personalData.loginName)"
+    (captchaValueEntered$)="onCheckCaptchaValidity($event)"
+    (captchaValidValueEntered$)="onEnterCaptchaValidValue($event)"
+  >
+  </crc-shared-captcha-prompt>
+</div>

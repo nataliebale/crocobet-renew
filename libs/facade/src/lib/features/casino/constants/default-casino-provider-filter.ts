@@ -1,0 +1,1 @@
+export const DEFAULT_CASINO_PROVIDER_FILTER = '';

@@ -1,0 +1,102 @@
+$color-white: #fff !default;
+$color-dark: #1d2631 !default;
+$color-light-blue-grey: #d9e3ef !default;
+$font-size-md: 14px !default;
+$font-size-sm: 12px !default;
+$font: 'NeueCrocoSansRegular', sans-serif !default;
+
+:host {
+  &.center {
+    .dropdown--absolute {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+.dropdown {
+  width: 360px;
+}
+
+.dropdown--absolute {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  transform: translateY(20px);
+}
+
+.dropdown__header {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  background-color: $color-dark;
+  color: $color-light-blue-grey;
+  font: $font-size-md $font;
+}
+
+.dropdown__close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.dropdown__body {
+  padding: 20px 40px;
+  border: solid 1px #1d2f44;
+  border-top: 0;
+  background-color: #11171e;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
+
+.dropdown__text {
+  color: #96a5b8;
+  font: $font-size-md $font;
+}
+
+.dropdown__text--margin {
+  margin-bottom: 20px;
+}
+
+.dropdown__captcha {
+  height: 50px;
+  background-color: $color-white;
+}
+
+.dropdown__captcha--margin {
+  margin: {
+    top: 20px;
+    bottom: 20px;
+  }
+}
+
+.captcha-reload {
+  display: flex;
+  flex: 0 0 40px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 12px;
+  border-radius: 4px;
+  background-color: #19232e;
+  cursor: pointer;
+}
+
+.form-control {
+  flex: 0 1 228px;
+}
+
+.row--nowrap {
+  flex-wrap: nowrap;
+}
+
+.btn--spacing {
+  margin-top: 20px;
+}

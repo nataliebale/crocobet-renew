@@ -1,0 +1,15 @@
+<crc-w-deposit-cards-presentation
+  [cards]="cards$ | async"
+  [showCardRemovalPopup]="showCardRemovalPopup"
+  [cardToDelete]="cardToDelete"
+  [selectedCard]="selectedCard"
+  [slidesPerView]="slidesPerView"
+  [slidesPerViewTablet]="slidesPerViewTablet"
+  [isFastDeposit]="isFastDeposit"
+  (editOnClick)="onOpenRemovePopup($event)"
+  (clickOnRemoveCard)="onClickRemoveCard()"
+  (cardModel)="onUpdateCardName($event)"
+  (toggleAddCardPopup)="onShowAddCardPopup()"
+  (cardSelected)="onCardSelected($event)"
+>
+</crc-w-deposit-cards-presentation>

@@ -1,0 +1,45 @@
+<div
+  class="verification"
+  *ngIf="
+    (verificationStatus$ | async) !== VerificationStatus.VERIFIED;
+    else verificationTemplate
+  "
+>
+  <div class="verification__header">
+    <crc-w-profile-content-title
+      title="ვერიფიკაცია"
+    ></crc-w-profile-content-title>
+    <div class="verification__tabs">
+      <crc-w-verification-nav
+        [verificationNav]="verificationNav"
+      ></crc-w-verification-nav>
+    </div>
+  </div>
+  <div class="verification__body">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<ng-template #verificationTemplate>
+  <div class="verification">
+    <div class="verification__header">
+      <crc-w-profile-content-title
+        title="ვერიფიკაცია"
+      ></crc-w-profile-content-title>
+    </div>
+    <div class="verification__body verification__body--not-verified">
+      <img src="/assets/icons/verified.svg" alt="verified" width="50" />
+      <div class="verification__title">
+        თქვენი ანგარიში
+        <span class="text-success">ვერიფიცირებულია</span>
+      </div>
+      <div class="alert mb-2">
+        <span class="color-white-dark font-regular">მომხმარებელი:</span>
+        <span class="color-white">{{ userName$ | async }}</span>
+      </div>
+      <div class="alert">
+        <span class="color-white-dark font-regular">პინ კოდი:</span>
+        <span class="color-white">{{ pinCode$ | async }}</span>
+      </div>
+    </div>
+  </div>
+</ng-template>

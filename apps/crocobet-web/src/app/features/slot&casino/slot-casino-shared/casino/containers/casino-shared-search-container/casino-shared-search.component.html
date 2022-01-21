@@ -1,0 +1,7 @@
+<crc-game-search
+  [searchGameData]="$casinoGames | async"
+  [gameContentVisibility]="gameContentVisibility"
+  contentHeight="md"
+  (keyUp)="onFilter($event)"
+  (selectGame)="onGoToGame($event)"
+></crc-game-search>

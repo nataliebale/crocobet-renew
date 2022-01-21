@@ -1,0 +1,12 @@
+@use 'variables';
+
+$verification-title-padding: 25px 20px 23px 20px;
+$gray: #343f4d;
+
+.profile-content-title {
+  max-height: 60px;
+  padding: $verification-title-padding;
+  border-bottom: 1px solid $gray;
+  color: variables.$color-white;
+  font-size: variables.$font-size-lg;
+}

@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "module",
+  "type": "object",
+  "properties": {
+    "featureName": {
+      "type": "string",
+      "description": "feature name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "enter feature name"
+    },
+    "project": {
+      "type": "string",
+      "description": "Project name",
+      "$default": {
+        "$source": "argv",
+        "index": 1
+      },
+      "default": "crocobet-web",
+      "x-prompt": {
+        "message": "select project",
+        "type": "list",
+        "items": [
+          {
+            "value": "crocobet-web",
+            "label": "Web"
+          },
+          {
+            "value": "crocobet-mobile",
+            "label": "Mobile"
+          }
+        ]
+      }
+    },
+    "facade": {
+      "type": "string",
+      "description": "facade",
+      "x-prompt": {
+        "message": "would you like to add facade",
+        "type": "list",
+        "items": [
+          {
+            "value": "yes",
+            "label": "Yes"
+          },
+          {
+            "value": "no",
+            "label": "No"
+          }
+        ]
+      }
+    },
+    "store": {
+      "type": "string",
+      "description": "Store",
+      "x-prompt": {
+        "message": "would you like to add store",
+        "type": "list",
+        "items": [
+          {
+            "value": "yes",
+            "label": "Yes"
+          },
+          {
+            "value": "no",
+            "label": "No"
+          }
+        ]
+      }
+    },
+    "path": {
+      "type": "string",
+      "default": "",
+      "description": "path to create files in",
+      "$default": {
+        "$source": "argv",
+        "index": 4
+      },
+      "x-prompt": "enter path in selected project"
+    }
+  },
+  "required": ["featureName", "project"]
+}

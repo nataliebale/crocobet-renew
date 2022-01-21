@@ -1,0 +1,12 @@
+@use 'variables';
+
+.game-frame {
+  overflow: hidden;
+  border: 0;
+  background-color: variables.$color-black;
+
+  &--position {
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,22 @@
+<div class="item">
+  <div class="item__cover">
+    <div
+      class="item__cover-img"
+      style="background-image: url('{{ slot?.image }}');"
+    ></div>
+    <span class="item__provider">{{ slot?.provider }}</span>
+    <button
+      [class.active]="isSlotFavorite | async"
+      class="item__favorites"
+      (click)="favoriteClicked.emit(slot)"
+    >
+      <img src="assets/icons/filters/favorites.svg" alt="favorites" />
+    </button>
+    <button class="item__play-btn" (click)="playClicked.emit(slot)">
+      {{ 'play_name' | translate }}
+    </button>
+  </div>
+  <div class="item__title">
+    {{ slot?.name }}
+  </div>
+</div>

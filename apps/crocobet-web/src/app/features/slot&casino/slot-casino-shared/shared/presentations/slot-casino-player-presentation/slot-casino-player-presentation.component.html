@@ -1,0 +1,90 @@
+<div
+  [ngStyle]="{ 'min-height': slotHeight + 'px' }"
+  class="slot-container"
+  data-cy="slot-casino-player-iframe"
+  #slotGameElement
+>
+  <div *ngIf="iframeSrc" class="iframe-wrapper">
+    <iframe
+      [ngStyle]="{
+        width: '100%',
+        height: isFullScreen ? '100%' : slotHeight + 'px'
+      }"
+      [src]="iframeSrc | safeUrl"
+      align="center"
+      allow="autoplay,fullscreen"
+      allowfullscreen="true"
+      scrolling="no"
+    >
+    </iframe>
+  </div>
+</div>
+
+<div
+  class="slot-menu d-flex justify-content-between"
+  data-cy="slot-casino-player-controls"
+>
+  <div
+    (click)="gameType === 1 ? emitAddToFavorites() : ''"
+    class="
+      slot-menu__item
+      active
+      d-flex
+      justify-content-center
+      align-items-center
+    "
+    data-cy="slot-casino-player-controls-favorite"
+    [class.clickable]="gameType === 1"
+  >
+    <ng-container *ngIf="gameType === 1">
+      <img
+        *ngIf="isSlotFavorite; else slotIsNotFavorite"
+        alt="Star Icon"
+        class="add-to-favorite"
+        src="/assets/icons/slots/star-filled.svg"
+      />
+
+      <ng-template #slotIsNotFavorite>
+        <img
+          alt="Star Icon"
+          class="add-to-favorite"
+          src="/assets/icons/slots/star.svg"
+        />
+      </ng-template>
+    </ng-container>
+
+    <span class="slot-menu__title slot-menu__title--primary">{{
+      gameName
+    }}</span>
+  </div>
+  <div
+    (click)="inNewWindow()"
+    class="
+      slot-menu__item
+      clickable
+      d-flex
+      justify-content-center
+      align-items-center
+    "
+    data-cy="slot-casino-player-controls-new-window"
+  >
+    <img alt="Star Icon" src="/assets/icons/slots/new-tab.svg" />
+    <span class="slot-menu__title">{{ 'open_in_new_window' | translate }}</span>
+  </div>
+  <div
+    class="
+      slot-menu__item
+      clickable
+      d-flex
+      justify-content-center
+      align-items-center
+    "
+    data-cy="slot-casino-player-controls-add-game"
+    (click)="switchToMultiGame.emit()"
+  >
+    <img alt="Star Icon" src="/assets/icons/slots/add-game.svg" />
+    <span class="slot-menu__title">{{
+      'open_in_split_screen' | translate
+    }}</span>
+  </div>
+</div>

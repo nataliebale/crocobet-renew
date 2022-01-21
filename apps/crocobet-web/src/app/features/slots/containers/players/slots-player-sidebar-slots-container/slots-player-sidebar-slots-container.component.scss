@@ -1,0 +1,97 @@
+@use 'mixins';
+@use 'variables';
+
+$tabs-border-color: #3b434d;
+$tab-padding-top: 8px;
+$tab-padding-bottom: 12px;
+$tab-color-active: variables.$color-green;
+$tab-font-size-sm: 12px;
+$tab-font-size-md: 14px;
+$tab-font-size-lg: 16px;
+
+.sidebar-btn {
+  position: absolute;
+  right: 0;
+  bottom: 8px;
+  width: 145px;
+  padding: 8px 16px;
+  border: 0;
+  background-color: transparent;
+  color: variables.$color-grey;
+  cursor: pointer;
+
+  img {
+    margin-right: 4px;
+    vertical-align: top;
+  }
+
+  span {
+    line-height: 1.2;
+    vertical-align: middle;
+  }
+}
+
+.tabs__header {
+  border-bottom: 1px solid $tabs-border-color;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-right: 20px;
+}
+
+.nav__item {
+  @include mixins.flex(center, center);
+
+  opacity: 0.7;
+  color: variables.$color-grey;
+  cursor: pointer;
+
+  &:not(:last-child) {
+    margin-right: 30px;
+
+    @include mixins.desktop-1366 {
+      margin-right: 20px;
+    }
+
+    @include mixins.desktop-1620 {
+      margin-right: 25px;
+    }
+  }
+
+  img {
+    margin-right: 5px;
+    margin-bottom: 8px;
+    cursor: inherit;
+    filter: grayscale(100%) brightness(250%);
+  }
+}
+
+.nav__item.active,
+.nav__item:hover {
+  color: $tab-color-active;
+
+  img {
+    filter: unset;
+  }
+}
+
+.nav__btn {
+  padding-top: $tab-padding-top;
+  padding-bottom: $tab-padding-bottom;
+  border: 0;
+  background-color: transparent;
+  color: inherit;
+  font-size: $tab-font-size-lg;
+  white-space: nowrap;
+  cursor: inherit;
+
+  @include mixins.desktop-1620 {
+    font-size: $tab-font-size-md;
+  }
+
+  @include mixins.desktop-1366 {
+    font-size: $tab-font-size-sm;
+  }
+}

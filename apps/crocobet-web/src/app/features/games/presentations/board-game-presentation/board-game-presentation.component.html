@@ -1,0 +1,66 @@
+<div class="board-game" [class]="gameClass" data-cy="board-game">
+  <a
+    (click)="gameClick.emit($event)"
+    target="_blank"
+    class="board-game__header"
+    style="
+    background-image: url('/assets/icons/p2p/{{ gameClass }}.png');"
+    data-cy="board-game-header"
+  >
+    <h3 class="board-game__header--title" data-cy="board-game-header-title">
+      {{ gameType | translate }}
+    </h3>
+  </a>
+
+  <div class="board-game__content" data-cy="board-game-content">
+    <div class="board-game__content--tabs">
+      <h4
+        (click)="onShowTournaments()"
+        [class.active]="showTournaments && weeklyRatingItems?.length !== 0"
+        [class.no-tabs]="weeklyRatingItems?.length === 0"
+        class="board-game__content--title tournaments"
+        data-cy="content-title"
+      >
+        {{ 'tournaments_header' | translate }}
+      </h4>
+
+      <h4
+        *ngIf="weeklyRatingItems?.length !== 0"
+        (click)="onShowWeeklyRatings()"
+        [ngClass]="{ active: showWeeklyRatings }"
+        class="board-game__content--title weekly-rating"
+        data-cy="content-title"
+      >
+        {{ 'weekly_rating' | translate }}
+      </h4>
+    </div>
+
+    <div class="board-game-table" data-cy="board-game-table">
+      <crc-w-board-game-table-header-presentation
+        [gameClass]="gameClass"
+        [showTournaments]="showTournaments"
+      >
+      </crc-w-board-game-table-header-presentation>
+    </div>
+
+    <div
+      #content
+      class="board-game-table__content"
+      data-cy="board-game-table-content"
+    >
+      <crc-w-board-game-tournaments-presentation
+        *ngIf="showTournaments"
+        [gameClass]="gameClass"
+        [tournamentItems]="tournamentItems"
+      >
+      </crc-w-board-game-tournaments-presentation>
+
+      <crc-w-board-game-weekly-presentation
+        *ngIf="showWeeklyRatings && weeklyRatingItems?.length !== 0"
+        [gameClass]="gameClass"
+        [weeklyRatingItems]="weeklyRatingItems"
+      >
+      </crc-w-board-game-weekly-presentation>
+    </div>
+  </div>
+</div>

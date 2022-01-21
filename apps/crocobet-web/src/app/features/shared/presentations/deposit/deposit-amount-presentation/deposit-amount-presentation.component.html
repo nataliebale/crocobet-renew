@@ -1,0 +1,51 @@
+<div class="amount">
+  <div [class.flex-2]="isFastDeposit" class="amount__set-amount">
+    <button
+      (click)="onSetAmount(amount.id)"
+      *ngFor="let amount of depositAmounts"
+      [class.set-amount__btn--selected]="amountValue === amount.id"
+      class="set-amount__btn"
+      type="button"
+    >
+      {{ amount.value }}
+    </button>
+  </div>
+
+  <div [class.flex-1]="isFastDeposit" class="amount__form">
+    <form *ngIf="form" [formGroup]="form" class="amount__form--form">
+      <crc-shared-text-input
+        [formControlName]="controlName"
+        class="full-height full-width text-right"
+        placeholder="0.00"
+        type="number"
+      >
+      </crc-shared-text-input>
+
+      <p *ngIf="amountControl.errors?.min" class="amount__form--error">
+        მინიმალური თანხა - 1₾
+      </p>
+      <p *ngIf="amountControl.errors?.max" class="amount__form--error">
+        მაქსიმალური თანხა - 10 000₾
+      </p>
+    </form>
+
+    <button
+      (click)="onOpenDepositPopup()"
+      *ngIf="isDepositButtonVisible"
+      class="btn btn--success amount__form--btn"
+      type="button"
+    >
+      {{ 'common_deposit_next' | translate }}
+    </button>
+  </div>
+
+  <div *ngIf="isFastDeposit" class="fast-deposit">
+    <button
+      (click)="onOpenDepositPopup()"
+      class="btn btn--success fast-deposit__btn"
+      type="button"
+    >
+      {{ 'common_deposit_next' | translate }}
+    </button>
+  </div>
+</div>

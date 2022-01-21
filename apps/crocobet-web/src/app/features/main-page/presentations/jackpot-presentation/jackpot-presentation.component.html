@@ -1,0 +1,28 @@
+<ng-template #slide let-banner>
+  <crc-shared-swiper-slide-default
+    [imageFill]="true"
+    [image]="banner"
+    (clicked)="clicked.emit($event)"
+  ></crc-shared-swiper-slide-default>
+
+  <div class="odometer-wrapper" (click)="clicked.emit(banner.callBack)">
+    <crc-jackpot-odometer-container></crc-jackpot-odometer-container>
+  </div>
+</ng-template>
+
+<crc-shared-swiper
+  [autoPlay]="false"
+  [header]="true"
+  [tooltipSupport]="true"
+  [dragSwipe]="false"
+  [images]="jackpots"
+  [templateRef]="{ template: slide, context: jackpots }"
+  class="custom-z-index"
+>
+  <ng-container title>
+    <div class="jackpot-header d-flex align-items-center">
+      <img src="assets/icons/jackpot/jackpot.svg" />
+      <span>Egt Jackpot</span>
+    </div>
+  </ng-container>
+</crc-shared-swiper>

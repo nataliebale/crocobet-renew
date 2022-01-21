@@ -1,0 +1,27 @@
+<div class="container-fluid h-100">
+  <div class="row">
+    <div class="col-12 my-2">
+      <div class="casinos-detail-wrapper">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <div class="col-12 filters">
+      <div class="casino-filters row">
+        <div class="col-9">
+          <crc-w-casino-category-filters-container></crc-w-casino-category-filters-container>
+        </div>
+        <div class="col-3">
+          <div class="casino-filters__search">
+            <crc-w-casino-shared-search-container></crc-w-casino-shared-search-container>
+          </div>
+        </div>
+      </div>
+      <div class="provider-filters">
+        <crc-w-casino-provider-filters-container></crc-w-casino-provider-filters-container>
+      </div>
+    </div>
+    <div class="col-12">
+      <crc-w-casino-list-container></crc-w-casino-list-container>
+    </div>
+  </div>
+</div>

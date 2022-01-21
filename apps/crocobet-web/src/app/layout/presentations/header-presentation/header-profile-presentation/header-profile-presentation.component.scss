@@ -1,0 +1,201 @@
+@use 'variables';
+
+$profile-row-gap: 10px;
+
+$profile-indicator-right: -7px;
+$profile-indicator-top: 0;
+
+$profile-info-gap: 4px;
+$profile-toggle-gap: 4px;
+$profile-code-color: #96a5b8;
+$profile-code-font-size: 13px;
+
+$dropdown-width: 320px;
+$dropdown-right: 0;
+$dropdown-top: 62px;
+$dropdown-border-r: 4px;
+$dropdown-z-index: 100;
+
+$dropdown-header-bg-color: #2a323d;
+$dropdown-header-padding: 14px;
+$dropdown-header-mb: 10px;
+
+$dropdown-item-padding: 10px 14px;
+$dropdown-item-bg-color-hover: #2a323d;
+
+$dropdown-menu-last-item-mt: 10px;
+$dropdown-menu-last-item-bg-color: #2a323d;
+$dropdown-menu-last-item-padding: 12px;
+
+$dropdown-menu-link-gap: 14px;
+$dropdown-menu-link-color: #96a5b8;
+$dropdown-menu-link-small-gap: 18px;
+
+$tooltip-position-top: 45px;
+$tooltip-z-index: 100;
+$tooltip-padding: 10px;
+$tooltip-min-width: 210px;
+$tooltip-font-size: 13px;
+$tooltip-background-color: rgba(#d9e3ef, 0.8);
+$tooltip-color: variables.$primary;
+$tooltip-border-r: 4px;
+$tooltip-position-right: -10px;
+
+.profile {
+  display: flex;
+  position: relative;
+  align-items: center;
+  color: variables.$color-white;
+  gap: $profile-row-gap;
+
+  &__img-wrapper {
+    display: flex;
+    position: relative;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &__indicator {
+    position: absolute;
+    top: $profile-indicator-top;
+    right: $profile-indicator-right;
+    user-select: none;
+  }
+
+  &__info {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $profile-info-gap;
+  }
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    gap: $profile-toggle-gap;
+  }
+
+  &__username {
+    color: variables.$color-white;
+    font-size: variables.$font-size-md;
+  }
+
+  &__code {
+    color: $profile-code-color;
+    font-size: $profile-code-font-size;
+    cursor: pointer;
+
+    &--hidden {
+      color: $profile-code-color;
+    }
+  }
+
+  &__copy-tooltip {
+    position: absolute;
+    z-index: $tooltip-z-index;
+    top: $tooltip-position-top;
+    right: $tooltip-position-right;
+    min-width: $tooltip-min-width;
+    padding: $tooltip-padding;
+    border-radius: $tooltip-border-r;
+    background-color: $tooltip-background-color;
+    color: $tooltip-color;
+    font-size: $tooltip-font-size;
+
+    &--show {
+      display: block;
+    }
+  }
+}
+
+.dropdown {
+  $host: &;
+
+  display: none;
+  position: absolute;
+  z-index: $dropdown-z-index;
+  top: $dropdown-top;
+  right: $dropdown-right;
+  flex-direction: column;
+  width: $dropdown-width;
+  border: solid 1px rgba(217, 227, 239, 0.3);
+  border-radius: $dropdown-border-r;
+  background-color: variables.$secondary;
+  box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.5);
+
+  &--visible {
+    display: flex;
+  }
+
+  &::before {
+    content: url('/assets/icons/popup/triangle-border.svg');
+    position: absolute;
+    top: -11px;
+    right: 25px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: $dropdown-header-mb;
+    padding: $dropdown-header-padding;
+    border-top-left-radius: $dropdown-border-r;
+    border-top-right-radius: $dropdown-border-r;
+    background-color: $dropdown-header-bg-color;
+  }
+
+  &__title {
+    color: variables.$color-grey;
+    font-size: variables.$font-size-sm;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__item {
+    display: flex;
+    width: 100%;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color: $dropdown-item-bg-color-hover;
+    }
+
+    &--last {
+      margin-top: $dropdown-menu-last-item-mt;
+      border-bottom-right-radius: $dropdown-border-r;
+      border-bottom-left-radius: $dropdown-border-r;
+      background-color: $dropdown-menu-last-item-bg-color;
+
+      #{$host}__link {
+        padding: $dropdown-menu-last-item-padding;
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: $dropdown-item-padding;
+    color: $dropdown-menu-link-color;
+    font-size: variables.$font-size-md;
+    text-decoration: none;
+    gap: $dropdown-menu-link-gap;
+
+    &--small {
+      gap: $dropdown-menu-link-small-gap;
+    }
+  }
+}

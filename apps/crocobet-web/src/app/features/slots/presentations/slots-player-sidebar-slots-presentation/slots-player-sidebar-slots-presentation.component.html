@@ -1,0 +1,39 @@
+<ng-template #slide let-slots>
+  <div class="switcher-grid">
+    <ng-container *ngFor="let slot of slots; trackBy: slotById">
+      <crc-w-slot-list-item-presentation
+        [slot]="slot"
+        class="shadow-none"
+        (playClicked)="playClicked.emit($event)"
+        (favoriteClicked)="onFavoriteClick($event)"
+      >
+      </crc-w-slot-list-item-presentation>
+    </ng-container>
+  </div>
+</ng-template>
+
+<div *ngIf="slots?.length; else empty" class="popular-slots">
+  <crc-shared-swiper
+    [header]="true"
+    [dragSwipe]="false"
+    [loop]="false"
+    [templateRefGrid]="{ template: slide, context: slots }"
+    [autoPlay]="false"
+    view="grid"
+    class="mb-8-pl-0"
+  >
+    <ng-container title>
+      <div class="popular-slots__header" data-cy="popular-slots">
+        <span class="popular-slots__title" data-cy="popular-slots-title">{{
+          title
+        }}</span>
+      </div>
+    </ng-container>
+  </crc-shared-swiper>
+</div>
+
+<ng-template #empty>
+  <span class="popular-slots__empty">
+    {{ 'empty_slots_text' | translate }}
+  </span>
+</ng-template>

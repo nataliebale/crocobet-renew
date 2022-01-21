@@ -1,0 +1,7 @@
+<crc-jackpot-odometer-presentation
+  [odometerData]="odometerData$ | async"
+  [odometerCount]="EGT_ODOMETER_COUNT"
+  [odometers]="odometers"
+  [jackpot]="jackpot"
+  (refreshOdometer)="refreshOdometer()"
+></crc-jackpot-odometer-presentation>

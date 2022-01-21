@@ -1,0 +1,7 @@
+.col-9 {
+  transition: transform 0.4s;
+
+  &.centered {
+    transform: translateX(16.67%);
+  }
+}

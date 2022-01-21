@@ -1,0 +1,43 @@
+$odd-width: 65px;
+$odd-height: 29px;
+$odd-border: solid 1px rgba(173, 189, 207, 0.05);
+$odd-border-radius: 4px;
+$odd-background-color: #2e3640;
+$odd-hover-bg-color: #596471;
+$odd-active-bg: #189541;
+$odd-coeff-margin-left: 12px;
+$odd-coeff-font-size: 13px;
+$odd-text-color: #adbdcf;
+$odd-text-font-size: 12px;
+
+.match {
+  &__odd {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $odd-width;
+    height: $odd-height;
+    border: $odd-border;
+    border-radius: $odd-border-radius;
+    background-color: $odd-background-color;
+  }
+
+  &__odd:hover {
+    background-color: $odd-hover-bg-color;
+    cursor: pointer;
+  }
+
+  &__odd:active {
+    background-color: $odd-active-bg;
+  }
+
+  &__odd--coeff {
+    margin-left: $odd-coeff-margin-left;
+    font-size: $odd-coeff-font-size;
+  }
+
+  &__odd--text {
+    color: $odd-text-color;
+    font-size: $odd-text-font-size;
+  }
+}

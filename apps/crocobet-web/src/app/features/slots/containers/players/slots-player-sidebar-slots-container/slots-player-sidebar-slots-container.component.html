@@ -1,0 +1,48 @@
+<div *ngIf="sidebarState" @slideInAndOut>
+  <div class="me-2">
+    <crc-w-slot-shared-search-container></crc-w-slot-shared-search-container>
+  </div>
+
+  <div class="mt-4">
+    <div *ngIf="filterItems$ | async as filterItems" class="category-filters">
+      <div class="tabs">
+        <div class="tabs__header">
+          <nav class="nav">
+            <ng-container *ngFor="let filter of filterItems">
+              <div
+                class="nav__item"
+                [id]="'nav-item-' + filter.filter"
+                [ngClass]="{ active: filter.active }"
+                (click)="onSelectCategoryFilter(filter.filter)"
+              >
+                <img [src]="filter.iconUrl" alt="" />
+                <button class="nav__btn">
+                  {{ filter.name }}
+                </button>
+              </div>
+            </ng-container>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <crc-w-slots-player-sidebar-slots-presentation
+    [title]="activeFilterTitle"
+    [slots]="slots$ | async"
+    (playClicked)="onSlotGameClick($event)"
+    (favoriteClicked)="onSlotFavoriteClick($event)"
+  >
+  </crc-w-slots-player-sidebar-slots-presentation>
+</div>
+
+<button (click)="onToggleSidebar()" class="sidebar-btn">
+  <ng-container *ngIf="sidebarState; else show">
+    <img alt="Arrow right" src="/assets/icons/arrow_right.svg" />
+    <span> Hide bar </span>
+  </ng-container>
+  <ng-template #show>
+    <img alt="Arrow left" src="/assets/icons/arrow_left.svg" />
+    <span> Show bar </span>
+  </ng-template>
+</button>

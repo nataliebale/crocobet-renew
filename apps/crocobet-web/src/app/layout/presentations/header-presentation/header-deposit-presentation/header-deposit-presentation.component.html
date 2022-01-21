@@ -1,0 +1,32 @@
+<ng-container *ngIf="verificationStatus">
+  <button
+    *ngIf="verificationStatus === VerificationStatus.VERIFIED"
+    class="btn btn--sm btn--success"
+    data-cy="btn-deposit"
+    (click)="isPopupVisible = true">
+    DEPOSIT
+  </button>
+
+  <a *ngIf="verificationStatus !== VerificationStatus.VERIFIED"
+    routerLink="/profile/verification"
+    class="btn btn--sm btn--danger"
+    data-cy="btn-verification">VERIFICATION</a>
+</ng-container>
+
+<crc-shared-popup
+  *ngIf="isPopupVisible"
+  [title]="'header.deposit' | translate"
+  size="lg"
+  class="small-screen-full-height popup-dark"
+  (closed)="onFastDepositPopupClose()"
+>
+  <div class="fast-deposit">
+    <crc-w-shared-deposit-container
+      slidesPerView="3"
+      slidesPerViewTablet="3"
+      isFastDeposit="true"
+      (depositPopupClose)="onDepositPopupClose()"
+    >
+    </crc-w-shared-deposit-container>
+  </div>
+</crc-shared-popup>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
+    <defs>
+        <clipPath id="clip-path">
+            <path id="Rectangle_650" data-name="Rectangle 650" class="cls-1" transform="translate(1507 88)" d="M0 0h17v17H0z"/>
+        </clipPath>
+        <style>
+            .cls-1{fill:#d9e3ef}
+        </style>
+    </defs>
+    <g id="icon_arrow" data-name="icon arrow" transform="translate(-1507 -88)" style="clip-path:url(#clip-path)">
+        <g id="right-arrow_2_" data-name="right-arrow (2)" transform="translate(1507 88)">
+            <g id="Group_3314" data-name="Group 3314">
+                <path id="Path_3534" data-name="Path 3534" class="cls-1" d="m16.805 8.03-3.47-3.453a.664.664 0 0 0-.937.941l2.33 2.318H.664a.664.664 0 0 0 0 1.328h14.063L12.4 11.482a.664.664 0 0 0 .937.941L16.8 8.971a.665.665 0 0 0 .005-.941z"/>
+            </g>
+        </g>
+    </g>
+</svg>

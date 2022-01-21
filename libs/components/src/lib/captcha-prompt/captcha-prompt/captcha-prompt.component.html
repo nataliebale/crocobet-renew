@@ -1,0 +1,52 @@
+<div class="dropdown dropdown--absolute" *ngIf="dropdownVisible">
+  <div class="dropdown__header">
+    უსაფრთხოების შემოწმება
+    <span class="dropdown__close" (click)="onCloseDropdown()">
+      <img src="assets/icons/close.svg" alt="Close" />
+    </span>
+  </div>
+  <div class="dropdown__body">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="dropdown__text">შეიყვანეთ უსაფრთხოების კოდი</div>
+      <div
+        class="dropdown__captcha dropdown__captcha--margin"
+        [innerHTML]="captchaSafe"
+      ></div>
+      <div class="d-flex flex--nowrap">
+        <crc-shared-text-input
+          [class.success]="enteredCaptchaValid && !captchaUpdateRequested"
+          [class.error]="
+            enteredCaptchaValid === false || captchaUpdateRequested
+          "
+          class="show-icon captcha"
+          type="text"
+          placeholder="კოდი"
+          formControlName="captcha"
+          data-cy="form-captcha"
+        >
+        </crc-shared-text-input>
+        <div
+          class="captcha-reload"
+          data-cy="captcha-reload"
+          (click)="onCaptchaUpdated()"
+        >
+          <img src="/assets/icons/reset.svg" alt="reset" />
+        </div>
+      </div>
+      <button
+        [ngClass]="{
+          'btn--success': enteredCaptchaValid && !captchaUpdateRequested,
+          'btn--dark': !enteredCaptchaValid || captchaUpdateRequested
+        }"
+        class="btn btn--spacing"
+        type="submit"
+        data-cy="captcha-submit"
+        [disabled]="
+          form.invalid || !enteredCaptchaValid || captchaUpdateRequested
+        "
+      >
+        დადასტურება
+      </button>
+    </form>
+  </div>
+</div>

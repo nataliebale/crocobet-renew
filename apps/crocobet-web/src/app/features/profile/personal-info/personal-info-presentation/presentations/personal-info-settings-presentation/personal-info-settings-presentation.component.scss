@@ -1,0 +1,48 @@
+@use 'variables';
+@use 'mixins';
+
+.personal-settings {
+  @include mixins.flex(space-around, flex-start);
+
+  flex-direction: column;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+  padding: 9px 12px 11px;
+  border-radius: 4px;
+  background-color: #1f252d;
+  cursor: no-drop;
+
+  &__half {
+    @include mixins.flex(space-between, flex-start);
+  }
+
+  &--half {
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 9px 12px 11px;
+    border-radius: 4px;
+    background-color: #1f252d;
+    cursor: no-drop;
+  }
+
+  &__label {
+    color: rgba(217, 227, 239, 0.6);
+    font-size: 12px;
+  }
+
+  &__value {
+    @include mixins.flex(cencet, center);
+
+    margin-top: 7px;
+    color: rgba(variables.$color-white, 0.8);
+    font-size: 13px;
+  }
+
+  &__date {
+    margin-right: 8px;
+  }
+}

@@ -1,0 +1,129 @@
+@use 'variables';
+@use 'mixins';
+
+$input-bg: #1f252d;
+$input-border: solid 1px #354254;
+$danger: #ff2929;
+$select-width: 300px;
+$select-bg: #1f252d;
+$select-border-color: #343f4d;
+
+.custom-checkbox {
+  @include mixins.flex(flex-start, center);
+
+  &__container {
+    @include mixins.flex(center, center);
+
+    position: relative;
+  }
+
+  &__input {
+    flex: 0 0 20px;
+    width: 20px;
+    height: 20px;
+    transition-duration: 0.3s;
+    border: $input-border;
+    border-radius: 2px;
+    outline: none;
+    background-color: $input-bg;
+    cursor: pointer;
+    appearance: none;
+  }
+
+  &__input[type='checkbox']:checked + .custom-checkbox__label {
+    @include mixins.flex(center, center);
+
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-image: url('/assets/icons/personal-info/checked.svg');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: auto 100%;
+    cursor: pointer;
+  }
+
+  &__input:checked {
+    border: 1px solid variables.$color-grey;
+    background-color: #15af44;
+  }
+
+  &__checkmark {
+    margin-left: 12px;
+    color: rgba(variables.$color-white, 0.8);
+    font: 12px variables.$font-regular;
+    line-height: normal;
+
+    div {
+      font-family: variables.$font-regular;
+      white-space: nowrap;
+    }
+  }
+}
+
+.select-wrapper {
+  width: $select-width;
+}
+
+:host ::ng-deep {
+  .ng-select .ng-select-container {
+    border-color: $select-border-color !important;
+    background-color: $select-bg !important;
+  }
+
+  .ng-select.ng-select-opened > .ng-select-container,
+  .ng-dropdown-panel .scroll-host {
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.5) !important;
+  }
+
+  .ng-select.ng-select-opened
+    .ng-select-container
+    .ng-value-container
+    .ng-value {
+    color: variables.$color-white !important;
+  }
+
+  .ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+    border-color: $select-border-color !important;
+    background-color: $select-bg !important;
+    color: rgba(variables.$color-grey, 0.8) !important;
+  }
+
+  .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
+    background-color: $select-border-color !important;
+    color: variables.$color-grey !important;
+  }
+
+  .ng-select .ng-select-container .ng-value-container .ng-input > input {
+    caret-color: transparent;
+    opacity: 1 !important;
+  }
+
+  .ng-select.ng-select-single
+    .ng-select-container
+    .ng-value-container
+    .ng-input {
+    padding-bottom: 5px;
+  }
+
+  .ng-select.ng-select-single.ng-select-filtered
+    .ng-select-container
+    .ng-value-container
+    .ng-value {
+    visibility: hidden !important;
+  }
+}
+
+.g-12,
+.gy-12 {
+  --bs-gutter-y: 12px;
+}
+
+.g-12,
+.gx-12 {
+  --bs-gutter-x: 12px;
+}
+
+.mt-12 {
+  margin-top: 12px;
+}

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <defs>
+        <clipPath id="clip-path">
+            <path id="Rectangle_5138" data-name="Rectangle 5138" transform="translate(110 710)" style="stroke:#707070;fill:#b6bfcb" d="M0 0h20v20H0z"/>
+        </clipPath>
+        <style>
+            .cls-3{fill:#b6bfcb}
+        </style>
+    </defs>
+    <g id="cashdesks" transform="translate(-110 -710)" style="clip-path:url(#clip-path)">
+        <g id="placeholder_1_" data-name="placeholder (1)" transform="translate(110 710)">
+            <g id="Group_3366" data-name="Group 3366">
+                <g id="Group_3365" data-name="Group 3365">
+                    <path id="Path_3577" data-name="Path 3577" class="cls-3" d="M10 0a7.652 7.652 0 0 0-6.135 12.232L9.667 20h.666l5.8-7.768A7.652 7.652 0 0 0 10 0zm5.2 11.53L10 18.487 4.8 11.53A6.48 6.48 0 0 1 10 1.172a6.48 6.48 0 0 1 5.2 10.358z"/>
+                </g>
+            </g>
+            <g id="Group_3368" data-name="Group 3368">
+                <g id="Group_3367" data-name="Group 3367">
+                    <path id="Path_3578" data-name="Path 3578" class="cls-3" d="M10 5.117a2.344 2.344 0 1 0 2.344 2.344A2.346 2.346 0 0 0 10 5.117zm0 3.516a1.172 1.172 0 1 1 1.172-1.172A1.173 1.173 0 0 1 10 8.633z"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

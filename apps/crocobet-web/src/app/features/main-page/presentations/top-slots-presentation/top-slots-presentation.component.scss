@@ -1,0 +1,22 @@
+@use 'variables';
+@use 'mixins';
+
+$top-games-height: 312px;
+$top-games-title-m-left: 8px;
+
+.top-games {
+  height: $top-games-height;
+
+  @include mixins.desktop-1366 {
+    height: 232px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    margin-left: $top-games-title-m-left;
+  }
+}

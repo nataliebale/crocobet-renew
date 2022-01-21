@@ -1,0 +1,150 @@
+<div class="poker p-2" data-cy="poker">
+  <div class="mb-2" data-cy="poker-banner">
+    <crc-shared-banner-container
+      bannerType="poker"
+    ></crc-shared-banner-container>
+  </div>
+  <div class="poker__main" data-cy="poker-main">
+    <div
+      class="poker__play poker-play d-flex flex-column justify-content-between"
+      data-cy="poker-play"
+    >
+      <span class="poker-play__title" data-cy="poker-play-title">{{
+        'navbar.poker' | translate
+      }}</span>
+      <div
+        class="poker-play__btn-container align-self-center"
+        data-cy="poker-play-btn-container"
+      >
+        <button
+          (click)="openPoker()"
+          class="btn btn--lg btn--success poker-play__btn"
+          data-cy="poker-play-btn"
+        >
+          {{ 'leaderboard_play' | translate }}
+        </button>
+      </div>
+    </div>
+    <div
+      class="poker__spin poker-play d-flex flex-column justify-content-between"
+      data-cy="poker-spin"
+    >
+      <span class="poker-play__title" data-cy="poker-spin-title">{{
+        'spin_and_go' | translate
+      }}</span>
+      <div
+        class="poker-play__btn-container align-self-center"
+        data-cy="poker-spin-btn-container"
+      >
+        <button
+          (click)="openPoker()"
+          class="btn btn--lg btn--success poker-play__btn"
+          data-cy="poker-spin-btn"
+        >
+          {{ 'leaderboard_play' | translate }}
+        </button>
+      </div>
+    </div>
+    <div class="poker__tournaments tournaments" data-cy="poker-tournaments">
+      <div
+        class="tournaments__header d-flex align-items-center"
+        data-cy="tournaments-header"
+      >
+        <img
+          src="/assets/icons/poker/poker-tournaments.svg"
+          alt="tournaments"
+          daya-cy="tournamet-header-img"
+        />
+        <span>{{ 'tournaments_header' | translate }}</span>
+      </div>
+      <div
+        class="tournaments__table table container-fluid p-0"
+        data-cy="tournaments-table"
+      >
+        <div
+          class="table__header row align-items-center"
+          data-cy="table-header"
+        >
+          <div class="table__heading col-4" data-cy="table-heading-poker">
+            <img
+              src="/assets/icons/poker/time.svg"
+              alt="clock"
+              data-cy="time-img"
+            />
+            <span data-cy="time-text">{{
+              'tournament_header_time' | translate
+            }}</span>
+          </div>
+          <div class="table__heading col-4" data-cy="table-heading-buy-in">
+            <img
+              src="/assets/icons/poker/buy-in.svg"
+              alt="buy in"
+              data-cy="buy-in-img"
+            />
+            <span data-cy="buy-in-text">{{
+              'tournament_header_buyin' | translate
+            }}</span>
+          </div>
+          <div class="table__heading col-4" data-cy="table-heading-prize-pool">
+            <img
+              src="/assets/icons/poker/prize-pool.svg"
+              alt="prize pool"
+              data-cy="prize-pool-img"
+            />
+            <span data-cy="prize-pool-text">{{
+              'tournament_header_prize' | translate
+            }}</span>
+          </div>
+        </div>
+        <div class="table__body container-fluid" data-cy="table-body">
+          <ng-container *ngFor="let tournament of tournamentsData">
+            <div
+              *ngIf="currentTime <= tournament.startDate"
+              class="table__row row align-items-center"
+            >
+              <div class="col-4">
+                <span class="table__item" data-cy="table-item-time">
+                  <span class="start-date">
+                    <ng-container *ngIf="isToday(tournament.startDate)">
+                      {{ 'Today' | translate }}
+                    </ng-container>
+
+                    <ng-container *ngIf="!isToday(tournament.startDate)">
+                      {{ tournament.startDate | date: 'dd.MM.yyy' }}
+                    </ng-container>
+                  </span>
+
+                  <span class="start-time">
+                    {{ tournament.startDate | date: 'HH:mm' }}</span
+                  >
+                </span>
+              </div>
+              <div class="col-4">
+                <span
+                  *ngIf="tournament.registrationPrice !== 0; else freeroll"
+                  class="table__item money"
+                  data-cy="table-item-buy-in"
+                >
+                  {{ tournament.registrationPrice | mask: 'separator':' ' }}
+                  ₾
+                </span>
+
+                <ng-template #freeroll>
+                  {{ 'p2p_freeroll' | translate }}
+                </ng-template>
+              </div>
+              <div class="col-4">
+                <span
+                  class="table__item money table__item--green"
+                  data-cy="table-item-prize-pool"
+                >
+                  {{ tournament.prizeMoney | mask: 'separator':' ' }} ₾
+                </span>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="container-fluid h-100">
+  <div class="row">
+    <div class="col-12 my-2">
+      <div class="slots-detail-wrapper">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <div class="col-12 filters">
+      <div class="slot-filters row">
+        <div class="col-9">
+          <crc-w-slot-category-filters-container></crc-w-slot-category-filters-container>
+        </div>
+        <div class="col-3">
+          <div class="slot-filters__search">
+            <crc-w-slot-shared-search-container></crc-w-slot-shared-search-container>
+          </div>
+        </div>
+      </div>
+      <div class="provider-filters">
+        <crc-w-slots-provider-filters-container></crc-w-slots-provider-filters-container>
+      </div>
+    </div>
+    <div class="col-9 slot-list">
+      <crc-w-slots-list-container
+        [firstItemLarge]="true"
+      ></crc-w-slots-list-container>
+    </div>
+    <div class="col-3">
+      <crc-w-slots-sidebar-presentation></crc-w-slots-sidebar-presentation>
+    </div>
+  </div>
+</div>

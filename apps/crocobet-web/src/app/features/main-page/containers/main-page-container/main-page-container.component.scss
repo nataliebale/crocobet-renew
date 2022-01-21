@@ -1,0 +1,13 @@
+@use 'mixins';
+
+.col-4 {
+  height: 312px;
+
+  @include mixins.desktop-1366 {
+    height: 232px;
+  }
+}
+
+.promotions {
+  z-index: 100;
+}

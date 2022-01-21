@@ -1,0 +1,9 @@
+<button (click)="onGet<%= feature.className %>()">
+  get <%= feature.propertyName %>
+</button>
+<ng-container
+  *ngIf="<%= feature.propertyName %>$ | async as <%= feature.propertyName %>"
+>
+  {{ <%= feature.propertyName %>.id }}
+  {{ <%= feature.propertyName %>.name }}
+</ng-container>

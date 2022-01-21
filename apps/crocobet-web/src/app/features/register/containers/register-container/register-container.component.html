@@ -1,0 +1,24 @@
+<div class="register-container">
+  <crc-register-presentation
+    (documentIdGenuine$)="
+      onDocumentIdGenuine($event.documentIdParams, $event.phoneNumber)
+    "
+    (register$)="onRegister($event)"
+    (resendSms$)="onResendVerificationCode($event)"
+    [verificationCodeSent]="verificationCodeSent"
+    [cities]="cities"
+    [countries]="countries"
+    [registerFailed]="registerSuccess === false"
+  ></crc-register-presentation>
+</div>
+<crc-shared-popup
+  *ngIf="showDialog"
+  (closed)="onVerify()"
+  [title]="'header.register' | translate"
+  size="sm"
+  class="dialog-register"
+>
+  <crc-w-register-success-presentation
+    (verify$)="onVerify()"
+  ></crc-w-register-success-presentation>
+</crc-shared-popup>

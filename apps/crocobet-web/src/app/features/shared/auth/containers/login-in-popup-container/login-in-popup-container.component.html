@@ -1,0 +1,21 @@
+<crc-shared-popup
+  *ngIf="showAuthModal$ | async"
+  (closed)="onCloseAuthModal()"
+  title="ავტორიზაცია"
+  size="md"
+  class="custom-bg-colors custom-header-text-color"
+>
+  <div class="wrapper">
+    <crc-w-login-large-view-presentation
+      (captchaClosed$)="onCaptchaClose()"
+      (captchaUpdated$)="onCaptchaUpdated($event)"
+      (checkCaptchaValidity$)="onCheckCaptchaValidity($event)"
+      (resetPassword$)="onResetPassword()"
+      (register$)="onRegister()"
+      (signIn$)="onSignIn($event)"
+      [isLoggedIn]="isLoggedIn$ | async"
+      [captcha]="captchaCode$ | async"
+      [enteredCaptchaValid]="enteredCaptchaValid$ | async"
+    ></crc-w-login-large-view-presentation>
+  </div>
+</crc-shared-popup>

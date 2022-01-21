@@ -1,0 +1,88 @@
+@use 'variables';
+@use 'mixins';
+
+$element-bg: #1d242c;
+
+.virtual-games {
+  display: grid;
+  grid-gap: 2px;
+  grid-template-columns: 1fr 2.25fr;
+
+  @include mixins.desktop-1024 {
+    grid-template-columns: 1fr;
+  }
+
+  &__first-elem {
+    padding: 12px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background-color: $element-bg;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 16%);
+
+    @include mixins.desktop-1024 {
+      width: 100%;
+      min-height: 189px;
+    }
+  }
+
+  &__main {
+    height: 100%;
+    border-radius: 4px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include mixins.desktop-1366 {
+      min-width: 360px;
+    }
+
+    @include mixins.desktop-1024 {
+      min-width: 260px;
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: row;
+    padding: 12px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color: $element-bg;
+    gap: 12px;
+  }
+
+  &__title {
+    @include mixins.flex(space-between, center);
+
+    height: 36px;
+    padding: 0 12px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+
+    h3 {
+      color: variables.$color-white;
+      font-family: variables.$font-medium;
+      font-size: variables.$font-size-md;
+      font-weight: 500;
+
+      @include mixins.desktop-1366 {
+        font-size: variables.$font-size-sm;
+      }
+    }
+  }
+
+  &__cat-img {
+    width: 100%;
+    max-height: 230px;
+    overflow: hidden;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    min-width: 228px;
+    overflow: hidden;
+    border-radius: 4px;
+    background-color: variables.$secondary;
+    box-shadow: 0 0 10px 0 rgb(0 0 0 / 16%);
+  }
+}

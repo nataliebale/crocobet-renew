@@ -1,0 +1,232 @@
+@use 'variables';
+@use 'mixins';
+
+.frame {
+  &--position {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    gap: 2px;
+  }
+
+  &__game {
+    overflow: hidden;
+    border-radius: 6px 0 0 6px;
+    background-color: variables.$primary;
+
+    &--position {
+      flex: 1;
+    }
+  }
+
+  &__empty {
+    position: relative;
+    cursor: pointer;
+
+    &--position {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    &:hover {
+      .add-icon {
+        background-color: rgba(variables.$secondary-active, 1);
+      }
+
+      .tooltip {
+        transform: scale(1);
+      }
+
+      .tooltip--position--bottom {
+        transform: scale(1) translateX(50%);
+      }
+    }
+  }
+
+  &__options {
+    border-radius: 0 6px 6px 0;
+    background-color: variables.$primary;
+
+    &--position {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      width: 45px;
+      height: 100%;
+      padding-top: 13px;
+    }
+  }
+}
+
+.frame__game--controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 20px;
+  gap: 14px;
+
+  @include mixins.desktop-1366 {
+    margin-bottom: 10px;
+    gap: 8px;
+  }
+
+  button {
+    position: relative;
+    width: 28px;
+    border: unset;
+    background: unset;
+
+    &:active {
+      outline: none;
+      outline: 0;
+    }
+
+    &:focus {
+      outline: none;
+      outline: 0;
+    }
+
+    .disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  button:hover {
+    .tooltip {
+      transform: scale(1);
+    }
+  }
+}
+
+.icon {
+  fill: variables.$color-grey;
+  cursor: pointer;
+
+  &--position {
+    width: 16px;
+  }
+
+  &.disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+}
+
+.frame__game--other--controls {
+  @include mixins.flex(flex-start, center);
+
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 10px;
+  gap: 10px;
+
+  .position-option {
+    cursor: pointer;
+
+    &--position {
+      display: flex;
+      position: relative;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      width: 28px;
+      height: 28px;
+      white-space: normal;
+    }
+
+    &:hover:not(.position-option--disabled) {
+      .square--active {
+        background-color: variables.$color-green;
+      }
+    }
+
+    &:hover {
+      .tooltip {
+        transform: scale(1);
+      }
+    }
+
+    &--selected {
+      .square--active {
+        background-color: variables.$color-green;
+      }
+    }
+
+    &--disabled {
+      cursor: not-allowed;
+
+      .square {
+        opacity: 0.35;
+      }
+
+      .square--active {
+        background-color: variables.$secondary-active;
+      }
+    }
+  }
+}
+
+.square {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+  height: 100%;
+  transition: background-color 0.4s;
+  background-color: rgba(variables.$secondary-active, 0.5);
+
+  &--position {
+    padding: 1.5px;
+  }
+
+  &--active {
+    background-color: #8c99ab;
+  }
+}
+
+.add {
+  &-icon {
+    @include mixins.flex(center, center);
+
+    width: 60px;
+    height: 60px;
+    transition: background-color 0.3s;
+    border-radius: 4px;
+    background-color: rgba(variables.$secondary-active, 0.5);
+  }
+}
+
+.tooltip {
+  width: unset;
+  max-width: unset;
+  transform: scale(0);
+  transform-origin: right top;
+  transition: transform 0.3s;
+  color: variables.$primary;
+  font-family: variables.$font-regular;
+  text-align: left;
+  white-space: nowrap;
+  pointer-events: none;
+
+  &--position {
+    position: absolute;
+    z-index: 100;
+    right: 30px;
+    bottom: 0;
+    padding: 9px 14px;
+    border-radius: 4px;
+    background-color: variables.$color-grey;
+    font-size: 13px;
+
+    &--bottom {
+      //left: 50%;
+      bottom: -48px;
+      transform: scale(0) translateX(50%);
+      transform-origin: top;
+    }
+  }
+}

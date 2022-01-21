@@ -1,0 +1,111 @@
+@use 'variables';
+@use 'mixins';
+
+$input-bg: #1f252d;
+$input-border: solid 1px #354254;
+$danger: #ff2929;
+
+.form-control-suggest {
+  @include mixins.flex(flex-start, center);
+
+  margin-top: 6px;
+  color: #b6bfcb;
+
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
+    border-radius: 50%;
+    background-color: #a7b1bc;
+  }
+
+  &.success {
+    color: variables.$color-white;
+
+    &::before {
+      background-color: variables.$color-white;
+      background-image: url('/assets/icons/success.svg');
+      background-size: cover;
+    }
+  }
+}
+
+.custom-checkbox {
+  @include mixins.flex(flex-start, flex-start);
+
+  &__container {
+    @include mixins.flex(center, center);
+
+    position: relative;
+  }
+
+  &__input {
+    flex: 0 0 14px;
+    width: 14px;
+    height: 14px;
+    transition-duration: 0.3s;
+    border: $input-border;
+    border-radius: 2px;
+    outline: none;
+    background-color: $input-bg;
+    cursor: pointer;
+    appearance: none;
+  }
+
+  &__input[type='checkbox']:checked + .custom-checkbox__label {
+    @include mixins.flex(center, center);
+
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-image: url('/assets/icons/personal-info/checked.svg');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: auto 100%;
+    cursor: pointer;
+  }
+
+  &__input:checked {
+    border: 1px solid variables.$color-grey;
+    background-color: #15af44;
+  }
+
+  &__checkmark {
+    margin-left: 12px;
+    color: rgba(variables.$color-white, 0.8);
+    font-size: 12px;
+    line-height: normal;
+
+    &.error {
+      color: $danger;
+    }
+
+    a {
+      color: variables.$color-green;
+      text-decoration: underline;
+    }
+
+    div {
+      font-family: variables.$font-regular;
+      white-space: nowrap;
+    }
+  }
+}
+
+.mb-12 {
+  margin-bottom: 12px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}

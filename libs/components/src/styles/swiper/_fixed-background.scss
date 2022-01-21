@@ -1,0 +1,102 @@
+$t-matches-swiper-with: calc(100% - 20px);
+$t-matches-swiper-m-right: 10px;
+$t-matches-swiper-m-left: 10px;
+$t-swiper-after-z-index: 1;
+$t-swiper-after-b-radius: 8px;
+$t-swiper-margin-top: 40px;
+$t-swiper-margin-bottom: 18px;
+$t-swiper-before-z-index: 2;
+$t-swiper-before-opacity: 0.63;
+$t-swiper-before-bg-color: #1c222a;
+$t-swiper-wrapper-z-index: 2;
+$t-swiper-wrapper-height: calc(100% - 40px);
+$t-swiper-slider-after-top: 50%;
+$t-swiper-slider-after-width: 2px;
+$t-swiper-slider-after-height: 150px;
+$t-swiper-slider-after-transform: translate(0, -50%);
+$t-swiper-slider-after-opacity: 0.1;
+$t-swiper-slider-after-bg-color: #adbdcf;
+$t-swiper-button-prev-right: 30px;
+
+.swiper-fixed-background .swiper {
+  width: $t-matches-swiper-with;
+  margin-right: $t-matches-swiper-m-right;
+  margin-left: $t-matches-swiper-m-left;
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: $t-swiper-after-z-index;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: $t-swiper-after-b-radius;
+    background-image: url('/assets/images/top-matches/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: {
+      top: $t-swiper-margin-top;
+      bottom: $t-swiper-margin-bottom;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: $t-swiper-before-z-index;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: $t-swiper-after-b-radius;
+    opacity: $t-swiper-before-opacity;
+    background-color: $t-swiper-before-bg-color;
+    margin: {
+      top: $t-swiper-margin-top;
+      bottom: $t-swiper-margin-bottom;
+    }
+  }
+
+  .swiper-wrapper {
+    position: relative;
+    z-index: $t-swiper-wrapper-z-index;
+    height: $t-swiper-wrapper-height;
+  }
+
+  .swiper-slide {
+    position: relative;
+    padding: 0;
+    background: transparent;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: $t-swiper-slider-after-top;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: $t-swiper-slider-after-width;
+      height: $t-swiper-slider-after-height;
+      transform: $t-swiper-slider-after-transform;
+      opacity: $t-swiper-slider-after-opacity;
+      background-color: $t-swiper-slider-after-bg-color;
+    }
+
+    &:first-child::after {
+      display: none;
+    }
+  }
+
+  .header {
+    padding-left: 0;
+  }
+
+  .swiper-button-prev {
+    right: $t-swiper-button-prev-right;
+  }
+
+  .swiper-button-next {
+    right: 0;
+  }
+}

@@ -1,0 +1,148 @@
+@use 'variables';
+@use 'mixins';
+
+$register-wrapper-width: 410px;
+$register-bg-color: variables.$color-dark-blue;
+$register-height: calc(100vh - 80px);
+$register-padding: 50px;
+$secondary: #414c57;
+$custom-input-wrapper-border-color: #354254;
+$custom-input-wrapper-bg-color: #1f252d;
+$danger: rgba(255, 41, 41, 0.5);
+
+.register {
+  min-height: $register-height;
+  padding: $register-padding;
+  border-radius: variables.$border-radius-sm;
+  background-color: $register-bg-color;
+
+  &__wrapper {
+    width: $register-wrapper-width;
+  }
+
+  &__title {
+    color: variables.$color-white;
+    font: 14px variables.$font-medium;
+  }
+
+  &__btn {
+    height: 50px;
+    font-size: variables.$font-size-lg;
+
+    &--secondary {
+      background-color: $secondary;
+
+      &:hover {
+        background-color: lighten($secondary, 5%);
+      }
+    }
+  }
+}
+
+.mb-8 {
+  margin-bottom: 8px;
+}
+
+.mb-12 {
+  margin-bottom: 12px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.mt-12 {
+  margin-top: 12px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+.select-icon {
+  display: inline-block;
+  height: 18px;
+  margin-right: 10px;
+  border-radius: 2px;
+}
+
+.custom-input-wrapper {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  padding: 7px 7px 7px 10px;
+  border: solid 1px $custom-input-wrapper-border-color;
+  border-radius: variables.$border-radius-sm;
+  background-color: $custom-input-wrapper-bg-color;
+
+  &.error {
+    border-color: $danger;
+  }
+}
+
+.custom-input {
+  width: 100%;
+  height: 100%;
+  padding-right: 150px;
+  border: 0;
+  background-color: transparent;
+  color: rgba(variables.$color-white, 0.8);
+  font: 14px variables.$font-regular;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: rgba(variables.$color-white, 0.8);
+  }
+}
+
+.btn--custom {
+  @include mixins.flex(center, center);
+
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  width: 140px;
+  height: 36px;
+  padding: 0;
+  overflow: hidden;
+  transform: translateY(-50%);
+  text-align: center;
+  vertical-align: middle;
+
+  img {
+    margin-right: 8px;
+  }
+}
+
+.success-bg {
+  display: inline-block;
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  height: 100%;
+  background-color: variables.$color-green;
+}
+
+.message {
+  color: variables.$color-red;
+
+  &,
+  * {
+    font: 12px variables.$font-regular;
+  }
+
+  &--light {
+    color: variables.$color-white;
+  }
+}

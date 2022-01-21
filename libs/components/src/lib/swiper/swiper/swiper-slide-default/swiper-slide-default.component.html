@@ -1,0 +1,14 @@
+<a
+  (click)="onClick()"
+  data-cy="swiper-slide-link"
+  [target]="image.target"
+  class="link"
+>
+  <img
+    data-cy="swiper-slide-image"
+    class="link__img"
+    [src]="image.src"
+    [alt]="image.alt"
+    [class.link__img--fill]="imageFill"
+  />
+</a>

@@ -1,0 +1,25 @@
+<div class="container-fluid virtual" data-cy="virtual">
+  <div class="row mt-2">
+    <div class="col-12">
+      <crc-shared-banner-container
+        bannerType="virtual"
+      ></crc-shared-banner-container>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-12 betradar">
+      <crc-w-virtual-games-presentation
+        [virtualGameItems]="betradarItems"
+        [virtualGameFirstElem]="betradarFirstElem"
+      ></crc-w-virtual-games-presentation>
+    </div>
+
+    <div class="col-12 golden-race">
+      <crc-w-virtual-games-presentation
+        [virtualGameItems]="goldenRaceItems"
+        [virtualGameFirstElem]="goldenRaceFirstElem"
+      ></crc-w-virtual-games-presentation>
+    </div>
+  </div>
+</div>

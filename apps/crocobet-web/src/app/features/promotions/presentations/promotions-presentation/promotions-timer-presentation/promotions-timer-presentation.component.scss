@@ -1,0 +1,39 @@
+@use 'variables';
+@use 'mixins';
+
+.promotions-wrapper {
+  &__timer {
+    @include mixins.flex(center, center);
+
+    flex-direction: column;
+    color: variables.$color-white;
+
+    @include mixins.desktop-1620 {
+      @include mixins.flex(flex-end, flex-end);
+
+      margin-top: 18px;
+    }
+
+    .timer,
+    .timer__text {
+      @include mixins.flex(space-between, center);
+
+      width: 130px;
+
+      span {
+        width: 35px;
+        text-align: center;
+      }
+    }
+
+    .timer {
+      font-size: variables.$font-size-sm;
+    }
+
+    .timer__text {
+      margin-top: 4px;
+      opacity: 0.6;
+      font-size: 8px;
+    }
+  }
+}

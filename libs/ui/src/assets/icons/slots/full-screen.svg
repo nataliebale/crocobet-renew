@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+    <defs>
+        <clipPath id="clip-path">
+            <path id="Rectangle_4892" data-name="Rectangle 4892" transform="translate(175 692)" style="stroke:#707070;fill:#d9e3ef" d="M0 0h16v16H0z"/>
+        </clipPath>
+        <style>
+            .cls-3{fill:#d9e3ef}
+        </style>
+    </defs>
+    <g id="icon_full_screen" data-name="icon full screen" transform="translate(-175 -692)" style="opacity:.8;clip-path:url(#clip-path)">
+        <g id="full-size" transform="translate(175 692)">
+            <path id="Path_3502" data-name="Path 3502" class="cls-3" d="M.557 4.836a.557.557 0 0 0 .557-.557V1.9L4.7 5.491a.557.557 0 1 0 .791-.791L1.9 1.115h2.379a.557.557 0 0 0 0-1.115H.557A.557.557 0 0 0 0 .557v3.722a.557.557 0 0 0 .557.557z"/>
+            <path id="Path_3503" data-name="Path 3503" class="cls-3" d="M20.56 16.281a.557.557 0 0 0-.557.557v2.376l-3.7-3.7a.557.557 0 0 0-.788.788l3.7 3.7h-2.376a.557.557 0 1 0 0 1.114h3.721a.557.557 0 0 0 .557-.557v-3.72a.557.557 0 0 0-.557-.558z" transform="translate(-5.117 -5.117)"/>
+            <path id="Path_3504" data-name="Path 3504" class="cls-3" d="m4.814 15.515-3.7 3.7v-2.376a.557.557 0 1 0-1.114 0v3.721a.557.557 0 0 0 .557.557h3.722a.557.557 0 1 0 0-1.114H1.9l3.7-3.7a.557.557 0 0 0-.788-.788z" transform="translate(0 -5.117)"/>
+            <path id="Path_3505" data-name="Path 3505" class="cls-3" d="M20.616 0h-3.722a.557.557 0 0 0 0 1.114h2.376L15.682 4.7a.557.557 0 0 0 .788.788L20.058 1.9v2.379a.557.557 0 0 0 1.114 0V.557A.557.557 0 0 0 20.616 0z" transform="translate(-5.173)"/>
+        </g>
+    </g>
+</svg>

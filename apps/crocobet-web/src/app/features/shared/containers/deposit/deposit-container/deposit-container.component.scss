@@ -1,0 +1,22 @@
+@use 'variables';
+@use 'mixins';
+
+$payment-width: 450px;
+
+.deposit-amount {
+  padding-top: 20px;
+}
+
+.deposit-form {
+  @include mixins.flex-column();
+  gap: 20px;
+
+  &__header {
+    color: rgba(variables.$color-white, 0.95);
+    font-size: variables.$font-size-md;
+  }
+
+  &__payment {
+    width: $payment-width;
+  }
+}

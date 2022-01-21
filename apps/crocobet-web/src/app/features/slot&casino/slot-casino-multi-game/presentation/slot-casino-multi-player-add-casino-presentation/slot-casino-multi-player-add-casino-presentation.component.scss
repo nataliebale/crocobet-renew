@@ -1,0 +1,35 @@
+@use 'variables';
+@use 'mixins';
+
+.casino-container {
+  height: calc(100vh - 225px);
+  overflow: hidden;
+  @include mixins.desktop-1366() {
+    height: calc(100vh - 70px);
+  }
+}
+
+.casino-games {
+  max-height: calc(100vh - 350px);
+  padding: 20px;
+  overflow-y: scroll;
+  @include mixins.desktop-1366() {
+    max-height: calc(100vh - 190px);
+  }
+}
+
+.casino-filters {
+  background-color: #1d242c;
+
+  &__search {
+    padding-right: 10px;
+  }
+}
+
+@include mixins.scrollbar(
+  4px,
+  inherit,
+  8px,
+  variables.$secondary-active,
+  transparent
+);

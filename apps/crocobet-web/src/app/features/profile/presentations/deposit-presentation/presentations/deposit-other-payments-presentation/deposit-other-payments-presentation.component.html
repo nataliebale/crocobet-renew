@@ -1,0 +1,51 @@
+<div class="deposit" data-cy="deposit">
+  <h4 class="deposit__title" data-cy="deposit-title">
+    {{ 'deposit_other_payments' | translate }}
+  </h4>
+
+  <div class="extra-padding">
+    <ng-template #slide let-payment>
+      <a
+        class="payment"
+        data-cy="payment"
+        target="_blank"
+        href="{{ payment.link }}"
+      >
+        <div class="payment__logo">
+          <img [src]="payment.imgUrl" alt="" />
+        </div>
+        <div class="payment__title">
+          {{ payment.name }}
+        </div>
+      </a>
+    </ng-template>
+
+    <crc-shared-swiper
+      class="scrollable-slider"
+      data-cy="scrollable-slider"
+      [dragSwipe]="true"
+      [pagination]="{ single: false }"
+      [navigation]="{ single: true }"
+      [images]="payments"
+      [autoPlay]="false"
+      [breakpoints]="{
+        '300': {
+          slidesPerView: 3,
+          spaceBetween: 20
+        },
+        '1366': {
+          slidesPerView: 4,
+          spaceBetween: 20
+        },
+        '1620': {
+          slidesPerView: 6,
+          spaceBetween: 20
+        }
+      }"
+      [loop]="false"
+      [templateRef]="{ template: slide, context: payments }"
+      [scrollbar]="false"
+    >
+    </crc-shared-swiper>
+  </div>
+</div>

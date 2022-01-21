@@ -1,0 +1,66 @@
+@use 'sass:math';
+@use 'variables';
+@use 'mixins';
+
+$banners-height: 364px;
+$banners-margin-bottom: 8px;
+$filters-margin-bottom: 12px;
+$filters-background-color: #1d242c;
+
+.filters {
+  margin-bottom: $filters-margin-bottom;
+}
+
+.slot-filters {
+  margin: 0;
+  padding: 0;
+  border-radius: 6px 6px 0 0;
+  background-color: $filters-background-color;
+
+  &__search {
+    margin: 4px 0 0;
+  }
+}
+
+.slots-detail-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: variables.$border-radius;
+  background-color: variables.$secondary;
+}
+
+.provider-filters {
+  overflow: hidden;
+  border-radius: 0 0 6px 6px;
+}
+
+.sidebar-btn {
+  position: absolute;
+  right: 0;
+  bottom: 8px;
+  width: 145px;
+  padding: 8px 16px;
+  border: 0;
+  background-color: transparent;
+  color: variables.$color-grey;
+  cursor: pointer;
+
+  &__icon {
+    margin-right: 4px;
+    transition: transform 0.2s linear;
+    vertical-align: top;
+
+    &.reverse {
+      transform: scaleX(-1);
+    }
+  }
+
+  span {
+    line-height: 1.2;
+    vertical-align: middle;
+  }
+}
+
+.slot-list {
+  z-index: 100;
+}

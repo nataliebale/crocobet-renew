@@ -1,0 +1,49 @@
+@use 'variables';
+@use 'mixins';
+
+$profile-menu-item-border-color: #343f4d;
+$profile-menu-item-text-color: #b6bfcb;
+$profile-menu-item-hover-color: #343f4d;
+
+.menu {
+  &__item {
+    display: block;
+    position: relative;
+    height: 60px;
+    padding: 20px;
+    transition: 0.1s;
+    border-bottom: 1px solid $profile-menu-item-border-color;
+    color: $profile-menu-item-text-color;
+    font-size: 14px;
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      transition: 0.1s;
+      opacity: 0;
+      background-color: variables.$color-green;
+    }
+
+    &:hover,
+    &.active {
+      background-color: $profile-menu-item-hover-color;
+      color: variables.$color-white;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__item-img {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    margin-bottom: -4px;
+  }
+}

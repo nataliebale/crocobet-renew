@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+    <defs>
+        <clipPath id="clip-path">
+            <path id="Rectangle_528" data-name="Rectangle 528" transform="translate(1670 253)" style="stroke:#707070;fill:#fff" d="M0 0h14v14H0z"/>
+        </clipPath>
+        <style>
+            .cls-3{fill:#fff}
+        </style>
+    </defs>
+    <g id="reset_icon" data-name="reset icon" transform="translate(-1670 -253)" style="clip-path:url(#clip-path)">
+        <g id="refresh_2_" data-name="refresh (2)" transform="translate(1670 253)">
+            <g id="Group_665" data-name="Group 665">
+                <g id="Group_664" data-name="Group 664">
+                    <path id="Path_716" data-name="Path 716" class="cls-3" d="M13.5 1.931a.547.547 0 0 0-.594.495l-.072.795a6.9 6.9 0 0 0-12 .576.547.547 0 1 0 .974.5 5.814 5.814 0 0 1 10.114-.482l-.78-.557a.547.547 0 1 0-.636.89l2.364 1.686a.547.547 0 0 0 .862-.4L14 2.526a.547.547 0 0 0-.5-.595z"/>
+                </g>
+            </g>
+            <g id="Group_667" data-name="Group 667">
+                <g id="Group_666" data-name="Group 666">
+                    <path id="Path_717" data-name="Path 717" class="cls-3" d="M12.93 9.467a.547.547 0 0 0-.736.238 5.814 5.814 0 0 1-10.114.482l.78.557a.547.547 0 0 0 .636-.89L1.13 8.166a.547.547 0 0 0-.862.4L0 11.474a.547.547 0 1 0 1.089.1l.072-.795a6.9 6.9 0 0 0 12-.576.547.547 0 0 0-.231-.736z"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

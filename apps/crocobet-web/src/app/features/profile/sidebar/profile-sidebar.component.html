@@ -1,0 +1,12 @@
+<nav class="menu">
+  <a
+    class="menu__item"
+    *ngFor="let item of profileMenuItems"
+    [routerLink]="item.link"
+    routerLinkActive="active"
+    [id]="item.label"
+  >
+    <img src="{{ item.icon }}" alt="Menu icon" class="menu__item-img" />
+    {{ item.label | translate }}
+  </a>
+</nav>

@@ -1,0 +1,32 @@
+<div class="virtual-games" data-cy="virtual-games">
+  <a
+    *ngFor="let firstElem of virtualGameFirstElem"
+    [href]="firstElem.link"
+    class="virtual-games__first-elem"
+  >
+    <div
+      class="virtual-games__main"
+      style="background-image: url('{{ firstElem.img }}');"
+    ></div>
+  </a>
+
+  <div class="virtual-games__items">
+    <a
+      *ngFor="let item of virtualGameItems"
+      [href]="item.link"
+      class="virtual-games__item"
+      data-cy="virtual-games-item"
+    >
+      <img
+        class="virtual-games__cat-img"
+        data-cy="virtual-games-cat-img"
+        [src]="item.img"
+        [alt]="item.title"
+      />
+      <div class="virtual-games__title" data-cy="virtual-game-title">
+        <h3>{{ item.title | translate }}</h3>
+        <img data-cy="virtual-game-logo" [src]="item.logo" [alt]="item.title" />
+      </div>
+    </a>
+  </div>
+</div>

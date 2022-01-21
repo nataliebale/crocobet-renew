@@ -1,0 +1,70 @@
+<div class="personal-info" data-cy="personal-info">
+  <crc-w-profile-content-title
+    [title]="'user_profile_title' | translate"
+    data-cy="personal-info-title"
+  ></crc-w-profile-content-title>
+
+  <div class="personal-info__body" data-cy="personal-info-body">
+    <div class="personal-info__profile" data-cy="personal-info-profile">
+      <crc-w-personal-info-profile-presentation
+        [verificationStatus]="verificationStatus"
+        [personalData]="personalData"
+      ></crc-w-personal-info-profile-presentation>
+    </div>
+
+    <div class="personal-info__settings" data-cy="personal-info-settings">
+      <crc-w-personal-info-settings-presentation
+        [cities]="cities"
+        [countries]="countries"
+        [personalData]="personalData"
+      ></crc-w-personal-info-settings-presentation>
+    </div>
+
+    <div class="personal-info__buttons" data-cy="personal-info-buttons">
+      <button
+        class="personal-info__button"
+        (click)="openPasswordRecovery.emit()"
+      >
+        {{ 'changePassword_buttonText' | translate }}
+      </button>
+    </div>
+
+    <div class="personal-info__checkboxes" data-cy="personal-info-checkboxes">
+      <div class="personal-info__container--wrapper">
+        <div class="personal-info__container">
+          <input
+            [(ngModel)]="security.smsLogin"
+            (change)="onSetSecurityOptions(UserSubscriptionModel.SMSLOGIN)"
+            id="smscode-system"
+            class="personal-info__input"
+            type="checkbox"
+          />
+          <label for="smscode-system" class="personal-info__label"></label>
+        </div>
+        <span
+          class="personal-info__checkmark"
+          [class.active-input]="security.smsLogin"
+          >{{ 'smsSecurity_smsLoginLabel' | translate }}</span
+        >
+      </div>
+
+      <div class="personal-info__container--wrapper">
+        <div class="personal-info__container">
+          <input
+            [(ngModel)]="security.smsWonBet"
+            (change)="onSetSecurityOptions(UserSubscriptionModel.SMSWONBET)"
+            id="smscode-ticket"
+            class="personal-info__input"
+            type="checkbox"
+          />
+          <label for="smscode-ticket" class="personal-info__label"></label>
+        </div>
+        <span
+          class="personal-info__checkmark"
+          [class.active-input]="security.smsWonBet"
+          >{{ 'smsSecurity_smsWonBetLabel' | translate }}</span
+        >
+      </div>
+    </div>
+  </div>
+</div>

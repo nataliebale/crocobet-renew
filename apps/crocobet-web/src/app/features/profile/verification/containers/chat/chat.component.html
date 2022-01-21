@@ -1,0 +1,10 @@
+<div [style]="loading ? 'display:none' : ''">
+  <div class="live-chat live-chat--position">
+    <div class="headerclick"></div>
+  </div>
+  <div #liveCallerScript data-livecaller="chat-widget" id="live-call"></div>
+</div>
+
+<div class="loading" *ngIf="loading">
+  <crc-shared-loading [state]="loading"></crc-shared-loading>
+</div>

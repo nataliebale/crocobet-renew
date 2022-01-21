@@ -1,0 +1,89 @@
+@use 'variables';
+
+$top-matches-height: 218px;
+$top-matches-m-bottom: 20px;
+$top-matches-border-radius: 6px;
+$top-matches-title-m-left: 8px;
+$top-matches-template-z-index: 1;
+$match-width: 227px;
+$match-height: 108px;
+$match-color: #fff;
+$match-img-height: 40px;
+$match-img-margin-bottom: 15px;
+$content-team-margin-bottom: 11px;
+$content-team-font-size: 9px;
+$content-league-margin-bottom: 11px;
+$content-league-margin-bottom: 13px;
+$content-league-hover-color: #22c156;
+
+$match-content-max-width: 65px;
+$match-content-team-height: 23px;
+$match-content-league-height: 13px;
+
+.top-matches {
+  position: relative;
+  height: $top-matches-height;
+  margin-bottom: $top-matches-m-bottom;
+  overflow: hidden;
+  border-radius: $top-matches-border-radius;
+  background-color: variables.$secondary;
+
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    margin-left: $top-matches-title-m-left;
+  }
+
+  &__template {
+    z-index: $top-matches-template-z-index;
+  }
+}
+
+.match {
+  display: flex;
+  justify-content: space-between;
+  width: $match-width;
+  height: $match-height;
+  color: $match-color;
+
+  &__league--img {
+    height: $match-img-height;
+  }
+
+  &__team--img {
+    height: $match-img-height;
+    margin-bottom: $match-img-margin-bottom;
+    cursor: pointer;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    max-width: $match-content-max-width;
+  }
+
+  &__content--team {
+    height: $match-content-team-height;
+    font-size: $content-team-font-size;
+    cursor: pointer;
+  }
+
+  &__content--league {
+    height: $match-content-league-height;
+    font-size: $content-league-margin-bottom;
+    cursor: pointer;
+  }
+
+  &__content--league:hover {
+    color: $content-league-hover-color;
+  }
+}
+
+.hidden {
+  visibility: hidden;
+}

@@ -1,0 +1,12 @@
+<div
+  [ngClass]="{ hidden: !outcome }"
+  class="match__odd"
+  data-cy="top-match-odd"
+>
+  <span class="match__odd--text" data-cy="top-match-odd-text">
+    {{ outcome?.outcomeName }}
+  </span>
+  <span class="match__odd--coeff" data-cy="top-match-odd-coeff">
+    {{ outcome?.outcomeOdds | number: '1.2-2' }}
+  </span>
+</div>

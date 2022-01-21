@@ -1,0 +1,36 @@
+@use 'variables';
+
+$board-game-content-item-border: 1px solid #3e0f12;
+$board-game-content-item-border-domino: 1px solid #041e0b;
+$board-game-content-item-border-bura: 1px solid #161f38;
+
+.board-game {
+  padding: 0 4px;
+
+  &__content {
+    &--item {
+      height: 45px;
+      border-bottom: $board-game-content-item-border;
+    }
+
+    &--currency {
+      margin-right: 10px;
+    }
+
+    &--time {
+      margin-left: 10px;
+    }
+  }
+}
+
+.domino {
+  .board-game__content--item {
+    border-bottom: $board-game-content-item-border-domino;
+  }
+}
+
+.bura {
+  .board-game__content--item {
+    border-bottom: $board-game-content-item-border-bura;
+  }
+}

@@ -1,0 +1,36 @@
+<crc-w-personal-info-presentation
+  [verificationStatus]="verificationStatus$ | async"
+  [personalData]="personalData$ | async"
+  [security]="security$ | async"
+  [cities]="cities"
+  [countries]="countries"
+  (securityOptionModel)="setSecurityOptions($event)"
+  (openPasswordRecovery)="showPasswordRecoveryDialog = true"
+>
+</crc-w-personal-info-presentation>
+<crc-shared-popup
+  *ngIf="showPasswordRecoveryDialog"
+  (closed)="onClosePasswordRecoveryDialog()"
+  title="პაროლის შეცვლა"
+  class="dialog-custom-size custom-bg-colors custom-header-text-color"
+>
+  <div class="dialog-wrapper">
+    <crc-w-recovery-password-dialog-presentation
+      *ngIf="activeDialogView === RecoveryPasswordSteps.ENTER_DETAILS"
+      [customerId]="customerId$ | async"
+      (recoveryPassword$)="onRecoveryPassword($event)"
+      [userName]="userName$ | async"
+      [(showIncorrectPasswordErrorMessage)]="showIncorrectPasswordErrorMessage"
+    >
+    </crc-w-recovery-password-dialog-presentation>
+    <crc-w-reset-password-status-presentation
+      *ngIf="
+        activeDialogView === RecoveryPasswordSteps.SUCCESS ||
+        activeDialogView === RecoveryPasswordSteps.FAIL
+      "
+      [success]="activeDialogView === RecoveryPasswordSteps.SUCCESS"
+      (closeDialog)="onClosePasswordRecoveryDialog()"
+    >
+    </crc-w-reset-password-status-presentation>
+  </div>
+</crc-shared-popup>

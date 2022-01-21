@@ -1,0 +1,181 @@
+@use 'variables';
+@use 'mixins';
+
+$payment-color-light-black: #161d27;
+$payment-color-green: #15af44;
+$payment-color-black: #0a0c0e;
+$providers-tbc-color: #00a3e0;
+$providers-bog-color: #fc671a;
+
+.popup-header {
+  @include mixins.flex(flex-start, center);
+
+  gap: 12px;
+
+  &__heading {
+    margin-top: 4px;
+    color: variables.$color-white;
+    font-size: variables.$font-size-lg;
+  }
+}
+
+.payment-form-container {
+  width: 100%;
+  background-color: $payment-color-light-black;
+}
+
+.payment-form {
+  @include mixins.flex-column();
+
+  gap: 20px;
+  padding: 30px 0;
+
+  &__main {
+    @include mixins.flex-column();
+
+    width: 400px;
+    margin: 0 auto;
+    gap: 30px;
+  }
+
+  &__input {
+    @include mixins.flex-column();
+
+    gap: 12px;
+  }
+
+  &__footer {
+    @include mixins.flex-column();
+
+    width: 400px;
+    margin: 0 auto;
+    gap: 30px;
+  }
+
+  &__amount {
+    @include mixins.flex-column();
+  }
+
+  &__separator {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(variables.$secondary-active, 0.1);
+  }
+
+  &__save {
+    @include mixins.flex(flex-start, center);
+
+    color: rgba(variables.$color-white, 0.8);
+    font-family: variables.$font-regular;
+    font-size: variables.$font-size-sm;
+    gap: 8px;
+
+    &--input {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      appearance: none;
+
+      &[type='checkbox']::after {
+        content: '';
+        display: block;
+        width: 16px;
+        height: 16px;
+        border-radius: 2px;
+        background-color: variables.$color-white;
+        cursor: pointer;
+      }
+
+      &[type='checkbox']:checked::after {
+        @include mixins.flex(center, center);
+
+        content: url('/assets/icons/deposit/checkbox-checked.svg');
+        width: 16px;
+        height: 16px;
+        background-color: $payment-color-green;
+      }
+    }
+  }
+
+  &__submit {
+    @include mixins.flex(center, normal);
+  }
+}
+
+.provider {
+  @include mixins.flex-column();
+
+  font-size: variables.$font-size-lg;
+  gap: 20px;
+}
+
+.providers {
+  @include mixins.flex-column();
+
+  width: 100%;
+  gap: 20px;
+
+  &__item {
+    @include mixins.flex(flex-start, center);
+
+    gap: 16px;
+
+    &.not-selected .providers__input::after {
+      background-color: variables.$color-grey;
+    }
+
+    &.not-selected .providers__label {
+      opacity: 0.6;
+    }
+  }
+
+  &__input {
+    appearance: none;
+    outline: none;
+
+    &[type='radio'] {
+      &::after {
+        content: '';
+        display: block;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-color: variables.$color-white;
+        cursor: pointer;
+      }
+
+      &:checked::after {
+        content: url('/assets/icons/deposit/checked.svg');
+      }
+    }
+  }
+
+  &__label {
+    @include mixins.flex(flex-start, center);
+
+    display: flex;
+    align-items: center;
+    width: 360px;
+    height: 50px;
+    padding: 14px;
+    border-radius: 2px;
+    font-size: variables.$font-size-md;
+    cursor: pointer;
+
+    &--tbc {
+      background-color: $providers-tbc-color;
+    }
+
+    &--bog {
+      background-color: $providers-bog-color;
+    }
+
+    &--any {
+      background-color: variables.$color-white;
+    }
+  }
+
+  &__any {
+    color: $payment-color-black;
+  }
+}

@@ -1,0 +1,58 @@
+<div
+  class="game-search"
+  (mouseleave)="gameContentVisibility = false"
+  (mouseenter)="gameContentVisibility = true"
+>
+  <div class="game-search__input">
+    <input
+      class="game-search__text"
+      [formControl]="inputValue"
+      [placeholder]="'slotsPage_search_box_title' | translate"
+      [ngClass]="{
+        'game-search__text--restyle':
+          gameContentVisibility && searchGameData?.length !== 0
+      }"
+      type="text"
+      data-cy="game-search__text"
+    />
+    <img
+      *ngIf="iconVisibility"
+      class="game-search__img"
+      src="assets/icons/gameSearch/search.svg"
+      alt="Game Search"
+    />
+
+    <img
+      *ngIf="!iconVisibility"
+      class="game-search__img close"
+      src="assets/icons/gameSearch/cancel.svg"
+      alt="Cancel"
+      (click)="onClearAll()"
+    />
+  </div>
+
+  <div
+    *ngIf="gameContentVisibility && searchGameData?.length !== 0"
+    class="game-search__content"
+    [ngClass]="contentHeight"
+  >
+    <div
+      *ngFor="let gameData of searchGameData"
+      class="game-search__content--item"
+      (click)="onGameSelect(gameData)"
+    >
+      <img
+        class="game-search__content--img"
+        [src]="gameData.image"
+        alt="Game Icon"
+      />
+      <div class="game-search__content--titles">
+        <span class="game-search__provider">{{ gameData.providerName }}</span>
+        <span class="game-search__name">{{ gameData.gameName }}</span>
+      </div>
+      <div class="game-search__arrow">
+        <img src="assets/icons/gameSearch/arrow.svg" alt="Game Search Arrow" />
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,107 @@
+<div class="footer">
+  <div class="footer__general" data-cy="footer-general">
+    <div class="footer__general--left" data-cy="footer-general-left">
+      <div
+        *ngFor="let menuItem of menuItems"
+        class="footer__category"
+        [id]="menuItem.menuTitleKey"
+      >
+        <h3 class="footer__title" data-cy="footer-title">
+          {{ menuItem.menuTitleKey | translate }}
+        </h3>
+        <ng-container *ngFor="let category of menuItem.categoryName">
+          <a
+            class="footer__link"
+            [class.footer__clickable]="category.link !== '#'"
+            data-cy="footer-link"
+            [routerLink]="category.link"
+            >{{ category.nameKey | translate }}</a
+          >
+        </ng-container>
+      </div>
+
+      <div class="footer__section" data-cy="footer-section">
+        <div class="footer__lang" data-cy="footer-lang"></div>
+        <div class="footer__contact" data-cy="footer-contact"></div>
+      </div>
+    </div>
+
+    <div class="footer__general--right" data-cy="footer-general-right">
+      <div class="footer__lang" data-cy="footer-lang">
+        <a
+          (click)="changeLanguage(langItem.key)"
+          *ngFor="let langItem of langItems"
+          class="footer__lang--link"
+          [class.active]="langItem.active"
+          data-cy="footer-lang-link"
+        >
+          <img
+            class="footer__lang--img"
+            data-cy="footer-lang-img"
+            src="assets/icons/footer/flags/{{ langItem.img }}.png"
+            [alt]="langItem.title"
+          />
+          <span class="footer__lang--title" data-cy="footer-lang-title">{{
+            langItem.title
+          }}</span>
+        </a>
+      </div>
+
+      <div class="footer__messengers" data-cy="footer-messengers">
+        <a class="footer__livecaller" (click)="openLiveChat($event)">
+          <img src="assets/icons/footer/media/livecaller.svg" alt="live chat" />
+        </a>
+
+        <a
+          *ngFor="let messengerItem of messengerMenu"
+          [href]="messengerItem.link"
+          target="_blank"
+        >
+          <img
+            class="footer__messengers--img"
+            data-cy="footer-messengers-img"
+            src="assets/icons/footer/media/{{ messengerItem.img }}.svg"
+            [alt]="messengerItem.img"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__cards" data-cy="footer-cards">
+    <img
+      *ngFor="let footerCard of footerCards"
+      class="footer__cards--item"
+      id="footer-cards-{{ footerCard.name }}"
+      src="assets/icons/footer/bank/{{ footerCard.name }}.svg"
+      [alt]="footerCard.name"
+    />
+  </div>
+
+  <div class="footer__license" data-cy="footer-license">
+    <div class="footer__license--left" data-cy="footer-license-left">
+      <div class="footer__license--text" data-cy="footer-license-text">
+        {{ 'footer_license_text' | translate }}
+      </div>
+      <div class="footer__copyright" data-cy="footer-copyright">
+        {{ 'footer_rights_reserved' | translate }}
+      </div>
+    </div>
+    <div class="footer__license--right" data-cy="footer-license-right">
+      <img
+        *ngFor="let footerLicenseItem of footerLicenseItems"
+        class="footer__license--items"
+        id="footer-license-{{ footerLicenseItem.name }}"
+        src="assets/icons/footer/items/{{ footerLicenseItem.name }}.svg"
+        [alt]="footerLicenseItem.name"
+      />
+      <div
+        class="antillephone ar-item ar-item--position ar-item--filled"
+        id="apg-seal-container"
+        data-apg-seal-id="2dfc8787-0c5a-4a6e-8ded-db1dea77d432"
+        data-apg-image-size="128"
+        data-apg-image-type="basic-small"
+      ></div>
+    </div>
+  </div>
+</div>

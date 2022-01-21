@@ -1,0 +1,14 @@
+@use 'mixins';
+
+.card__footer {
+  @include mixins.flex(space-between, flex-end);
+
+  &--number {
+    color: #89a1be;
+    font-size: 12px;
+  }
+
+  &--provider {
+    height: 15.5px;
+  }
+}

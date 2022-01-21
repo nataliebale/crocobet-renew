@@ -1,0 +1,31 @@
+<div class="popup-container" data-cy="popup-container">
+  <div
+    [ngClass]="{
+      'popup--sm': size === 'sm',
+      'popup--lg': size === 'lg',
+      'popup--xl': size === 'xl'
+    }"
+    class="popup"
+    data-cy="popup"
+    @scaleInAndOut
+  >
+    <div class="popup__header popup-header" data-cy="popup-header">
+      <div class="popup-header__title" data-cy="popup-header-title">
+        {{ title }}
+        <ng-content select="[header]"></ng-content>
+      </div>
+      <div class="popup-header__close" data-cy="popup-header-close">
+        <img
+          (click)="closeModal()"
+          alt="close button"
+          class="popup-header__close--position"
+          data-cy="popup-header-close-position"
+          src="assets/icons/gameSearch/cancel.svg"
+        />
+      </div>
+    </div>
+    <div class="popup__body popup-body" data-cy="popup-body">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

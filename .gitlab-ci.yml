@@ -1,0 +1,69 @@
+stages:
+  - build
+  - Copy
+  - zip
+  - webserver
+  - clean
+
+  
+
+build:
+  stage : build
+  only:
+    - develop
+    - merge_requests
+  tags:
+    - run
+  script:
+    - npm install
+    - npm run build-web
+    - cd /home/gitlab-runner/builds/zjU_m-L5/0/front-end-gurus/crocobet-renew/dist/apps/crocobet-web/browser/
+    - tar -czvf /tmp/crocobet-web.tar.gz *
+  
+  #environment: develop
+
+Copy:
+   stage: Copy
+   only :
+     - develop
+   tags:
+     - run
+   script:
+     - cd /home && ./scp
+     - cd /tmp/
+     - scp -r crocobet-web.tar.gz root@10.0.69.101:/tmp/
+   #environment: develop
+   #resource_group: developaaaa
+
+
+zip:
+  stage : zip
+  only :
+    - develop
+  tags:
+    - run
+  script:
+    -  cd /home && ./tar
+ # environment: develop
+
+
+webserver:
+  stage : webserver
+  only :
+    - develop
+  tags:
+    - run
+  script:
+    - cd /home && ./nginx
+ # environment: develop
+
+clean:
+  stage : clean
+  only :
+    - develop
+  tags:
+    - run
+  script:
+    - cd /home/gitlab-runner/builds/zjU_m-L5/0/front-end-gurus/crocobet-renew/
+    - rm -rf *
+  #environment: develop

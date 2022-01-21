@@ -1,0 +1,59 @@
+.scrollable-slider {
+  .swiper {
+    width: auto;
+    height: auto;
+    background-color: inherit;
+  }
+
+  .swiper-slide {
+    justify-content: flex-start;
+    background-color: inherit;
+
+    &:first-child .card {
+      border: initial;
+    }
+  }
+
+  .swiper-scrollbar-drag {
+    background-color: #189541;
+    cursor: pointer;
+  }
+
+  .swiper-wrapper {
+    margin: 20px 0 25px;
+  }
+
+  .swiper-scrollbar {
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #1a2532;
+  }
+
+  .swiper-button-disabled {
+    display: none;
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 25px;
+    font-weight: normal;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    top: 20px;
+    width: 60px;
+    height: 120px;
+    padding: 50px 20px;
+    opacity: 1;
+  }
+
+  .swiper-button-prev {
+    left: 0;
+  }
+
+  .swiper-button-next {
+    right: 0;
+  }
+}

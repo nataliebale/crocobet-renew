@@ -1,0 +1,19 @@
+<ng-container *ngIf="paymentStep === 'internalForm'">
+  <ng-container *ngIf="iframeUrl; else paymentForm">
+    <crc-w-deposit-pay-container
+      [iframeUrl]="iframeUrl"
+      (closePopup)="onPopupClose()"
+    ></crc-w-deposit-pay-container>
+  </ng-container>
+
+  <ng-template #paymentForm>
+    <crc-w-deposit-popup-presentation
+      [providerList]="providerList$ | async"
+      [currentLanguage]="currentLanguage$ | async"
+      [paymentAmount]="paymentAmount"
+      (processPayment)="onProcessPayment($event)"
+      (closePopup)="onPopupClose()"
+    >
+    </crc-w-deposit-popup-presentation>
+  </ng-template>
+</ng-container>

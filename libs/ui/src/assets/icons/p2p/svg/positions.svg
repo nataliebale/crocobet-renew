@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14" viewBox="0 0 14 14">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5100" data-name="Rectangle 5100" width="14" height="14" transform="translate(731 726)" fill="#fff" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="positions_icon" data-name="positions icon" transform="translate(-731 -726)" clip-path="url(#clip-path)">
+    <g id="trophy_3_" data-name="trophy (3)" transform="translate(731 726)">
+      <g id="Group_3876" data-name="Group 3876">
+        <path id="Path_3675" data-name="Path 3675" d="M13.59,1.193A1.5,1.5,0,0,0,12.5.724H11.2c.005-.235.009-.476.009-.725H2.8c0,.248,0,.49.009.725H1.5A1.5,1.5,0,0,0,0,2.317C.238,6.226,2.256,8.68,5.455,9.044L4.835,11.2A1.333,1.333,0,0,0,3.5,12.533V14h7.007V12.533A1.333,1.333,0,0,0,9.175,11.2l-.62-2.156C11.748,8.676,13.764,6.225,14,2.317A1.513,1.513,0,0,0,13.59,1.193ZM1.4,2.233a.1.1,0,0,1,.028-.079A.088.088,0,0,1,1.5,2.126H2.875a10.815,10.815,0,0,0,1.405,5.2C2.035,6.38,1.5,3.866,1.4,2.233ZM9.728,7.317a10.822,10.822,0,0,0,1.4-5.192h1.374a.086.086,0,0,1,.067.028.1.1,0,0,1,.028.079C12.5,3.864,11.966,6.372,9.728,7.317Z" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

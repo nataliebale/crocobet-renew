@@ -1,0 +1,40 @@
+<div class="card__header" data-cy="card-header">
+  <div
+    class="card__header--title"
+    data-cy="card-header-title"
+    [ngClass]="{ border: card.canEditCardName }"
+  >
+    <div
+      class="card__header--edit"
+      data-cy="card-header-edit"
+      (click)="onEditCardName(card); $event.stopPropagation()"
+    >
+      <img src="/assets/icons/deposit/edit.svg" alt="Edit" />
+    </div>
+
+    <span
+      *ngIf="!card.canEditCardName"
+      class="card__header--name"
+      data-cy="card-header-name"
+    >
+      {{ cardName || ('marketType_3' | translate) }}
+    </span>
+
+    <input
+      #cardNameInput
+      *ngIf="card.canEditCardName"
+      [(ngModel)]="cardName"
+      class="card__header--input"
+      data-cy="card-header-input"
+      (click)="$event.stopPropagation()"
+      (blur)="onUpdateCardName(card)"
+    />
+  </div>
+  <div class="card__header--close" data-cy="card-header-close">
+    <img
+      (click)="onRemoveCard(card); $event.stopPropagation()"
+      src="/assets/icons/deposit/delete.svg"
+      alt="Remove"
+    />
+  </div>
+</div>

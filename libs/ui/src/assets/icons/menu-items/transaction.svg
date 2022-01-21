@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <defs>
+        <clipPath id="clip-path">
+            <path id="Rectangle_519" data-name="Rectangle 519" class="cls-1" transform="translate(0 -.491)" d="M0 0h20v20H0z"/>
+        </clipPath>
+        <style>
+            .cls-1{fill:#96a5b8}
+        </style>
+    </defs>
+    <g id="icon" transform="translate(0 .491)" style="clip-path:url(#clip-path)">
+        <g id="clock_4_" data-name="clock (4)" transform="translate(0 1.25)">
+            <g id="Group_527" data-name="Group 527">
+                <g id="Group_526" data-name="Group 526">
+                    <path id="Path_750" data-name="Path 750" class="cls-1" d="M11.25 1.25a8.744 8.744 0 0 0-8.65 7.5H0l3.75 5 3.75-5H5.128a6.249 6.249 0 1 1 6.122 7.5v2.5a8.75 8.75 0 0 0 0-17.5z" transform="translate(0 -1.25)"/>
+                    <path id="Path_751" data-name="Path 751" class="cls-1" d="M10 6.25v5h5V10h-3.75V6.25z" transform="translate(0 -1.25)"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

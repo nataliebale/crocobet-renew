@@ -1,0 +1,6 @@
+<crc-game-search
+  [searchGameData]="$slotGames | async"
+  [gameContentVisibility]="gameContentVisibility"
+  (keyUp)="onFilter($event)"
+  (selectGame)="onGoToGame($event)"
+></crc-game-search>

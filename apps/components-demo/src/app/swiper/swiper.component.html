@@ -1,0 +1,109 @@
+<div
+  class="row justify-content-center text-center"
+  style="row-gap: 20px; margin: 10px 0"
+>
+  <div class="col-10" style="height: 364px">
+    <crc-shared-swiper [images]="images" [switcher]="true" [autoPlay]="true">
+      <p>Is content projection cool?</p>
+    </crc-shared-swiper>
+  </div>
+
+  <div class="col-6 col-md-4" style="height: 264px">
+    <crc-shared-swiper
+      [header]="true"
+      [images]="images"
+      [pagination]="{ single: false }"
+      [navigation]="{ single: true }"
+      [autoPlay]="false"
+    >
+      <span title>EGT Jackpot</span>
+    </crc-shared-swiper>
+  </div>
+
+  <div class="col-6 col-md-4" style="height: 264px">
+    <crc-shared-swiper
+      view="grid"
+      [images]="images"
+      [header]="true"
+      [autoPlay]="false"
+      [loop]="false"
+    >
+      <span title>Promotions</span>
+    </crc-shared-swiper>
+  </div>
+
+  <div class="col-10" style="height: 160px">
+    <crc-shared-swiper
+      [pagination]="{ single: false }"
+      [navigation]="{ single: true }"
+      [images]="images"
+      [header]="true"
+      [autoPlay]="false"
+      [slidesPerView]="4"
+      [loop]="false"
+    >
+      <span></span>
+      <span title>Top Games</span>
+    </crc-shared-swiper>
+  </div>
+
+  <div class="col-11" style="height: 160px">
+    <crc-shared-swiper
+      [pagination]="{ single: false }"
+      [navigation]="{ single: true }"
+      [images]="images"
+      [header]="true"
+      [autoPlay]="false"
+      [slidesPerView]="5"
+      [loop]="false"
+    >
+      <span></span>
+      <span title>Top Matches</span>
+    </crc-shared-swiper>
+  </div>
+
+  <div class="col-7" style="height: 160px">
+    <ng-template #slide let-image>
+      <p style="color: white">
+        Custom content - image length: {{ image.length }}
+      </p>
+    </ng-template>
+    <crc-shared-swiper
+      [images]="images"
+      [pagination]="{ single: false }"
+      [navigation]="{ single: true }"
+      [header]="true"
+      [autoPlay]="false"
+      [slidesPerView]="3"
+      [templateRef]="{ template: slide, context: images }"
+    >
+      <span title>Custom content for one slider</span>
+    </crc-shared-swiper>
+  </div>
+
+  <div class="col-7" style="height: 160px">
+    <ng-template #gridSlide let-images>
+      <div style="display: flex; flex-wrap: wrap; height: 100%">
+        <ng-container *ngFor="let image of images">
+          <p style="color: white; width: 40%; max-height: 40%">
+            View {{ image.length }} image as you would like:
+          </p>
+        </ng-container>
+      </div>
+    </ng-template>
+
+    <crc-shared-swiper
+      [images]="images"
+      [header]="true"
+      [autoPlay]="false"
+      [slidesPerView]="1"
+      [loop]="false"
+      view="grid"
+      [templateRefGrid]="{ template: gridSlide, context: images }"
+    >
+      <span title>Custom content for grid slider</span>
+    </crc-shared-swiper>
+  </div>
+
+  <br /><br />
+</div>

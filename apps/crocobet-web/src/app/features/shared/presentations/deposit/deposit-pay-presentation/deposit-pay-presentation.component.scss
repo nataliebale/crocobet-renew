@@ -1,0 +1,20 @@
+@use 'mixins';
+@use 'variables';
+
+.iframe__wrapper {
+  height: 686px;
+}
+
+.iframe {
+  height: 686px;
+}
+
+@include mixins.desktop-height-768 {
+  .iframe__wrapper {
+    @include mixins.scrollbar(4px, inherit, 3px, inherit, transparent);
+
+    height: 580px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}

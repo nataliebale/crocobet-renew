@@ -1,0 +1,76 @@
+<div
+  class="board-game-table__header"
+  [class]="gameClass"
+  data-cy="board-game-table-header"
+>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-4 d-flex align-items-center">
+        <img
+          class="board-game-table__icons"
+          src="/assets/icons/p2p/svg/{{
+            showTournaments ? 'time' : 'positions'
+          }}.svg"
+          alt="Time"
+        />
+
+        <div
+          class="board-game-table__header--title"
+          data-cy="board-game-table-header-title"
+        >
+          <span>
+            {{
+              showTournaments
+                ? ('tournament_header_time' | translate)
+                : ('weekly_position' | translate)
+            }}
+          </span>
+        </div>
+      </div>
+
+      <div class="col-4 d-flex align-items-center">
+        <img
+          class="board-game-table__icons"
+          src="/assets/icons/p2p/svg/{{
+            showTournaments ? 'buy-in' : 'users'
+          }}.svg"
+          alt="Buy-in"
+        />
+
+        <div
+          class="board-game-table__header--title"
+          data-cy="board-game-table-header-title"
+        >
+          <span>
+            {{
+              showTournaments
+                ? ('tournament_header_buyin' | translate)
+                : ('weekly_users' | translate)
+            }}
+          </span>
+        </div>
+      </div>
+
+      <div class="col-4 d-flex align-items-center">
+        <img
+          class="board-game-table__icons"
+          src="/assets/icons/p2p/svg/prize.svg"
+          alt="Prize"
+        />
+
+        <div
+          class="board-game-table__header--title"
+          data-cy="board-game-table-header-title"
+        >
+          <span>
+            {{
+              showTournaments
+                ? ('tournament_header_prize' | translate)
+                : ('weekly_prize' | translate)
+            }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

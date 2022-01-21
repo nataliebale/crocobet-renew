@@ -1,0 +1,25 @@
+@use 'variables';
+@use 'mixins';
+
+$empty-slot-text-color: #d9e3ef;
+
+.games-list {
+  display: grid;
+  grid-gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  margin-bottom: 12px;
+
+  &__empty {
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+    color: rgba($empty-slot-text-color, 0.7);
+    font-size: 14px;
+    text-align: center;
+  }
+
+  &__slot {
+    border-radius: 4px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
+  }
+}

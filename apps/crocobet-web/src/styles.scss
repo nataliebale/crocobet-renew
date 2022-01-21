@@ -1,0 +1,12 @@
+@use 'variables';
+@use 'ui';
+@use 'swiper';
+@use 'mixins';
+
+body {
+  background-color: variables.$primary;
+  color: variables.$color-black;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+@include mixins.scrollbar(5px, inherit, inherit, #323743, transparent);

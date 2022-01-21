@@ -1,0 +1,67 @@
+<div class="promotions" data-cy="promotions">
+  <div class="promotions__categories" data-cy="promotions-categories">
+    <crc-shared-filters
+      [extendable]="false"
+      [filterItems]="filterItems"
+      (selectedChange)="onSelectChange($event)"
+    ></crc-shared-filters>
+  </div>
+
+  <div
+    *ngIf="promotions?.length; else empty"
+    class="promotions-wrapper"
+    data-cy="promotions-wrapper"
+  >
+    <a
+      *ngFor="let promotion of promotions"
+      class="promotions-wrapper__promo"
+      data-cy="promotions-wrapper-promo"
+      [href]="promotion.href"
+      target="_blank"
+    >
+      <div
+        class="promotions-wrapper__promo--body"
+        data-cy="promotions-wrapper-promo-body"
+      >
+        <div class="see-more" data-cy="see-more">
+          {{ 'get_more' | translate }}
+        </div>
+        <div
+          class="promotions-wrapper__promo-img"
+          data-cy="promotions-wrapper-promo-image"
+          style="background-image: url('{{ promotion?.image }}');"
+        ></div>
+      </div>
+      <div
+        class="promotions-wrapper__promo--footer"
+        data-cy="promotions-wrapper-promo-footer"
+      >
+        <div class="d-flex flex-column justify-content-around">
+          <span
+            class="promotions-wrapper__promo--title"
+            data-cy="promotions-wrapper-promo-title"
+          >
+            {{ promotion.title }}
+          </span>
+          <span
+            class="promotions-wrapper__promo--desc"
+            data-cy="promotions-wrapper-promo-desc"
+          >
+            {{ promotion.desc }}
+          </span>
+        </div>
+
+        <crc-w-promotions-timer-presentation
+          [promotion]="promotion"
+          [time]="promotion.countdownTime"
+        ></crc-w-promotions-timer-presentation>
+      </div>
+    </a>
+  </div>
+
+  <ng-template #empty>
+    <span class="promotions-empty" data-cy="promotions-empty">
+      {{ 'promos-data-not-found' | translate }}
+    </span>
+  </ng-template>
+</div>

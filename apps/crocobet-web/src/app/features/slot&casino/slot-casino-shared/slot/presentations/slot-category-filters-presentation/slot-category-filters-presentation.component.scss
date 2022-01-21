@@ -1,0 +1,21 @@
+$category-filters-bg-color: #1d242c;
+$category-filters-border-color: #1f2329;
+
+button {
+  border: 0;
+}
+
+.category-filters {
+  padding: 0;
+  border-radius: 6px;
+  background-color: $category-filters-bg-color;
+
+  &__body {
+    overflow: hidden;
+    border-bottom: 1px solid $category-filters-border-color;
+
+    &_active {
+      height: auto;
+    }
+  }
+}

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+  <g id="calendar" opacity="0.8">
+    <g id="Group_42" data-name="Group 42">
+      <g id="Group_41" data-name="Group 41">
+        <path id="Path_140" data-name="Path 140" d="M12.359,1.094H11.7V0H10.609V1.094H3.391V0H2.3V1.094H1.641A1.642,1.642,0,0,0,0,2.734v9.625A1.642,1.642,0,0,0,1.641,14H12.359A1.642,1.642,0,0,0,14,12.359V2.734A1.642,1.642,0,0,0,12.359,1.094Zm.547,11.266a.547.547,0,0,1-.547.547H1.641a.547.547,0,0,1-.547-.547V5.141H12.906Zm0-8.312H1.094V2.734a.547.547,0,0,1,.547-.547H2.3V3.281H3.391V2.188h7.219V3.281H11.7V2.188h.656a.547.547,0,0,1,.547.547Z" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_44" data-name="Group 44" transform="translate(2.969 6.061)">
+      <g id="Group_43" data-name="Group 43">
+        <rect id="Rectangle_55" data-name="Rectangle 55" width="1.563" height="1.563" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_46" data-name="Group 46" transform="translate(4.111 6.061)">
+      <g id="Group_45" data-name="Group 45">
+        <rect id="Rectangle_56" data-name="Rectangle 56" width="1.563" height="1.563" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_48" data-name="Group 48" transform="translate(6.219 6.061)">
+      <g id="Group_47" data-name="Group 47">
+        <rect id="Rectangle_57" data-name="Rectangle 57" width="1.563" height="1.563" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_50" data-name="Group 50" transform="translate(8.327 6.061)">
+      <g id="Group_49" data-name="Group 49">
+        <rect id="Rectangle_58" data-name="Rectangle 58" width="1.563" height="1.563" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_52" data-name="Group 52" transform="translate(9.469 6.061)">
+      <g id="Group_51" data-name="Group 51">
+        <rect id="Rectangle_59" data-name="Rectangle 59" width="1.563" height="1.563" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_54" data-name="Group 54" transform="translate(2.969 8.169)">
+      <g id="Group_53" data-name="Group 53">
+        <rect id="Rectangle_60" data-name="Rectangle 60" width="1.563" height="1.563" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_56" data-name="Group 56" transform="translate(4.111 8.169)">
+      <g id="Group_55" data-name="Group 55">
+        <rect id="Rectangle_61" data-name="Rectangle 61" width="1.563" height="1.563" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_58" data-name="Group 58" transform="translate(6.219 8.169)">
+      <g id="Group_57" data-name="Group 57">
+        <rect id="Rectangle_62" data-name="Rectangle 62" width="1.563" height="1.563" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_60" data-name="Group 60" transform="translate(8.327 8.169)">
+      <g id="Group_59" data-name="Group 59">
+        <rect id="Rectangle_63" data-name="Rectangle 63" width="1.563" height="1.563" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_62" data-name="Group 62" transform="translate(2.969 10.277)">
+      <g id="Group_61" data-name="Group 61">
+        <rect id="Rectangle_64" data-name="Rectangle 64" width="1.563" height="1.563" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_64" data-name="Group 64" transform="translate(4.111 10.277)">
+      <g id="Group_63" data-name="Group 63">
+        <rect id="Rectangle_65" data-name="Rectangle 65" width="1.563" height="1.563" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_66" data-name="Group 66" transform="translate(6.219 10.277)">
+      <g id="Group_65" data-name="Group 65">
+        <rect id="Rectangle_66" data-name="Rectangle 66" width="1.563" height="1.563" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_68" data-name="Group 68" transform="translate(8.327 10.277)">
+      <g id="Group_67" data-name="Group 67">
+        <rect id="Rectangle_67" data-name="Rectangle 67" width="1.563" height="1.563" fill="#fff"/>
+      </g>
+    </g>
+    <g id="Group_70" data-name="Group 70" transform="translate(9.469 8.169)">
+      <g id="Group_69" data-name="Group 69">
+        <rect id="Rectangle_68" data-name="Rectangle 68" width="1.563" height="1.563" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

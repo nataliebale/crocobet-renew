@@ -1,0 +1,50 @@
+@use 'variables';
+@use 'mixins';
+
+.banners {
+  height: 420px;
+}
+
+@include mixins.desktop-1620() {
+  .banners {
+    height: 344px;
+  }
+}
+
+@include mixins.desktop-1366() {
+  .banners {
+    height: 306px;
+  }
+}
+
+.countdown {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  padding: 11px 50px 10px 12px;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.8),
+    rgba(18, 19, 22, 0.43)
+  );
+  color: variables.$color-white;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.title {
+  position: absolute;
+  bottom: 12px;
+  left: 30px;
+  color: variables.$color-white;
+  text-align: left;
+}
+
+.title__main {
+  margin-bottom: 12px;
+  font-size: 22px;
+}
+
+.title__desc {
+  font-size: 14px;
+}

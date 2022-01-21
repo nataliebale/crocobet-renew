@@ -1,0 +1,104 @@
+<div class="personal-settings" data-cy="personal-settings">
+  <span class="personal-settings__label" data-cy="personal-settings-label">{{
+    'personal_info_username' | translate
+  }}</span>
+  <span class="personal-settings__value" data-cy="personal-settings-value">{{
+    personalData.loginName
+  }}</span>
+</div>
+
+<div class="personal-settings" data-cy="personal-settings">
+  <span class="personal-settings__label" data-cy="personal-settings-label">{{
+    'personal_info_pincode' | translate
+  }}</span>
+  <span class="personal-settings__value" data-cy="personal-settings-value">{{
+    personalData.pinCode
+  }}</span>
+</div>
+
+<div class="personal-settings" data-cy="personal-settings">
+  <span class="personal-settings__label" data-cy="personal-settings-label">{{
+    'register_firstName' | translate
+  }}</span>
+  <span class="personal-settings__value" data-cy="personal-settings-value">{{
+    personalData.firstName
+  }}</span>
+</div>
+
+<div class="personal-settings" data-cy="personal-settings">
+  <span class="personal-settings__label" data-cy="personal-settings-label">{{
+    'register_lastName' | translate
+  }}</span>
+  <span class="personal-settings__value" data-cy="personal-settings-value">{{
+    personalData.lastName
+  }}</span>
+</div>
+
+<div class="personal-settings__half" data-cy="personal-settings-half">
+  <div class="personal-settings--half" data-cy="personal-settings-half">
+    <span class="personal-settings__label" data-cy="personal-settings-label">{{
+      'register_country' | translate
+    }}</span>
+    <span class="personal-settings__value" data-cy="personal-settings-value">{{
+      countries[personalData.countryCode]
+    }}</span>
+  </div>
+
+  <div class="personal-settings--half" data-cy="personal-settings-half">
+    <span class="personal-settings__label" data-cy="personal-settings-label">{{
+      'register_city' | translate
+    }}</span>
+    <span class="personal-settings__value" data-cy="personal-settings-value">
+      <span *ngIf="cities[personalData.city]; else defaultData">
+        {{ cities[personalData.city] }}
+      </span>
+
+      <ng-template #defaultData>
+        {{ personalData.city }}
+      </ng-template>
+    </span>
+  </div>
+</div>
+
+<div class="personal-settings__half" data-cy="personal-settings-half">
+  <div class="personal-settings--half" data-cy="personal-settings-half">
+    <span class="personal-settings__label" data-cy="personal-settings-label">{{
+      'personal_number' | translate
+    }}</span>
+    <span class="personal-settings__value" data-cy="personal-settings-value">{{
+      personalData.passportNumber.replace(
+        personalData.passportNumber.substring(0, 7),
+        '*******'
+      )
+    }}</span>
+  </div>
+
+  <div class="personal-settings--half" data-cy="personal-settings-half">
+    <span class="personal-settings__label" data-cy="personal-settings-label">{{
+      'birth_date' | translate
+    }}</span>
+    <span class="personal-settings__value" data-cy="personal-settings-value">
+      <img
+        class="personal-settings__date"
+        data-cy="personal-settings-date"
+        src="/assets/icons/personal-info/calendar.svg"
+        alt="Birth Date"
+      />
+      {{ personalData.dateOfBirthAsString }}
+    </span>
+  </div>
+</div>
+
+<div class="personal-settings" data-cy="personal-settings">
+  <span class="personal-settings__label" data-cy="personal-settings-label">{{
+    'register_phoneNumber' | translate
+  }}</span>
+  <span class="personal-settings__value" data-cy="personal-settings-value"
+    >+
+    {{
+      personalData.mobileNumber
+        .replace(':', ' ')
+        .replace(personalData.mobileNumber.substring(4, 10), '******* ')
+    }}</span
+  >
+</div>

@@ -1,0 +1,350 @@
+<form [formGroup]="form">
+  <div class="row gx-2">
+    <div class="col-12 mb-12">
+      <div class="form-group" data-cy="form-group">
+        <crc-shared-material-input
+          [class.error]="controlHasErrors('firstName')"
+          [placeholder]="'register_firstName' | translate"
+          formControlName="firstName"
+          data-cy="first-name"
+        ></crc-shared-material-input>
+        <div class="message" data-cy="message">
+          <div
+            *ngIf="controlHasErrors('firstName')?.required"
+            class="mt-1"
+            data-cy="first-name-required"
+          >
+            {{ 'form_error_required' | translate }}
+          </div>
+          <div
+            *ngIf="controlHasErrors('firstName')?.personalName"
+            class="mt-1"
+            data-cy="first-name-latin"
+          >
+            {{ 'form_required_latin_only' | translate }}
+          </div>
+          <div
+            *ngIf="controlHasErrors('firstName')?.minlength"
+            class="mt-1"
+            data-cy="first-name-latin"
+          >
+            {{ 'form_min_length' | translate }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 mb-12">
+      <div class="form-group" data-cy="form-group">
+        <crc-shared-material-input
+          [class.error]="controlHasErrors('lastName')"
+          [placeholder]="'register_lastName' | translate"
+          formControlName="lastName"
+          data-cy="last-name"
+        ></crc-shared-material-input>
+        <div class="message" data-cy="message">
+          <div
+            *ngIf="controlHasErrors('lastName')?.required"
+            class="mt-1"
+            data-cy="last-name-required"
+          >
+            {{ 'form_error_required' | translate }}
+          </div>
+          <div
+            *ngIf="controlHasErrors('lastName')?.personalName"
+            class="mt-1"
+            data-cy="last-name-latin"
+          >
+            {{ 'form_required_latin_only' | translate }}
+          </div>
+          <div
+            *ngIf="controlHasErrors('lastName')?.minlength"
+            class="mt-1"
+            data-cy="first-name-latin"
+          >
+            {{ 'form_min_length' | translate }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 mb-12">
+      <ng-select
+        [class.error]="controlHasErrors('countryCode')"
+        [searchable]="true"
+        [clearable]="false"
+        formControlName="countryCode"
+        data-cy="country-code"
+      >
+        <ng-option *ngFor="let item of countries" [value]="item.key">
+          {{ item.value }}
+        </ng-option>
+      </ng-select>
+    </div>
+    <div class="col-6 mb-12">
+      <ng-select
+        *ngIf="form.get('countryCode')?.value === 'GE'; else normalInput"
+        [class.error]="controlHasErrors('city')"
+        [searchable]="true"
+        [clearable]="false"
+        formControlName="city"
+        data-cy="city"
+      >
+        <ng-option *ngFor="let item of cities" [value]="item.key">
+          <img
+            class="select-icon"
+            data-cy="select-icon"
+            *ngIf="item.icon"
+            [src]="item.icon"
+            [alt]="item.value"
+          />
+          {{ item.value }}
+        </ng-option>
+      </ng-select>
+      <ng-template #normalInput>
+        <crc-shared-material-input
+          [class.error]="controlHasErrors('city')"
+          [placeholder]="'register_city' | translate"
+          formControlName="city"
+          data-cy="register-city"
+        ></crc-shared-material-input>
+        <div class="message" data-cy="message">
+          <div
+            *ngIf="controlHasErrors('city')?.required"
+            class="mt-1"
+            data-cy="register-city-required"
+          >
+            {{ 'form_error_required' | translate }}
+          </div>
+          <div
+            *ngIf="controlHasErrors('city')?.latinOrGeorgian"
+            class="mt-1"
+            data-cy="register-city-georgian"
+          >
+            {{ 'form_required_georgian_or_latin_only' | translate }}
+          </div>
+        </div>
+      </ng-template>
+    </div>
+    <form
+      class="col-12 mb-12"
+      formGroupName="phoneNumber"
+      data-cy="phone-number"
+    >
+      <div class="row gx-2">
+        <div class="col w-126">
+          <div
+            class="form-control-placeholder"
+            data-cy="form-control-placeholder"
+          >
+            <img src="/assets/icons/geo.webp" data-cy="flag" alt="Geo flag" />
+            <span data-cy="country-code">+995</span>
+          </div>
+        </div>
+        <div class="col">
+          <crc-shared-material-input
+            [class.error]="
+              form.get('phoneNumber').get('value').dirty &&
+              form.get('phoneNumber').get('value').touched &&
+              form.get('phoneNumber').get('value').errors
+            "
+            [placeholder]="'register_phoneNumber' | translate"
+            formControlName="value"
+            mask="000 00 00 00"
+            data-cy="phone-number-value"
+          ></crc-shared-material-input>
+          <div
+            *ngIf="
+              form.get('phoneNumber').get('value').dirty &&
+              form.get('phoneNumber').get('value').touched
+            "
+            class="message"
+            data-cy="message"
+          >
+            <div
+              *ngIf="form.get('phoneNumber').get('value')?.errors?.required"
+              class="mt-1"
+              data-cy="phone-number-required"
+            >
+              {{ 'form_error_required' | translate }}
+            </div>
+            <div
+              *ngIf="
+                !form.get('phoneNumber').get('value')?.errors?.required &&
+                (form.get('phoneNumber').get('value')?.errors
+                  ?.mobileNumberLength ||
+                  form.get('phoneNumber').get('value')?.errors
+                    ?.mobileNumberPattern ||
+                  form.get('phoneNumber').get('value')?.errors?.pattern)
+              "
+              class="mt-1"
+              data-cy="wrong-format"
+            >
+              არასწორი ფორმატი
+            </div>
+            <div
+              *ngIf="
+                (form.get('phoneNumber').get('value').statusChanges | async) ===
+                  'INVALID' &&
+                form.get('phoneNumber').get('value')?.errors?.taken
+              "
+              class="mt-1"
+              data-cy="phone-number-in-use"
+            >
+              {{ 'form_mobile_already_in_use' | translate }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div
+      [class.cursor-not-allowed]="verificationCodeSuccess"
+      class="col-12 mb-12"
+    >
+      <crc-shared-material-input
+        [class.error]="
+          controlHasErrors('documentId') || verificationCodeSuccess === false
+        "
+        [class.disabled]="verificationCodeSuccess"
+        [placeholder]="'register_nationalNumberId' | translate"
+        class="should-disable"
+        mask="00000000000"
+        formControlName="documentId"
+        data-cy="document-id"
+      ></crc-shared-material-input>
+      <div class="message" data-cy="message">
+        <div
+          *ngIf="controlHasErrors('documentId')?.required"
+          class="mt-1"
+          data-cy="document-id-required"
+        >
+          {{ 'form_error_required' | translate }}
+        </div>
+        <div
+          *ngIf="
+            !controlHasErrors('documentId')?.required &&
+            controlHasErrors('documentId')?.passportNumber
+          "
+          class="mt-1"
+          data-cy="document-id-format"
+        >
+          {{ 'form_error_document_id_format' | translate }}
+        </div>
+        <div
+          *ngIf="
+            (form.get('documentId').statusChanges | async) === 'INVALID' &&
+            controlHasErrors('documentId')?.taken
+          "
+          class="mt-1"
+          data-cy="document-id-in-use"
+        >
+          {{ 'form_passport_already_in_use' | translate }}
+        </div>
+      </div>
+    </div>
+    <div class="col-12 mb-12">
+      <div class="row gx-2">
+        <div class="col w-88">
+          <ng-select
+            [class.error]="controlHasErrors('day')"
+            [searchable]="true"
+            [clearable]="false"
+            formControlName="day"
+            data-cy="day"
+          >
+            <ng-option *ngFor="let item of days" [value]="item.key">
+              {{ item.value }}
+            </ng-option>
+          </ng-select>
+        </div>
+        <div class="col">
+          <ng-select
+            [class.error]="controlHasErrors('month')"
+            [searchable]="true"
+            [clearable]="false"
+            formControlName="month"
+            data-cy="month"
+          >
+            <ng-option *ngFor="let item of months" [value]="item.key">
+              {{ item.value }}
+            </ng-option>
+          </ng-select>
+        </div>
+        <div [class.cursor-not-allowed]="verificationCodeSuccess" class="col">
+          <ng-select
+            [class.error]="
+              controlHasErrors('year') || verificationCodeSuccess === false
+            "
+            [class.disabled]="verificationCodeSuccess"
+            [searchable]="true"
+            [clearable]="false"
+            formControlName="year"
+            class="should-disable"
+            data-cy="should-disable"
+          >
+            <ng-option *ngFor="let item of years" [value]="item.key">
+              {{ item.value }}
+            </ng-option>
+          </ng-select>
+        </div>
+      </div>
+      <div class="message" data-cy="message">
+        <div
+          *ngIf="
+            controlHasErrors('day') ||
+            controlHasErrors('month') ||
+            controlHasErrors('year')
+          "
+          class="mt-1"
+        >
+          {{ 'form_error_required' | translate }}
+        </div>
+      </div>
+    </div>
+    <div *ngIf="verificationCodeSuccess === false" class="col-12">
+      <div class="mb-12 form-error-message" data-cy="form-error-message">
+        <img
+          src="/assets/icons/login-modal-error.svg"
+          class="mr-12"
+          alt="Error"
+          data-cy="error-img"
+        />
+        <span data-cy="document-id-genuine">{{
+          'form_document_id_is_not_genuine' | translate
+        }}</span>
+      </div>
+    </div>
+    <div class="col-12">
+      <crc-shared-material-input
+        [class.error]="controlHasErrors('email')"
+        [placeholder]="'register_email' | translate"
+        formControlName="email"
+        data-cy="email"
+      ></crc-shared-material-input>
+      <div class="message" data-cy="message">
+        <div
+          *ngIf="controlHasErrors('email')?.required"
+          class="mt-1"
+          data-cy="email-required"
+        >
+          {{ 'form_error_required' | translate }}
+        </div>
+        <div
+          *ngIf="controlHasErrors('email')?.customEmailPattern"
+          class="mt-1"
+          data-cy="email-form-error"
+        >
+          {{ 'form_error_email' | translate }}
+        </div>
+        <div
+          *ngIf="
+            (form.get('email').statusChanges | async) === 'INVALID' &&
+            controlHasErrors('email')?.taken
+          "
+          class="mt-1"
+          data-cy="email-in-use"
+        >
+          {{ 'form_email_already_in_use' | translate }}
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

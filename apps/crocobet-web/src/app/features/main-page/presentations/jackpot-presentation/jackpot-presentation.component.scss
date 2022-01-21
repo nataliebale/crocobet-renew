@@ -1,0 +1,13 @@
+@use 'mixins';
+
+.jackpot-header {
+  grid-gap: 9px;
+}
+
+.odometer-wrapper {
+  position: absolute;
+
+  @include mixins.desktop-1366 {
+    transform: scale(0.85);
+  }
+}

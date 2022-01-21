@@ -1,0 +1,18 @@
+<div
+  *ngIf="tokenId"
+  [ngStyle]="{ height: iframeHeight ? iframeHeight + 'px' : 500 + 'px' }"
+  class="wrapper"
+  [style]="loading ? 'display:none' : ''"
+>
+  <iframe
+    allow="camera"
+    height="100%"
+    width="80%"
+    [src]="iframeSrc | safeUrl"
+    frameborder="0"
+  ></iframe>
+</div>
+
+<div class="loading" *ngIf="loading">
+  <crc-shared-loading [state]="loading"></crc-shared-loading>
+</div>

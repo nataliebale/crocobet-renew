@@ -1,0 +1,16 @@
+<div class="card__content" data-cy="card-content">
+  <img
+    *ngIf="card.paymentProvider === CreditCardType.Tbc"
+    class="card__content--img"
+    data-cy="card-content-img"
+    src="/assets/icons/deposit/tbc.png"
+    alt="TBC"
+  />
+  <img
+    *ngIf="card.paymentProvider === CreditCardType.Bog"
+    class="card__content--img"
+    data-cy="card-content-img"
+    src="/assets/icons/deposit/bog.png"
+    alt="BOG"
+  />
+</div>

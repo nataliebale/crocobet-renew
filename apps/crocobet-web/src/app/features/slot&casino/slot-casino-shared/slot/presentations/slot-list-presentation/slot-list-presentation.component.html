@@ -1,0 +1,18 @@
+<div *ngIf="slots?.length; else empty" class="games-list" data-cy="games-list">
+  <ng-container *ngFor="let slot of slots; index as i; trackBy: slotById">
+    <crc-w-slot-list-item-presentation
+      class="games-list__slot"
+      [slot]="slot"
+      [class.item-large]="i === 0 && firstItemLarge"
+      (favoriteClicked)="onSlotFavoritesClick($event)"
+      (playClicked)="onPlayClick($event)"
+    >
+    </crc-w-slot-list-item-presentation>
+  </ng-container>
+</div>
+
+<ng-template #empty>
+  <span class="games-list__empty">
+    {{ 'empty_slots_text' | translate }}
+  </span>
+</ng-template>

@@ -1,0 +1,616 @@
+{
+  "version": 1,
+  "projects": {
+    "components": {
+      "projectType": "library",
+      "root": "libs/components",
+      "sourceRoot": "libs/components/src",
+      "prefix": "crc-shared",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/components"],
+          "options": {
+            "project": "libs/components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/components/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/components/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "doc": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "npx compodoc -p libs/components/tsconfig.doc.json -d docs/components"
+              }
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/components"],
+          "options": {
+            "jestConfig": "libs/components/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/components/src/**/*.ts",
+              "libs/components/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "components-demo": {
+      "projectType": "application",
+      "root": "apps/components-demo",
+      "sourceRoot": "apps/components-demo/src",
+      "prefix": "crc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/components-demo",
+            "index": "apps/components-demo/src/index.html",
+            "main": "apps/components-demo/src/main.ts",
+            "polyfills": "apps/components-demo/src/polyfills.ts",
+            "tsConfig": "apps/components-demo/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/components-demo/src/favicon.ico",
+              "apps/components-demo/src/assets"
+            ],
+            "styles": ["apps/components-demo/src/styles.scss"],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "libs/ui/src/styles",
+                "libs/components/src/styles"
+              ]
+            },
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/components-demo/src/environments/environment.ts",
+                  "with": "apps/components-demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "components-demo:build:production"
+            },
+            "development": {
+              "browserTarget": "components-demo:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "components-demo:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/components-demo/src/**/*.ts",
+              "apps/components-demo/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/components-demo"],
+          "options": {
+            "jestConfig": "apps/components-demo/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "crocobet-mobile": {
+      "projectType": "application",
+      "root": "apps/crocobet-mobile",
+      "sourceRoot": "apps/crocobet-mobile/src",
+      "prefix": "crc-m",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/crocobet-mobile",
+            "index": "apps/crocobet-mobile/src/index.html",
+            "main": "apps/crocobet-mobile/src/main.ts",
+            "polyfills": "apps/crocobet-mobile/src/polyfills.ts",
+            "tsConfig": "apps/crocobet-mobile/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/crocobet-mobile/src/favicon.ico",
+              "apps/crocobet-mobile/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./libs/ui/src/assets",
+                "output": "./assets"
+              }
+            ],
+            "styles": ["apps/crocobet-mobile/src/styles.scss"],
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "libs/ui/src/styles",
+                "libs/components/src/styles"
+              ]
+            }
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "6kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/crocobet-mobile/src/environments/environment.ts",
+                  "with": "apps/crocobet-mobile/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "doc": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "npx compodoc -p apps/crocobet-mobile/tsconfig.doc.json -d docs/mobile"
+              }
+            ]
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "crocobet-mobile:build:production"
+            },
+            "development": {
+              "browserTarget": "crocobet-mobile:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "crocobet-mobile:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/crocobet-mobile/src/**/*.ts",
+              "apps/crocobet-mobile/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/crocobet-mobile"],
+          "options": {
+            "jestConfig": "apps/crocobet-mobile/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "crocobet-web": {
+      "projectType": "application",
+      "root": "apps/crocobet-web",
+      "sourceRoot": "apps/crocobet-web/src",
+      "prefix": "crc-w",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/crocobet-web/browser",
+            "index": "apps/crocobet-web/src/index.html",
+            "main": "apps/crocobet-web/src/main.ts",
+            "polyfills": "apps/crocobet-web/src/polyfills.ts",
+            "tsConfig": "apps/crocobet-web/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "apps/crocobet-web/src/favicon.ico",
+              "apps/crocobet-web/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./libs/ui/src/assets",
+                "output": "./assets"
+              }
+            ],
+            "styles": ["apps/crocobet-web/src/styles.scss"],
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "libs/ui/src/styles",
+                "libs/components/src/styles"
+              ]
+            }
+          },
+          "configurations": {
+            "test": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "6kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/crocobet-web/src/environments/environment.ts",
+                  "with": "apps/crocobet-web/src/environments/environment.test.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "6kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/crocobet-web/src/environments/environment.ts",
+                  "with": "apps/crocobet-web/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "doc": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "npx compodoc -p apps/crocobet-web/tsconfig.doc.json -d docs/web"
+              }
+            ]
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "crocobet-web:build:production"
+            },
+            "development": {
+              "browserTarget": "crocobet-web:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "crocobet-web:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/crocobet-web/src/**/*.ts",
+              "apps/crocobet-web/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/crocobet-web"],
+          "options": {
+            "jestConfig": "apps/crocobet-web/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/apps/crocobet-web/server",
+            "main": "apps/crocobet-web/server.ts",
+            "tsConfig": "apps/crocobet-web/tsconfig.server.json",
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "libs/ui/src/styles",
+                "libs/components/src/styles"
+              ]
+            },
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "apps/crocobet-web/src/environments/environment.ts",
+                  "with": "apps/crocobet-web/src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "crocobet-web:build:development",
+              "serverTarget": "crocobet-web:server:development"
+            },
+            "production": {
+              "browserTarget": "crocobet-web:build:production",
+              "serverTarget": "crocobet-web:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": ["/"]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "crocobet-web:build:production",
+              "serverTarget": "crocobet-web:server:production"
+            },
+            "development": {
+              "browserTarget": "crocobet-web:build:development",
+              "serverTarget": "crocobet-web:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
+        }
+      }
+    },
+    "facade": {
+      "projectType": "library",
+      "root": "libs/facade",
+      "sourceRoot": "libs/facade/src",
+      "prefix": "crc",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/facade"],
+          "options": {
+            "project": "libs/facade/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/facade/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/facade/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "doc": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": [
+              {
+                "command": "npx compodoc -p libs/facade/tsconfig.doc.json -d docs/facade"
+              }
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/facade"],
+          "options": {
+            "jestConfig": "libs/facade/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/facade/src/**/*.ts",
+              "libs/facade/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "shared": {
+      "projectType": "library",
+      "root": "libs/shared",
+      "sourceRoot": "libs/shared/src",
+      "prefix": "crc-shared",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "outputs": ["dist/libs/shared"],
+          "options": {
+            "project": "libs/shared/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/shared/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libs/shared/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared"],
+          "options": {
+            "jestConfig": "libs/shared/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/src/**/*.ts",
+              "libs/shared/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "ui": {
+      "projectType": "library",
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "prefix": "crc-ui",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui"],
+          "options": {
+            "jestConfig": "libs/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui/src/**/*.ts", "libs/ui/src/**/*.html"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false,
+    "defaultCollection": "@nrwl/angular",
+    "packageManager": "npm"
+  },
+  "schematics": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress",
+      "strict": false
+    },
+    "@nrwl/angular:library": {
+      "style": "scss",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
+    },
+    "@nrwl/angular:component": {
+      "style": "scss",
+      "changeDetection": "OnPush"
+    }
+  },
+  "defaultProject": "crocobet-web"
+}

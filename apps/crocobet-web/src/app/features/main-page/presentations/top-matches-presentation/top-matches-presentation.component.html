@@ -1,0 +1,78 @@
+<div *ngIf="viewtopMatches" class="top-matches">
+  <ng-template #slide let-topMatch>
+    <div class="top-matches__template">
+      <div class="match">
+        <div class="match__content" data-cy="top-match-content">
+          <img
+            class="match__team--img"
+            src="https://cdn.zeplin.io/5e202e67afb644bf13610d45/assets/740c82cd-3b5b-488b-82b6-b1ccb506c340.png"
+            data-cy="top-match-content-image"
+          />
+          <span class="match__content--team" data-cy="top-match-content-team">{{
+            topMatch.eventName.split('-')[0]
+          }}</span>
+
+          <crc-w-top-match-odd-presentation
+            [outcome]="topMatch.firstOutcomeOdd"
+          >
+          </crc-w-top-match-odd-presentation>
+        </div>
+
+        <div class="match__content" data-cy="top-match-content">
+          <img
+            class="match__league--img"
+            src="https://cdn.zeplin.io/5e202e67afb644bf13610d45/assets/ebcef57c-ac87-481a-be42-b27afdf4d8c1.png"
+            data-cy="top-match-content-image"
+          />
+          <span
+            class="match__content--league"
+            data-cy="top-match-content-league"
+          >
+            +{{ topMatch.gamesCount }}
+          </span>
+
+          <crc-w-top-match-odd-presentation
+            [outcome]="topMatch.secondOutcomeOdd"
+          >
+          </crc-w-top-match-odd-presentation>
+        </div>
+
+        <div class="match__content" data-cy="top-match-content">
+          <img
+            class="match__team--img"
+            data-cy="top-match-content-image"
+            src="https://cdn.zeplin.io/5e202e67afb644bf13610d45/assets/740c82cd-3b5b-488b-82b6-b1ccb506c340.png"
+          />
+          <span class="match__content--team" data-cy="top-match-content-team">{{
+            topMatch.eventName.split('-')[1]
+          }}</span>
+
+          <crc-w-top-match-odd-presentation
+            [outcome]="topMatch.thirdOutcomeOdd"
+          >
+          </crc-w-top-match-odd-presentation>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+  <crc-shared-swiper
+    class="swiper-fixed-background"
+    [pagination]="{ single: false }"
+    [navigation]="{ single: true }"
+    [header]="true"
+    [autoPlay]="false"
+    [slidesPerView]="viewtopMatches.length >= 5 ? 5 : viewtopMatches.length"
+    [templateRef]="{ template: slide, context: viewtopMatches }"
+  >
+    <span title class="top-matches__header" data-cy="top-matches-header">
+      <img
+        src="assets/icons/topMatches/topMatches.svg"
+        alt="Top Matches"
+        data-cy="top-matches-header-image"
+      />
+      <span class="top-matches__title" data-cy="top-matches-header-title">{{
+        'm.home_champion_league' | translate
+      }}</span>
+    </span>
+  </crc-shared-swiper>
+</div>

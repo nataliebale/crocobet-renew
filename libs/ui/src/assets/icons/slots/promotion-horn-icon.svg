@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="17" viewBox="0 0 17 17">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_650" data-name="Rectangle 650" width="17" height="17" transform="translate(1507 1033)" fill="#d9e3ef"/>
+    </clipPath>
+  </defs>
+  <g id="promo_icon" data-name="promo icon" transform="translate(-1507 -1033)" clip-path="url(#clip-path)">
+    <g id="Line" transform="translate(1506.227 1032.227)">
+      <path id="Path_826" data-name="Path 826" d="M6.182,6.182H1.932A1.159,1.159,0,0,0,.773,7.341v2.7A1.159,1.159,0,0,0,1.932,11.2h4.25Z" fill="#d9e3ef"/>
+      <path id="Path_827" data-name="Path 827" d="M15.721,2.133a1.159,1.159,0,0,0-1.109-.1L6.955,5.938v5.513l7.654,3.933a1.464,1.464,0,0,0,1.113-.1,1.159,1.159,0,0,0,.506-.958V3.091a1.159,1.159,0,0,0-.506-.958Z" fill="#d9e3ef"/>
+      <path id="Path_828" data-name="Path 828" d="M6.394,11.977H3.272l1.082,3.794a1.159,1.159,0,0,0,1.117.842h.711a1.2,1.2,0,0,0,1.113-1.476Z" fill="#d9e3ef"/>
+      <path id="Path_829" data-name="Path 829" d="M17,7.41V9.976a1.159,1.159,0,0,0,.773-1.09V8.5A1.159,1.159,0,0,0,17,7.41Z" fill="#d9e3ef"/>
+    </g>
+  </g>
+</svg>

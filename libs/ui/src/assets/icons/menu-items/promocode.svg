@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <defs>
+        <clipPath id="clip-path">
+            <path id="Rectangle_5065" data-name="Rectangle 5065" class="cls-1" transform="translate(110 466)" d="M0 0h20v20H0z"/>
+        </clipPath>
+        <style>
+            .cls-1{fill:#96a5b8}
+        </style>
+    </defs>
+    <g id="promocode" transform="translate(-110 -466)" style="clip-path:url(#clip-path)">
+        <path id="coupon_1_" data-name="coupon (1)" class="cls-1" d="M19.371 8.488A.629.629 0 0 0 20 7.859v-3.19a.629.629 0 0 0-.629-.629H.629A.629.629 0 0 0 0 4.669v3.19a.629.629 0 0 0 .629.629 1.512 1.512 0 0 1 0 3.023.629.629 0 0 0-.629.63v3.19a.629.629 0 0 0 .629.629h18.742a.629.629 0 0 0 .629-.629v-3.19a.629.629 0 0 0-.629-.629 1.512 1.512 0 0 1 0-3.023zM1.259 12.7a2.771 2.771 0 0 0 0-5.4v-2h4.717v9.4H1.259zm17.483 0v2H7.235V5.3h11.506v2a2.771 2.771 0 0 0 0 5.4z" transform="translate(110 466)"/>
+    </g>
+</svg>

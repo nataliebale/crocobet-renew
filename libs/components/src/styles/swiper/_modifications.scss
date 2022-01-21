@@ -1,0 +1,17 @@
+.mb-8-pl-0 .swiper .header {
+  margin-bottom: 8px;
+  padding-left: 0;
+}
+
+.pt-8-p-0 .swiper .swiper-slide {
+  padding: 8px 0 0;
+}
+
+.swiper-tooltip .swiper:hover {
+  z-index: 10;
+  overflow: visible;
+
+  .swiper-slide:not(.swiper-slide-active) {
+    visibility: hidden;
+  }
+}

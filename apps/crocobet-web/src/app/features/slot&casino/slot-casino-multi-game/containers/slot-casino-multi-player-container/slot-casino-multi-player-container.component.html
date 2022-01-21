@@ -1,0 +1,115 @@
+<div class="container-fluid">
+  <div
+    class="row split-screen center"
+    [class.align-items-center]="splitScreenType === splitScreenTypes.TwoFrames"
+  >
+    <ng-container *ngFor="let i of [1, 2, 3, 4]">
+      <div
+        *ngIf="isVisible('game' + i)"
+        class="ss__frame ss__frame--position {{
+          'order-' + getPositionOf('game' + i)
+        }}"
+        [ngClass]="{
+          'col-12': splitScreenType === splitScreenTypes.OneFrame,
+          'ss__frame--twin': splitScreenType === splitScreenTypes.TwoFrames,
+          'ss__frame--large': splitScreenType === splitScreenTypes.OneFrame
+        }"
+      >
+        <crc-w-slot-casino-multi-player-presentation
+          [selector]="'game' + i"
+          [position]="getPositionOf('game' + i)"
+          [splitScreenType]="splitScreenType"
+          [isLoggedIn]="isLoggedIn"
+          (notLoggedInAction)="notAuthorised()"
+          (move)="moveTo('game' + i, $event)"
+          (addGame)="openAddGame($event)"
+        >
+        </crc-w-slot-casino-multi-player-presentation>
+      </div>
+    </ng-container>
+    <!-- Options -->
+    <div class="ss__options ss__options--position">
+      <div
+        (click)="changeSplitScreenType(splitScreenTypes.OneFrame)"
+        class="ss__option ss__option--position"
+        [ngClass]="{
+          'ss__option--selected': splitScreenType === splitScreenTypes.OneFrame
+        }"
+      >
+        <span class="tooltip tooltip--position">
+          {{ 'split_screen_one_game_button' | translate }}
+        </span>
+        <div class="col-12 square--position">
+          <div class="square"></div>
+        </div>
+      </div>
+
+      <div
+        (click)="changeSplitScreenType(splitScreenTypes.TwoFrames)"
+        class="ss__option ss__option--position"
+        [ngClass]="{
+          'ss__option--selected': splitScreenType === splitScreenTypes.TwoFrames
+        }"
+      >
+        <span class="tooltip tooltip--position">
+          {{ 'split_screen_two_games_button' | translate }}
+        </span>
+        <div class="col-6 square--position">
+          <div class="square"></div>
+        </div>
+        <div class="col-6 square--position">
+          <div class="square"></div>
+        </div>
+      </div>
+
+      <div
+        (click)="changeSplitScreenType(splitScreenTypes.FourFrames)"
+        class="ss__option ss__option--position row"
+        [ngClass]="{
+          'ss__option--selected':
+            splitScreenType === splitScreenTypes.FourFrames
+        }"
+      >
+        <span
+          class="tooltip tooltip--position"
+          style="width: unset; max-width: unset"
+        >
+          {{ 'split_screen_four_games_button' | translate }}
+        </span>
+        <div class="col-6 square--position">
+          <div class="square"></div>
+        </div>
+        <div class="col-6 square--position">
+          <div class="square"></div>
+        </div>
+        <div class="col-6 square--position">
+          <div class="square"></div>
+        </div>
+        <div class="col-6 square--position">
+          <div class="square"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<crc-shared-popup
+  *ngIf="showChooseNewGame"
+  (closed)="showChooseNewGame = false"
+  size="xl"
+  class="same-colors"
+>
+  <ng-container header>
+    <crc-shared-filters
+      [filterItems]="addGameFilterItems"
+      (selectedChange)="switchAddGameFilter($event)"
+    ></crc-shared-filters>
+  </ng-container>
+
+  <ng-container *ngIf="addGameType === '1'">
+    <crc-w-slot-casino-multi-player-add-slot-presentation></crc-w-slot-casino-multi-player-add-slot-presentation>
+  </ng-container>
+  <ng-container *ngIf="addGameType === '2'">
+    <crc-w-slot-casino-multi-player-add-casino-presentation></crc-w-slot-casino-multi-player-add-casino-presentation>
+  </ng-container>
+</crc-shared-popup>

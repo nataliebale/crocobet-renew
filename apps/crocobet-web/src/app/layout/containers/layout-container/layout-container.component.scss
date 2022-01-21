@@ -1,0 +1,25 @@
+$sidebar-menu-width: 80px;
+$sidebar-menu-bg: #2a3139;
+$container-width: 100%;
+$container-padding-left: 80px;
+
+.header {
+  margin-right: 8px;
+}
+
+.main-container {
+  display: flex;
+  position: relative;
+}
+
+.sidebar-menu {
+  position: fixed;
+  width: $sidebar-menu-width;
+  height: 100vh;
+  background-color: $sidebar-menu-bg;
+}
+
+.layout-container {
+  width: $container-width;
+  padding-left: $container-padding-left;
+}

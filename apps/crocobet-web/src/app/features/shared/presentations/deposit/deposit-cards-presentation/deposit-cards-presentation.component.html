@@ -1,0 +1,113 @@
+<div *ngIf="!isFastDeposit" class="deposit__header" data-cy="deposit-header">
+  <h4 class="deposit__title" data-cy="deposit-title">
+    {{ 'm.register_modal_deposit' | translate }}
+  </h4>
+</div>
+
+<div class="deposit" data-cy="deposit">
+  <h4 class="deposit__text" data-cy="deposit-title">
+    {{ 'choose_card' | translate }}
+  </h4>
+
+  <ng-template #slide let-card>
+    <div
+      class="card"
+      data-cy="card"
+      (click)="onSelectCard(card)"
+      [class.card-selected]="selectedCard === card"
+    >
+      <img
+        *ngIf="selectedCard === card && (card | json) !== '{}'"
+        class="card--tick"
+        data-cy="card-tick"
+        src="/assets/icons/deposit/tick.svg"
+        alt="Tick"
+      />
+
+      <div
+        *ngIf="(card | json) === '{}'; else notFirstChild"
+        class="first-card"
+        (click)="onOpenAddCardPopup()"
+      >
+        <img src="/assets/icons/deposit/addCard.svg" alt="Add Card" />
+        <span>{{ 'add_card' | translate }}</span>
+      </div>
+
+      <ng-template #notFirstChild>
+        <crc-w-deposit-cards-header-presentation
+          [card]="card"
+          [cardName]="cardName"
+          (clickOnRemoveCard)="onClickRemove($event)"
+          (cardModel)="onUpdateCardName($event)"
+        >
+        </crc-w-deposit-cards-header-presentation>
+
+        <crc-w-deposit-cards-content-presentation [card]="card">
+        </crc-w-deposit-cards-content-presentation>
+
+        <crc-w-deposit-cards-footer-presentation
+          [card]="card"
+          [cardProviderImg]="cardProviderImg"
+          (getCardType)="onGetCardType($event)"
+        >
+        </crc-w-deposit-cards-footer-presentation>
+      </ng-template>
+    </div>
+  </ng-template>
+  <crc-shared-swiper
+    class="scrollable-slider"
+    data-cy="scrollable-slider"
+    [dragSwipe]="true"
+    [pagination]="{ single: false }"
+    [navigation]="{ single: true }"
+    [images]="cards"
+    [autoPlay]="false"
+    [breakpoints]="{
+      '300': {
+        slidesPerView: 3,
+        spaceBetween: 20
+      },
+      '1366': {
+        slidesPerView: slidesPerViewTablet,
+        spaceBetween: 20
+      },
+      '1620': {
+        slidesPerView: slidesPerView,
+        spaceBetween: 20
+      }
+    }"
+    [loop]="false"
+    [templateRef]="{ template: slide, context: cards }"
+    [scrollbar]="{
+      draggable: true
+    }"
+  >
+  </crc-shared-swiper>
+
+  <crc-shared-popup
+    *ngIf="showCardRemovalPopup"
+    (closed)="showCardRemovalPopup = false"
+    [title]="'oneclick_remove_card' | translate"
+    size="sm"
+    class="custom-bg-colors"
+  >
+    <div
+      class="remove-card__popup--content"
+      data-cy="remove-card-popup-content"
+    >
+      <img src="/assets/icons/deposit/bin.svg" alt="Recycle Bin" />
+      <span class="remove-card__popup--text" data-cy="remove-card-popup-text">
+        {{ 'remove_before_text' | translate }}
+        {{ cardToDelete.cardNumber }}
+        {{ 'm_paymentRemoveCardWarning' | translate }}?
+      </span>
+      <button
+        (click)="onRemoveCard(cards)"
+        class="remove-card__popup--button"
+        data-cy="remove-card-popup-button"
+      >
+        {{ 'common_yes' | translate }}
+      </button>
+    </div>
+  </crc-shared-popup>
+</div>

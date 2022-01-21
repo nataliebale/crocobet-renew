@@ -1,0 +1,47 @@
+<div class="container-fluid p2p">
+  <div class="row mt-2">
+    <div class="col-12">
+      <crc-shared-banner-container
+        bannerType="p2p"
+      ></crc-shared-banner-container>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-4 pe-0">
+      <crc-w-board-game-presentation
+        [gameClass]="gameClass.domino"
+        [tournamentItems]="dominoTournaments$ | async"
+        [weeklyRatingItems]="dominoWeekly"
+        [showTournaments]="showTournaments"
+        [showWeeklyRatings]="showWeeklyRatings"
+        [gameType]="type.domino"
+        (gameClick)="onGoToGame(game.dominoGameId)"
+      ></crc-w-board-game-presentation>
+    </div>
+
+    <div class="col-4 px-2">
+      <crc-w-board-game-presentation
+        [gameClass]="gameClass.backgammon"
+        [tournamentItems]="backgammonTournaments$ | async"
+        [weeklyRatingItems]="backgammonWeekly"
+        [showTournaments]="showTournaments"
+        [showWeeklyRatings]="showWeeklyRatings"
+        [gameType]="type.backgammon"
+        (gameClick)="onGoToGame(game.backgammonGameId)"
+      ></crc-w-board-game-presentation>
+    </div>
+
+    <div class="col-4 ps-0">
+      <crc-w-board-game-presentation
+        [gameClass]="gameClass.bura"
+        [tournamentItems]="buraTournaments$ | async"
+        [weeklyRatingItems]="buraWeekly"
+        [showTournaments]="showTournaments"
+        [showWeeklyRatings]="showWeeklyRatings"
+        [gameType]="type.bura"
+        (gameClick)="onGoToGame(game.buraGameId)"
+      ></crc-w-board-game-presentation>
+    </div>
+  </div>
+</div>

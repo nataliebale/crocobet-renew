@@ -1,0 +1,64 @@
+<div
+  (click)="onCashierSelected()"
+  [class.cashier--selected]="selected"
+  class="cashier"
+>
+  <div class="cashier__icon"></div>
+  <div class="cashier__info">
+    <div class="cashier__address mb-30">{{ cashier.address }}</div>
+    <div class="cashier__working-hours">
+      <div *ngIf="cashier.t13n; else workingHoursTemplate">
+        <p class="cashier__title">
+          {{ 'cashiers_every_day' | translate }} 24/7
+        </p>
+      </div>
+      <ng-template #workingHoursTemplate>
+        <p *ngIf="holidayType === HolidayTypes.Saturday" class="cashier__title">
+          {{ 'cashiers_saturday_holiday' | translate }} {{ workingHours }}
+        </p>
+        <p *ngIf="holidayType === HolidayTypes.Sunday" class="cashier__title">
+          {{ 'cashiers_sunday_holiday' | translate }} {{ workingHours }}
+        </p>
+        <p *ngIf="holidayType === HolidayTypes.Weekend" class="cashier__title">
+          {{ 'cashiers_weekend_holiday' | translate }} {{ workingHours }}
+        </p>
+        <p *ngIf="holidayType === HolidayTypes.None" class="cashier__title">
+          {{ 'cashiers_every_day' | translate }} {{ workingHours }}
+        </p>
+        <ng-container *ngIf="exception && exceptionTime !== workingHours">
+          <p
+            *ngIf="exception === CashierWeekdays.Saturday"
+            class="cashier__title"
+          >
+            {{ 'liveNav_calendar_day_6' | translate }} {{ exceptionTime }}
+          </p>
+          <p
+            *ngIf="exception === CashierWeekdays.Sunday"
+            class="cashier__title"
+          >
+            {{ 'liveNav_calendar_day_0' | translate }} {{ exceptionTime }}
+          </p>
+        </ng-container>
+        <div class="cashier__title mt-6">
+          <span *ngIf="openStatus === OpenStatus.Open" class="open">
+            {{ 'cashiers_statusOpen' | translate }}
+          </span>
+          <span
+            *ngIf="openStatus === OpenStatus.ClosesSoon"
+            class="closes-soon"
+          >
+            {{
+              ('cashiers_statusClosesSoon' | translate).replace(
+                '{minutes}',
+                closesInMinutes
+              )
+            }}
+          </span>
+          <span *ngIf="openStatus === OpenStatus.Closed" class="closed">
+            {{ 'cashiers_statusClosed' | translate }}
+          </span>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

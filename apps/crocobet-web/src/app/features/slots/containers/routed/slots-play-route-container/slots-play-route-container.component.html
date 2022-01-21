@@ -1,0 +1,13 @@
+<div class="row pt-2">
+  <div class="col-9 d-flex" [class.centered]="!sidebarState">
+    <crc-w-slot-casino-player-container> </crc-w-slot-casino-player-container>
+  </div>
+
+  <div class="col-3">
+    <crc-w-slots-player-sidebar-slots-container
+      [sidebarState]="sidebarState"
+      (sidebarStateChanged)="sidebarState = $event"
+    >
+    </crc-w-slots-player-sidebar-slots-container>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+@keyframes setBorder {
+  0% {
+    border: unset;
+  }
+
+  99% {
+    border: unset;
+  }
+
+  100% {
+    border: solid 1px #242b36;
+  }
+}
+
+.live-chat {
+  position: relative;
+  width: 80%;
+  background-color: #161d27;
+
+  &--position {
+    box-sizing: border-box;
+    min-height: 642px;
+  }
+}
+
+.headerclick {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  border-radius: 6px;
+
+  ::ng-deep {
+    .lc-frame-launcher {
+      display: none;
+      position: initial;
+    }
+
+    .lc-frame-widget {
+      display: block !important;
+      position: initial;
+    }
+
+    .close-component {
+      display: none;
+    }
+  }
+}
+
+.loading {
+  height: 700px;
+}

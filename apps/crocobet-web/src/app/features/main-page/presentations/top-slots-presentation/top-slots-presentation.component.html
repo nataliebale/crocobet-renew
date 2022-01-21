@@ -1,0 +1,24 @@
+<div *ngIf="slots" class="top-games">
+  <crc-shared-swiper
+    [images]="slots"
+    [header]="true"
+    view="grid"
+    [dragSwipe]="false"
+    (clicked)="slotSelected.emit($event)"
+  >
+    <ng-container title>
+      <div class="top-games__header" data-cy="top-games-banners-header">
+        <img
+          src="assets/icons/topGames/topGames.svg"
+          alt="Top Games"
+          data-cy="top-games-banners-header-image"
+        />
+        <span
+          class="top-games__title"
+          data-cy="top-games-banners-header-title"
+          >{{ 'm.home_top_games' | translate }}</span
+        >
+      </div>
+    </ng-container>
+  </crc-shared-swiper>
+</div>

@@ -1,0 +1,10 @@
+<crc-header-profile-presentation
+  [userMenuItems]="userMenuItems"
+  [personalData]="personalData$ | async"
+  [verificationStatus]="verificationStatus$ | async"
+  [isCopyTooltipVisible]="isCopyTooltipVisible$ | async"
+  (signOut)="signOut()"
+  (isCopyTooltipVisibleChange)="isCopyTooltipVisibleChange()"
+  [pinCode]="pinCode$ | async"
+>
+</crc-header-profile-presentation>

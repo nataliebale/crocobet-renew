@@ -1,0 +1,86 @@
+$color-light-blue-grey: #d9e3ef;
+$select-bg-color: #323c49;
+$select-border-color: #3d4855;
+$select-text-color: #b7c1cd;
+
+$font-size-md: 14px;
+
+.ng-select .ng-select-container {
+  min-height: 30px !important;
+  margin-top: 2px;
+  border: solid 1px $select-border-color;
+  background-color: $select-bg-color;
+  color: $color-light-blue-grey;
+  font-size: $font-size-md;
+  font-weight: normal;
+}
+
+.ng-select.ng-select-single .ng-select-container {
+  height: 30px !important;
+  border: solid 1px $select-border-color;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked {
+  background: $select-border-color !important;
+  color: $select-text-color !important;
+  font-size: $font-size-md;
+  font-weight: normal;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option {
+  background: $select-bg-color !important;
+  color: $select-text-color !important;
+  font-size: $font-size-md;
+}
+
+.ng-select.ng-select-opened > .ng-select-container {
+  background: $select-bg-color !important;
+}
+
+.ng-select .ng-arrow-wrapper .ng-arrow {
+  position: absolute !important;
+  top: -4px !important;
+  left: 5px !important;
+  width: 10px !important;
+  height: 10px !important;
+  transition: 0.1s;
+  border-width: 0;
+  border-color: transparent !important;
+  background-image: url('/assets/icons/transactions-history/down.svg');
+  background-position: 0;
+  background-size: 100% auto;
+}
+
+.ng-option-label {
+  font-weight: normal;
+}
+
+.ng-dropdown-panel {
+  border: 1px solid $select-border-color;
+  background-color: $select-border-color;
+}
+
+.ng-dropdown-panel.ng-select-bottom {
+  border-top-color: $select-border-color;
+}
+
+.ng-select.ng-select-opened > .ng-select-container .ng-arrow {
+  position: absolute !important;
+  top: -4px !important;
+  left: 5px !important;
+  width: 10px !important;
+  height: 10px !important;
+  transform: rotate(180deg);
+  border-width: 0;
+  border-color: transparent !important;
+  background-image: url('/assets/icons/transactions-history/down.svg');
+  background-position: 0;
+  background-size: 100% auto;
+}
+
+.select-icon {
+  display: inline-block;
+  height: 18px;
+  margin-right: 10px;
+  border-radius: 2px;
+}

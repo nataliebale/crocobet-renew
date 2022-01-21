@@ -1,0 +1,53 @@
+<crc-w-profile-content-title
+  [title]="'userPanel_cashDesk' | translate"
+></crc-w-profile-content-title>
+<div class="container-fluid mt-12">
+  <div class="row g-12">
+    <div class="col-12">
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="select-wrapper">
+          <ng-select
+            *ngIf="selectItems.length > 20"
+            [searchable]="true"
+            [clearable]="false"
+            [items]="selectItems"
+            [formControl]="cityControl"
+            bindValue="key"
+            bindLabel="value"
+            data-cy="city"
+          >
+          </ng-select>
+        </div>
+        <div class="custom-checkbox" data-cy="is-always-open-checkbox">
+          <div
+            class="custom-checkbox__container"
+            data-cy="is-always-open-checkbox-container"
+          >
+            <input
+              [formControl]="isAlwaysOpenControl"
+              class="custom-checkbox__input"
+              type="checkbox"
+              id="confirm-checkbox"
+              data-cy="is-always-open-checkbox"
+            />
+            <label
+              for="confirm-checkbox"
+              class="custom-checkbox__label"
+              data-cy="is-always-open-checkbox-label"
+            ></label>
+          </div>
+          <div
+            class="custom-checkbox__checkmark"
+            data-cy="is-always-open-checkbox-checkmark"
+          >
+            {{ 'only_always_open' | translate }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<crc-w-cashiers-presentation
+  *ngIf="cashierPlaces"
+  [cashiers]="cashierPlaces"
+></crc-w-cashiers-presentation>

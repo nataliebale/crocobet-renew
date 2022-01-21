@@ -1,0 +1,77 @@
+<div class="odometer-container">
+  <ng-container *ngIf="odometerData && odometerData.length === odometerCount">
+    <div
+      *ngFor="let odometer of odometers"
+      [ngClass]="'odometer--level--' + odometer.level.replace('Level', '')"
+      class="odometer odometer--position"
+    >
+      <div class="odometer__icon odometer__icon--position">
+        <img alt="" src="assets/icons/jackpot/{{ odometer.icon }}" />
+      </div>
+      <div class="odometer__wrapper odometer__wrapper--position not-selectable">
+        <crc-odometer-presentation
+          (animationFinished)="
+            odometer.listenToAnimation && emitRefreshOdometer()
+          "
+          [data]="odometerData[odometer.index]"
+        ></crc-odometer-presentation>
+        <div class="digit digit--position">
+          <p class="text-white">
+            <span class="el">G</span><span class="el">E</span
+            ><span class="el">L</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="popup popup--position">
+        <div class="info-line">
+          <div class="info-line--name">
+            {{ 'egtJackpot_largest' | translate }}
+          </div>
+          <div class="info-line--number">
+            {{
+              getJackpotProperties(jackpot, odometer.level, 'largestWinDate')
+                | date: 'dd/MM/yyyy'
+            }}
+          </div>
+        </div>
+        <div class="info-line--big-number">
+          {{
+            getJackpotProperties(jackpot, odometer.level, 'largestWin') / 100
+              | number: '1.2'
+          }}
+          {{ jackpot.currency | customCurrency }}
+        </div>
+        <div class="info-line">
+          <div class="info-line--name">
+            {{ 'egtJackpot_winners' | translate }}
+          </div>
+          <div class="info-line--number-big">
+            {{ getJackpotProperties(jackpot, odometer.level, 'wins') }}
+          </div>
+        </div>
+        <div class="info-line">
+          <div class="info-line--name">{{ 'egtJackpot_last' | translate }}</div>
+          <div class="info-line--number">
+            {{
+              getJackpotProperties(jackpot, odometer.level, 'lastWinDate')
+                | date: 'dd/MM/yyyy'
+            }}
+          </div>
+        </div>
+        <div class="info-line">
+          <div class="info-line--number">
+            {{ getJackpotProperties(jackpot, odometer.level, 'lastWinUser') }}
+          </div>
+        </div>
+        <div class="info-line--big-number">
+          {{
+            getJackpotProperties(jackpot, odometer.level, 'lastWin') / 100
+              | number: '1.2'
+          }}
+          {{ jackpot.currency | customCurrency }}
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

@@ -1,0 +1,40 @@
+@use 'variables';
+@use 'mixins';
+
+$verification-link-padding: 25px 10px 23px 10px;
+
+.verification__nav {
+  @include mixins.flex(flex-start, center);
+}
+
+.verification__link {
+  display: inline-block;
+  position: relative;
+  margin-right: 20px;
+  padding: $verification-link-padding;
+  transition: border-color 0.2s linear;
+  color: rgba(variables.$color-white, 0.6);
+  font-size: variables.$font-size-lg;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    transition: background-color 0.2s linear;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+
+  &:hover,
+  &.active {
+    color: variables.$color-white;
+
+    &::after {
+      background-color: variables.$color-green;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_651" data-name="Rectangle 651" width="20" height="20" fill="#d9e3ef"/>
+    </clipPath>
+  </defs>
+  <g id="top_games_icon" data-name="top games icon" clip-path="url(#clip-path)">
+    <g id="diamond" transform="translate(0.108 1.534)">
+      <g id="Group_1649" data-name="Group 1649" transform="translate(11.14 4.448)">
+        <g id="Group_1648" data-name="Group 1648">
+          <path id="Path_814" data-name="Path 814" d="M14.77,5.982l-3.777,11.8,9.129-11.8Z" transform="translate(-10.992 -5.982)" fill="#d9e3ef"/>
+        </g>
+      </g>
+      <g id="Group_1651" data-name="Group 1651" transform="translate(0.043 0.273)">
+        <g id="Group_1650" data-name="Group 1650">
+          <path id="Path_815" data-name="Path 815" d="M2.942,1.807.042,5.241h4.93Z" transform="translate(-0.042 -1.807)" fill="#d9e3ef"/>
+        </g>
+      </g>
+      <g id="Group_1653" data-name="Group 1653" transform="translate(15.296 0.273)">
+        <g id="Group_1652" data-name="Group 1652">
+          <path id="Path_816" data-name="Path 816" d="M17.123,1.807l-2.03,3.434h4.93Z" transform="translate(-15.093 -1.807)" fill="#d9e3ef"/>
+        </g>
+      </g>
+      <g id="Group_1655" data-name="Group 1655" transform="translate(0 4.448)">
+        <g id="Group_1654" data-name="Group 1654">
+          <path id="Path_817" data-name="Path 817" d="M5.351,5.982H0l9.129,11.8Z" transform="translate(0 -5.982)" fill="#d9e3ef"/>
+        </g>
+      </g>
+      <g id="Group_1657" data-name="Group 1657" transform="translate(11.041)">
+        <g id="Group_1656" data-name="Group 1656">
+          <path id="Path_818" data-name="Path 818" d="M10.895,1.534,14.417,5.01l2.054-3.475Z" transform="translate(-10.895 -1.534)" fill="#d9e3ef"/>
+        </g>
+      </g>
+      <g id="Group_1659" data-name="Group 1659" transform="translate(3.651)">
+        <g id="Group_1658" data-name="Group 1658">
+          <path id="Path_819" data-name="Path 819" d="M3.6,1.534,5.657,5.01,9.179,1.534Z" transform="translate(-3.603 -1.534)" fill="#d9e3ef"/>
+        </g>
+      </g>
+      <g id="Group_1661" data-name="Group 1661" transform="translate(6.139 4.448)">
+        <g id="Group_1660" data-name="Group 1660">
+          <path id="Path_820" data-name="Path 820" d="M6.058,5.982l4,12.483,4-12.483Z" transform="translate(-6.058 -5.982)" fill="#d9e3ef"/>
+        </g>
+      </g>
+      <g id="Group_1663" data-name="Group 1663" transform="translate(6.534 0.153)">
+        <g id="Group_1662" data-name="Group 1662">
+          <path id="Path_821" data-name="Path 821" d="M10.048,1.688l-3.6,3.553h7.2Z" transform="translate(-6.447 -1.688)" fill="#d9e3ef"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

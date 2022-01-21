@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+    <defs>
+        <clipPath id="clip-path">
+            <path id="Rectangle_4931" data-name="Rectangle 4931" class="cls-1" transform="translate(1354 826)" d="M0 0h14v14H0z"/>
+        </clipPath>
+        <style>
+            .cls-1{fill:#fff}
+        </style>
+    </defs>
+    <g id="Mask_Group_1298" data-name="Mask Group 1298" transform="translate(-1354 -826)" style="opacity:.8;clip-path:url(#clip-path)">
+        <path id="euro_1_" data-name="euro (1)" class="cls-1" d="M10.167 12.25a5.249 5.249 0 0 1-4.54-2.625h4.56v-1.75H5a4.882 4.882 0 0 1 0-1.75h5.191v-1.75H5.627a5.223 5.223 0 0 1 6.432-2.267l.316-1.632A5.407 5.407 0 0 0 10.167 0a7.008 7.008 0 0 0-6.485 4.375H1.875v1.75h1.353A7.008 7.008 0 0 0 3.167 7a7.008 7.008 0 0 0 .061.875H1.875v1.75h1.807A7.008 7.008 0 0 0 10.167 14a5.407 5.407 0 0 0 2.208-.476l-.316-1.632a5.216 5.216 0 0 1-1.892.358z" transform="translate(1353.875 826)"/>
+    </g>
+</svg>

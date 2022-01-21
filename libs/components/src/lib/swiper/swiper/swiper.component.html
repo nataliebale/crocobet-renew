@@ -1,0 +1,112 @@
+<span
+  [ngClass]="{
+    'swiper-no-navigation': uiHideNavigation,
+    'swiper-no-paging': uiHidePagination,
+    'swiper-with-header': header,
+    'swiper-grid': view === 'grid',
+    'swiper-no-grab': !dragSwipe,
+    'swiper-tooltip': !slidInProcess && tooltipSupport
+  }"
+>
+  <swiper
+    data-cy="swiper"
+    [navigation]="true"
+    [pagination]="paginationSettings"
+    [autoplay]="autoPlay ? defaultAutoPlay : false"
+    [slidesPerView]="slidesPerView"
+    [allowTouchMove]="dragSwipe"
+    [loop]="loop"
+    [scrollbar]="scrollbar"
+    [breakpoints]="breakpoints"
+    (slideChangeTransitionStart)="slidInProcess = true"
+    (slideChangeTransitionEnd)="slidInProcess = false"
+  >
+    <span
+      *ngIf="switcher"
+      slot="container-start"
+      class="switcher"
+      data-cy="swiper-switcher"
+      (click)="switchView()"
+    >
+      <span *ngFor="let item of [1, 2, 3, 4]" class="switcher__item"></span>
+    </span>
+
+    <div
+      *ngIf="header"
+      class="header"
+      slot="container-start"
+      data-cy="swiper-header"
+    >
+      <div class="header__title" data-cy="swiper-header-title">
+        <ng-content select="[title]"></ng-content>
+      </div>
+    </div>
+
+    <ng-template #imageView let-image>
+      <crc-shared-swiper-slide-default
+        (clicked)="clicked.emit($event)"
+        [image]="image"
+      ></crc-shared-swiper-slide-default>
+    </ng-template>
+
+    <ng-container *ngIf="view === 'single'">
+      <ng-container *ngIf="templateRef; else defaultTemplate">
+        <ng-template
+          swiperSlide
+          *ngFor="let contextItem of templateRef!.context"
+        >
+          <ng-container
+            *ngTemplateOutlet="
+              templateRef!.template;
+              context: { $implicit: contextItem }
+            "
+          >
+          </ng-container>
+        </ng-template>
+      </ng-container>
+
+      <ng-template #defaultTemplate>
+        <ng-template swiperSlide *ngFor="let image of images">
+          <ng-container
+            *ngTemplateOutlet="imageView; context: { $implicit: image }"
+          >
+          </ng-container>
+        </ng-template>
+      </ng-template>
+    </ng-container>
+
+    <ng-container *ngIf="view === 'grid'">
+      <ng-container *ngIf="templateRefGrid; else defaultTemplateGrid">
+        <ng-template
+          swiperSlide
+          *ngFor="let contextItem of templateRefGrid!.context"
+        >
+          <ng-container
+            *ngTemplateOutlet="
+              templateRefGrid!.template;
+              context: { $implicit: contextItem }
+            "
+          >
+          </ng-container>
+        </ng-template>
+      </ng-container>
+
+      <ng-template #defaultTemplateGrid>
+        <ng-template swiperSlide *ngFor="let images of gridImages">
+          <div class="grid" data-cy="swiper-slider-grid">
+            <div
+              class="grid__item"
+              data-cy="swiper-slider-grid-item"
+              *ngFor="let image of images"
+            >
+              <ng-container
+                *ngTemplateOutlet="imageView; context: { $implicit: image }"
+              >
+              </ng-container>
+            </div>
+          </div>
+        </ng-template>
+      </ng-template>
+    </ng-container>
+  </swiper>
+</span>

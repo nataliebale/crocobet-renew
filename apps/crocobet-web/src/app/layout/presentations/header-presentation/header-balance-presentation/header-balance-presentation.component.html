@@ -1,0 +1,44 @@
+<div class="balance" data-cy="balance">
+  <div
+    (click)="toggleBalance()"
+    class="balance__title balance-title"
+    data-cy="balance-title"
+  >
+    <span>{{ 'customer_balance' | translate }}</span>
+    <span>
+      <img
+        alt="Eye Off"
+        class="balance-title__img"
+        data-cy="balance-title-img"
+        src="assets/icons/header/{{
+          isBalanceVisible ? 'eye-on' : 'eye-off'
+        }}.svg"
+      />
+    </span>
+  </div>
+  <span class="balance__sum" data-cy="balance-sum" (click)="toggleBalance()">
+    <ng-container
+      *ngIf="
+        verificationStatus === VerificationStatus.VERIFIED ||
+          verificationStatus ===
+            VerificationStatus.UNVERIFIED_REGISTERED_AFTER_JANUARY;
+        else others
+      "
+    >
+      <span *ngIf="isBalanceVisible; else hidden">
+        {{ balance$ | async | number: '1.2-2' }}
+        {{ personalData.currencyCode | customCurrency }}
+      </span>
+      <ng-template #hidden>
+        <span>*****</span>
+        <span>
+          {{ personalData.currencyCode | customCurrency }}
+        </span>
+      </ng-template>
+    </ng-container>
+
+    <ng-template #others>
+      <span class="d-fex align-items-center"> ***** </span>
+    </ng-template>
+  </span>
+</div>

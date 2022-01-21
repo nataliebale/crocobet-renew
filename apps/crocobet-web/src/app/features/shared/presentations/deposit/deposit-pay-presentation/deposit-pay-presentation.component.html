@@ -1,0 +1,11 @@
+<div class="iframe__wrapper">
+  <iframe
+    *ngIf="iframeUrl"
+    [src]="iframeUrl | safeUrl"
+    align="center"
+    class="iframe"
+    scrolling="no"
+    width="630"
+  >
+  </iframe>
+</div>

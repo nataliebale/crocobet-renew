@@ -1,0 +1,31 @@
+<ng-container *ngIf="banners">
+  <crc-shared-swiper
+    [images]="banners"
+    [header]="true"
+    [pagination]="{ single: false }"
+    [navigation]="{ single: true }"
+  >
+    <ng-container title>
+      <div class="header" data-cy="promotion-banners-header">
+        <img
+          *ngIf="!customIcon; else customIconVisible"
+          data-cy="promotion-banners-header-image"
+          class="header__image"
+          src="/assets/icons/main_page/promotion_header.svg"
+        />
+
+        <ng-template #customIconVisible>
+          <img
+            data-cy="promotion-banners-header-image"
+            class="header__image"
+            src="/assets/icons/{{ customIcon }}"
+          />
+        </ng-template>
+
+        <span class="header__title" data-cy="promotion-banners-header-title">{{
+          'Promotions' | translate
+        }}</span>
+      </div>
+    </ng-container>
+  </crc-shared-swiper>
+</ng-container>

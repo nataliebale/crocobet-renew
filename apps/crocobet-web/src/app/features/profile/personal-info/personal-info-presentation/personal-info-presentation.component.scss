@@ -1,0 +1,102 @@
+@use 'variables';
+@use 'mixins';
+
+$input-bg: #323c49;
+$input-border: solid 1px #667281;
+
+.personal-info {
+  padding-bottom: 29px;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    width: 540px;
+    padding: 0 20px;
+  }
+
+  &__profile {
+    margin: 18px 0;
+  }
+
+  &__buttons {
+    @include mixins.flex(space-between, center);
+
+    margin: 10px 0;
+  }
+
+  &__button {
+    @include mixins.flex(center, center);
+
+    width: 240px;
+    height: 50px;
+    border: 0;
+    border-radius: 4px;
+    background-color: rgba(85, 96, 110, 0.6);
+    color: variables.$color-white;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  &__checkboxes {
+    @include mixins.flex(center, flex-start);
+
+    flex-direction: column;
+  }
+
+  &__container--wrapper {
+    @include mixins.flex(center, center);
+
+    margin-top: 20px;
+  }
+
+  &__container {
+    @include mixins.flex(center, center);
+
+    position: relative;
+  }
+
+  &__input {
+    width: 20px;
+    height: 20px;
+    transition-duration: 0.3s;
+    border: $input-border;
+    border-radius: 2px;
+    outline: none;
+    background-color: $input-bg;
+    cursor: pointer;
+    appearance: none;
+  }
+
+  &__input[type='checkbox']:checked + .personal-info__label {
+    @include mixins.flex(center, center);
+
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-image: url('/assets/icons/personal-info/checked.svg');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: auto 100%;
+    cursor: pointer;
+  }
+
+  &__input:checked {
+    border: 1px solid variables.$color-grey;
+    background-color: #15af44;
+  }
+
+  &__checkmark {
+    margin-left: 12px;
+    color: variables.$color-grey;
+    font-family: variables.$font-regular;
+    font-size: 14px;
+  }
+}
+
+.active-input {
+  color: variables.$color-white;
+}
+
+.checkbox-wrapper {
+  position: relative;
+}

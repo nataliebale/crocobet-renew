@@ -1,0 +1,154 @@
+$primary: #262e3a;
+$primary-2: #1a1e23;
+$primary-3: #161d27;
+$popup-bg-color: #303742;
+$popup-header-bg-color: #3e4959;
+$popup-header-color: #d9e3ef;
+
+:host {
+  &.small-screen-full-height {
+    @media screen and (max-height: 769px) {
+      height: 100vh;
+    }
+  }
+
+  &.dialog-custom-size {
+    .popup {
+      max-width: 650px;
+    }
+  }
+
+  &.dialog-register {
+    .popup-header {
+      background-color: #262e3a;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .popup-body {
+      background-color: #161d27;
+    }
+  }
+
+  &.custom-bg-colors {
+    .popup-header {
+      background-color: $primary;
+    }
+
+    .popup-body {
+      background-color: $primary-2;
+    }
+  }
+
+  &.custom-bg-colors-2 {
+    .popup-header {
+      background-color: $primary;
+    }
+
+    .popup-body {
+      background-color: $primary-3;
+    }
+  }
+
+  &.custom-header-text-color {
+    .popup-header {
+      color: #fff;
+    }
+  }
+
+  &.same-colors {
+    .popup-header,
+    .popup-body {
+      color: $primary-2;
+    }
+
+    .popup-body {
+      background-color: $primary-2;
+    }
+  }
+
+  &.popup-dark .popup-body {
+    background-color: #11171e;
+  }
+}
+
+.popup-container {
+  display: flex;
+  position: fixed;
+  z-index: 900;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  border-radius: 4px;
+  background-color: $popup-bg-color;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 4px 4px 0 0;
+  }
+
+  &__body {
+    padding: 20px 10px;
+    border-radius: 0 0 4px 4px;
+  }
+
+  &--sm {
+    max-width: 470px;
+  }
+
+  &--lg {
+    max-width: 630px;
+  }
+
+  &--xl {
+    max-width: 1235px;
+    @media screen and (max-width: 1367px) {
+      width: 1190px;
+    }
+  }
+}
+
+.popup-header {
+  min-height: 50px;
+  background-color: $popup-header-bg-color;
+  color: $popup-header-color;
+  font-size: 18px;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    max-width: 80%;
+    text-transform: capitalize;
+    gap: 12px;
+  }
+
+  &__close {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+
+    &--position {
+      width: 14px;
+    }
+  }
+}
+
+.popup-body {
+  padding: 0;
+  color: #fff;
+}

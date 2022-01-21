@@ -1,0 +1,168 @@
+<div class="frame frame--position">
+  <div class="frame__game frame__game--position">
+    <ng-container *ngIf="src$ | async as src; else addGame">
+      <crc-w-slots-casino-multi-player-one-frame
+        [iframeUrl]="src"
+      ></crc-w-slots-casino-multi-player-one-frame>
+    </ng-container>
+    <ng-template #addGame>
+      <div (click)="selectGame()" class="frame__empty frame__empty--position">
+        <div style="position: relative">
+          <div class="add-icon">
+            <img src="/assets/icons/plus_icon.svg" />
+          </div>
+
+          <span class="tooltip tooltip--position tooltip--position--bottom">
+            {{ 'split_screen_plus_button_title' | translate }}
+          </span>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+
+  <div class="frame__options frame__options--position">
+    <div class="frame__game--controls">
+      <button (click)="closeGame()">
+        <span class="tooltip tooltip--position">
+          {{ 'split_screen_close_button' | translate }}
+        </span>
+        <img
+          alt="close"
+          [class.disabled]="!gameIsOn"
+          class="icon icon--position"
+          src="/assets/icons/game_close.svg"
+        />
+      </button>
+
+      <button (click)="inNewWindow()">
+        <span class="tooltip tooltip--position">
+          {{ 'split_screen_window_button' | translate }}
+        </span>
+        <img
+          alt="new window"
+          [class.disabled]="!gameIsOn"
+          class="icon icon--position"
+          src="/assets/icons/game_open_in_new_window.svg"
+        />
+      </button>
+
+      <button (click)="restartGame()">
+        <span class="tooltip tooltip--position">
+          {{ 'split_screen_refresh_button' | translate }}
+        </span>
+        <img
+          alt="restart"
+          class="icon icon--position"
+          [class.disabled]="!gameIsOn"
+          src="/assets/icons/game_refresh.svg"
+        />
+      </button>
+
+      <button (click)="selectNewGame()">
+        <span class="tooltip tooltip--position">
+          {{ 'split_screen_change_button' | translate }}
+        </span>
+        <img
+          alt="new game"
+          [class.disabled]="!gameIsOn"
+          class="icon icon--position"
+          src="/assets/icons/game_select_new.svg"
+        />
+      </button>
+    </div>
+
+    <div class="frame__game--other--controls">
+      <div
+        (click)="moveTo(1)"
+        *ngIf="
+          splitScreenType === splitScreenTypes.FourFrames ||
+          splitScreenType === splitScreenTypes.TwoFrames
+        "
+        [ngClass]="{
+          'position-option--disabled': !gameIsOn,
+          'position-option--selected': position === 1
+        }"
+        class="position-option position-option--position row"
+      >
+        <span class="tooltip tooltip--position">
+          {{ 'split_screen_position1_button' | translate }}
+        </span>
+        <ng-container *ngFor="let active of [true, false, false, false]">
+          <ng-container
+            *ngTemplateOutlet="squareCol6; context: { $implicit: active }"
+          >
+          </ng-container>
+        </ng-container>
+      </div>
+
+      <div
+        (click)="moveTo(2)"
+        *ngIf="
+          splitScreenType === splitScreenTypes.FourFrames ||
+          splitScreenType === splitScreenTypes.TwoFrames
+        "
+        [ngClass]="{
+          'position-option--disabled': !gameIsOn,
+          'position-option--selected': position === 2
+        }"
+        class="position-option position-option--position row"
+      >
+        <span class="tooltip tooltip--position">
+          {{ 'split_screen_position2_button' | translate }}
+        </span>
+        <ng-container *ngFor="let active of [false, true, false, false]">
+          <ng-container
+            *ngTemplateOutlet="squareCol6; context: { $implicit: active }"
+          >
+          </ng-container>
+        </ng-container>
+      </div>
+
+      <div
+        (click)="moveTo(3)"
+        *ngIf="splitScreenType === splitScreenTypes.FourFrames"
+        [ngClass]="{
+          'position-option--disabled': !gameIsOn,
+          'position-option--selected': position === 3
+        }"
+        class="position-option position-option--position row"
+      >
+        <span class="tooltip tooltip--position">
+          {{ 'split_screen_position3_button' | translate }}
+        </span>
+        <ng-container *ngFor="let active of [false, false, true, false]">
+          <ng-container
+            *ngTemplateOutlet="squareCol6; context: { $implicit: active }"
+          >
+          </ng-container>
+        </ng-container>
+      </div>
+
+      <div
+        (click)="moveTo(4)"
+        *ngIf="splitScreenType === splitScreenTypes.FourFrames"
+        [ngClass]="{
+          'position-option--disabled': !gameIsOn,
+          'position-option--selected': position === 4
+        }"
+        class="position-option position-option--position row"
+      >
+        <span class="tooltip tooltip--position">
+          {{ 'split_screen_position4_button' | translate }}
+        </span>
+        <ng-container *ngFor="let active of [false, false, false, true]">
+          <ng-container
+            *ngTemplateOutlet="squareCol6; context: { $implicit: active }"
+          >
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #squareCol6 let-active>
+  <div class="col-6 square--position">
+    <div [class.square--active]="active" class="square"></div>
+  </div>
+</ng-template>

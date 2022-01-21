@@ -1,0 +1,29 @@
+@use 'variables';
+$dialog-text-color: #b1c1d8;
+
+.register-success {
+  padding: 30px;
+  text-align: center;
+
+  &__text {
+    color: $dialog-text-color;
+    font: variables.$font-size-md variables.$font-regular;
+  }
+
+  &__title {
+    color: variables.$color-white;
+    font-size: variables.$font-size-lg;
+  }
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.h-50 {
+  height: 50px;
+}

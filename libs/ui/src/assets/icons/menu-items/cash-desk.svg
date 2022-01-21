@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+    <defs>
+        <clipPath id="clip-path">
+            <path id="Rectangle_524" data-name="Rectangle 524" class="cls-1" transform="translate(0 -.225)" d="M0 0h20v20H0z"/>
+        </clipPath>
+        <style>
+            .cls-1{fill:#96a5b8}
+        </style>
+    </defs>
+    <g id="icon" transform="translate(0 .225)" style="clip-path:url(#clip-path)">
+        <g id="desk">
+            <g id="Group_532" data-name="Group 532" transform="translate(1.172 7.617)">
+                <g id="Group_531" data-name="Group 531">
+                    <path id="Path_755" data-name="Path 755" class="cls-1" d="M7.227 7.617H6.25v1.758H5.078V7.617H4.1a2.933 2.933 0 0 0-2.93 2.93v.586h8.984v-.586a2.933 2.933 0 0 0-2.927-2.93z" transform="translate(-1.172 -7.617)"/>
+                </g>
+            </g>
+            <g id="Group_534" data-name="Group 534" transform="translate(2.734)">
+                <g id="Group_533" data-name="Group 533">
+                    <path id="Path_756" data-name="Path 756" class="cls-1" d="M5.664 0a2.933 2.933 0 0 0-2.93 2.93v.586a2.93 2.93 0 0 0 5.859 0V2.93A2.933 2.933 0 0 0 5.664 0z" transform="translate(-2.734)"/>
+                </g>
+            </g>
+            <g id="Group_536" data-name="Group 536" transform="translate(11.328 5.859)">
+                <g id="Group_535" data-name="Group 535">
+                    <path id="Rectangle_525" data-name="Rectangle 525" class="cls-1" d="M0 0h7.5v5.273H0z"/>
+                </g>
+            </g>
+            <g id="Group_538" data-name="Group 538" transform="translate(0 14.648)">
+                <g id="Group_537" data-name="Group 537">
+                    <path id="Rectangle_526" data-name="Rectangle 526" class="cls-1" d="M0 0h20v5.352H0z"/>
+                </g>
+            </g>
+            <g id="Group_540" data-name="Group 540" transform="translate(0 12.305)">
+                <g id="Group_539" data-name="Group 539">
+                    <path id="Rectangle_527" data-name="Rectangle 527" class="cls-1" d="M0 0h20v1.172H0z"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

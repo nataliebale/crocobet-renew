@@ -1,0 +1,6 @@
+<iframe
+  *ngIf="iframeUrl"
+  class="game-frame game-frame--position"
+  [src]="iframeUrl | safeUrl"
+>
+</iframe>

@@ -1,0 +1,170 @@
+$game-search-height: 45px;
+$game-search-bg: #272d36;
+$border-radius: 6px;
+$game-search-text-padding: 0 40px 0 15px;
+$game-search-text-bg: #272d36;
+$game-search-text-color: #d9e3ef;
+$game-search-text-font-size: 16px;
+$game-search-text-border: solid 1px rgba(87, 95, 107, 0.5);
+$game-search-text-focus-bg: #1c2026;
+$game-search-img-right: 15px;
+$game-search-img-width: 20px;
+$game-search-content-sm-min-height: 279px;
+$game-search-content-md-min-height: 372px;
+$game-search-content-bg: #1c2026;
+$game-search-content-border: solid 1px rgba(87, 95, 107, 0.5);
+$game-search-item-padding: 12px 20px;
+$game-search-content-img-width: 100px;
+$game-search-content-titles-m-left: 10px;
+$white: #fff;
+$game-search-provider-color: #919aa4;
+$game-search-content-border: 1px solid rgba(87, 95, 107, 0.9);
+$scrollbar-width: 2px;
+$scrollbar-height: 60px;
+$scrollbar-margin: 2px 2px 16px 13px;
+$scrollbar-opacity: 0.7;
+$scrollbar-border-radius: 2px;
+$scrollbar-thumb-bg: #a3acb7;
+$search-item-hover-bg: #252b33;
+$search-close-width-height: 16px;
+$provider-margin-bottom: 10px;
+$placeholder-color: #d9e3ef;
+
+.game-search {
+  position: relative;
+  height: $game-search-height;
+  border-radius: $border-radius;
+  background-color: $game-search-bg;
+
+  &__input {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    border-radius: $border-radius;
+  }
+
+  &__text {
+    width: 100%;
+    height: 100%;
+    padding: $game-search-text-padding;
+    border: unset;
+    border: $game-search-text-border;
+    border-radius: $border-radius;
+    outline: none;
+    background-color: $game-search-text-bg;
+    color: $game-search-text-color;
+    font-family: 'NeueCrocoSansRegular', sans-serif;
+    font-size: $game-search-text-font-size;
+
+    &::placeholder {
+      color: $placeholder-color;
+    }
+
+    &--restyle {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:focus {
+      outline: none;
+      background-color: $game-search-text-focus-bg;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    top: 50%;
+    right: $game-search-img-right;
+    width: $game-search-img-width;
+    transform: translate(0, -50%);
+  }
+
+  &__content {
+    position: relative;
+    z-index: 10;
+    overflow: hidden;
+    overflow-y: scroll;
+    border-top: 0;
+    border-right: $game-search-content-border;
+    border-bottom: $game-search-content-border;
+    border-left: $game-search-content-border;
+    border-radius: 0 0 $border-radius $border-radius;
+    background-color: $game-search-content-bg;
+
+    &.sm {
+      max-height: $game-search-content-sm-min-height;
+    }
+
+    &.md {
+      max-height: $game-search-content-md-min-height;
+    }
+
+    &--item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 93px;
+      padding: $game-search-item-padding;
+      transition: background-color 0.3s;
+      border-bottom: 1px solid #3e4550;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $search-item-hover-bg;
+      }
+    }
+
+    &--img {
+      width: $game-search-content-img-width;
+      border-radius: 4px;
+    }
+
+    &--titles {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-left: $game-search-content-titles-m-left;
+    }
+  }
+
+  &__name {
+    color: $white;
+  }
+
+  &__provider {
+    margin-bottom: $provider-margin-bottom;
+    color: $game-search-provider-color;
+    text-transform: uppercase;
+  }
+
+  &__arrow {
+    color: $white;
+  }
+}
+
+::-webkit-scrollbar {
+  width: $scrollbar-width;
+  height: $scrollbar-height;
+  margin: $scrollbar-margin;
+  border-radius: $scrollbar-border-radius;
+  opacity: $scrollbar-opacity;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $scrollbar-thumb-bg;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
+
+.close {
+  width: $search-close-width-height;
+  height: $search-close-width-height;
+  cursor: pointer;
+}

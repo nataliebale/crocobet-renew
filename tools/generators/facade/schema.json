@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "facade",
+  "type": "object",
+  "properties": {
+    "featureName": {
+      "type": "string",
+      "description": "Library name",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "enter feature name"
+    },
+    "store": {
+      "type": "string",
+      "description": "Store",
+      "default": true,
+      "$default": {
+        "$source": "argv",
+        "index": 1
+      },
+      "x-prompt": {
+        "message": "Would you like to add store",
+        "type": "list",
+        "items": [
+          {
+            "value": true,
+            "label": "Yes"
+          },
+          {
+            "value": false,
+            "label": "No"
+          }
+        ]
+      }
+    },
+    "path": {
+      "type": "string",
+      "default": "",
+      "description": "path to create files in",
+      "$default": {
+        "$source": "argv",
+        "index": 2
+      },
+      "x-prompt": "enter path in facade library"
+    }
+  },
+  "required": ["featureName", "store"]
+}

@@ -1,0 +1,164 @@
+$color-green: #189541;
+$color-red: #ff2929;
+$input-fixed-width: 220px;
+$white: #fff;
+
+:host {
+  display: inline-block;
+  position: relative;
+
+  &.success {
+    .form-control {
+      border-color: $color-green;
+    }
+  }
+
+  &.error {
+    .form-control {
+      border-color: rgba($color-red, 0.3);
+    }
+  }
+
+  &.control-block {
+    display: block;
+
+    .form-control {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &.fixed-width .form-control {
+    width: $input-fixed-width;
+    min-width: unset;
+  }
+
+  &.full-width .form-control {
+    width: 100%;
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+
+  &.full-height {
+    height: 100%;
+  }
+
+  &.text-right .form-control {
+    text-align: right;
+  }
+
+  &.input-sm .form-control {
+    width: 180px;
+  }
+
+  &.width-100 {
+    display: block;
+
+    .form-control {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  &.no-icons .form-control {
+    padding: 10px;
+  }
+
+  &.show-icon {
+    &::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      right: 12px;
+      width: 14px;
+      height: 14px;
+      transform: translateY(-50%);
+    }
+
+    &.success {
+      &::after {
+        background-image: url('/assets/icons/success.svg');
+      }
+    }
+
+    &.error {
+      &::after {
+        background-image: url('/assets/icons/error.svg');
+      }
+    }
+
+    &.icon--left {
+      .form-control {
+        padding-left: 32px;
+      }
+    }
+
+    &.icon--right {
+      &::after {
+        right: 40px;
+      }
+
+      .form-control {
+        padding-right: 40px;
+      }
+    }
+  }
+
+  &.captcha {
+    .form-control {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+
+  &.form-control--lg {
+    .form-control {
+      height: 50px;
+    }
+  }
+
+  .form-control {
+    padding-right: 32px;
+  }
+
+  &.register-input {
+    .form-control {
+      background-color: #1f252d;
+      color: rgba($white, 0.8);
+    }
+
+    &:not(.error) {
+      .form-control {
+        border-color: #323c49;
+      }
+    }
+  }
+}
+
+.form-control-wrapper {
+  position: relative;
+}
+
+.type-toggler {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+/* stylelint-disable selector-no-qualifying-type */
+input[type='number'] {
+  appearance: textfield;
+}

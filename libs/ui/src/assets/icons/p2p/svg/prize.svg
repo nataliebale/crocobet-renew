@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+    <defs>
+        <clipPath id="clip-path">
+            <path id="Rectangle_4926" data-name="Rectangle 4926" class="cls-1" transform="translate(1695 775)" d="M0 0h14v14H0z"/>
+        </clipPath>
+        <style>
+            .cls-1{fill:#fff}
+        </style>
+    </defs>
+    <g id="icon" transform="translate(-1695 -775)" style="clip-path:url(#clip-path)">
+        <g id="Payment" transform="translate(1695 775)">
+            <path id="Path_3520" data-name="Path 3520" class="cls-1" d="M3.72 7.36h1.12V5.44H3.72a.906.906 0 0 0-.84.96.906.906 0 0 0 .84.96z" transform="translate(-2.32 -2.24)"/>
+            <path id="Path_3521" data-name="Path 3521" class="cls-1" d="M15.12 6.4a.909.909 0 0 0-.84-.96h-.84v1.92h1.68z" transform="translate(-3.64 -2.24)"/>
+            <path id="Path_3522" data-name="Path 3522" class="cls-1" d="M14.72 13.12a1.208 1.208 0 0 0 1.12 1.28h1.96v-2.56h-1.96a1.208 1.208 0 0 0-1.12 1.28zm1.68 0a.565.565 0 1 1-.56-.64.6.6 0 0 1 .56.64z" transform="translate(-3.8 -2.24)"/>
+            <path id="Path_3523" data-name="Path 3523" class="cls-1" d="M14.84 8H3.64a1.511 1.511 0 0 1-1.4-1.6v10.24a1.511 1.511 0 0 0 1.4 1.6h11.2a1.511 1.511 0 0 0 1.4-1.6v-1.6h-1.96a1.812 1.812 0 0 1-1.68-1.92 1.812 1.812 0 0 1 1.68-1.92h1.96V9.6a1.511 1.511 0 0 0-1.4-1.6z" transform="translate(-2.24 -2.24)"/>
+            <path id="Path_3524" data-name="Path 3524" class="cls-1" d="M8.729 7.36h.964a.523.523 0 0 0-.964 0z" transform="translate(-3.051 -2.24)"/>
+            <path id="Path_3525" data-name="Path 3525" class="cls-1" d="M10.121 7.36h.6V5.088A1.516 1.516 0 0 1 9.628 3.84H8.452A1.516 1.516 0 0 1 7.36 5.088V7.36h.6a1.154 1.154 0 0 1 1.08-.96 1.154 1.154 0 0 1 1.081.96z" transform="translate(-2.88 -2.24)"/>
+            <path id="Path_3526" data-name="Path 3526" class="cls-1" d="M6.6 4.8a.346.346 0 0 1 .084-.227.264.264 0 0 1 .2-.093.909.909 0 0 0 .836-.956.347.347 0 0 1 .08-.224.265.265 0 0 1 .2-.1h1.68a.265.265 0 0 1 .2.1.347.347 0 0 1 .081.228.909.909 0 0 0 .836.956.264.264 0 0 1 .2.093.346.346 0 0 1 .084.227V7.36h.84v-4.8a.3.3 0 0 0-.28-.32H6.04a.3.3 0 0 0-.28.32v4.8h.84z" transform="translate(-2.68 -2.24)"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,89 @@
+<div class="d-flex align-items-center h-100">
+  <a
+    routerLink="/register"
+    class="btn btn--success col-auto register-btn"
+    data-cy="register-btn"
+  >
+    {{ 'header.register' | translate }}
+  </a>
+  <form class="d-flex col-auto" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="col-auto input-group">
+      <div class="form-control-wrapper ml-12">
+        <img
+          src="/assets/icons/user.svg"
+          alt="User"
+          class="form-control-icon"
+        />
+        <crc-shared-text-input
+          [class.error]="
+            (loginFailed && form.valid) ||
+            (submitted && !form.valid && usernameC.errors?.required) ||
+            usernameC.errors?.pattern
+          "
+          class="show-icon icon--left fixed-width input-text"
+          type="text"
+          [placeholder]="'register_loginName' | translate"
+          formControlName="login"
+          data-cy="form-login"
+        >
+        </crc-shared-text-input>
+      </div>
+      <div class="form-control-wrapper ml-12">
+        <img
+          src="/assets/icons/password.svg"
+          alt="Password"
+          class="form-control-icon"
+        />
+        <crc-shared-text-input
+          [class.error]="
+            (loginFailed && form.valid) ||
+            (submitted && !form.valid && passwordC.errors)
+          "
+          class="show-icon icon--left icon--right fixed-width input-text"
+          type="password"
+          [placeholder]="'header.password' | translate"
+          formControlName="password"
+          data-cy="form-password"
+        ></crc-shared-text-input>
+      </div>
+      <button
+        class="reset-password-btn"
+        tabindex="-1"
+        type="button"
+        (click)="onResetPassword()"
+      >
+        <img src="/assets/icons/reset-password.svg" alt="reset" />
+      </button>
+      <div
+        *ngIf="
+          submitted &&
+          !form.valid &&
+          (usernameC.errors?.required || passwordC.errors?.required)
+        "
+        class="form-error-message"
+      >
+        <span>{{ 'form_error_required' | translate }}</span>
+      </div>
+      <div *ngIf="usernameC.errors?.pattern" class="form-error-message">
+        <span>{{ 'form_required_latin_only' | translate }}</span>
+      </div>
+      <div *ngIf="loginFailed && form.valid" class="form-error-message">
+        <span>{{ 'login_api_error_500' | translate }}</span>
+      </div>
+
+      <crc-shared-captcha-prompt
+        *ngIf="captcha?.length && !loginPopupShowState"
+        (captchaValidValueEntered$)="onEnterCaptchaValidValue($event)"
+        (captchaValueEntered$)="onCheckCaptchaValidity($event)"
+        (captchaClosed$)="onCaptchaClosed()"
+        (captchaUpdated$)="onCaptchaUpdated()"
+        [captcha]="captcha"
+        [enteredCaptchaValid]="enteredCaptchaValid"
+      >
+      </crc-shared-captcha-prompt>
+    </div>
+    <button class="btn btn--secondary ml-12 login-btn" data-cy="form-submit">
+      {{ 'm.login_button_title' | translate }}
+    </button>
+  </form>
+</div>

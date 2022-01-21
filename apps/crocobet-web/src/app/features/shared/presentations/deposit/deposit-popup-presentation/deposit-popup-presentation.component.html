@@ -1,0 +1,96 @@
+<crc-shared-popup (closed)="emitClosePopup()">
+  <div class="popup-header" header>
+    <img alt="Any Bank" src="/assets/icons/deposit/any-bank.svg" />
+    <span class="popup-header__heading">{{
+      'deposit.deposit_with_new_card' | translate
+    }}</span>
+  </div>
+  <div class="payment-form-container">
+    <form
+      (ngSubmit)="onProcessPaymentClick()"
+      [formGroup]="paymentForm"
+      class="payment-form"
+    >
+      <div class="payment-form__main">
+        <div class="payment-form__input">
+          <h4>{{ 'common_amount' | translate }}</h4>
+          <crc-w-deposit-amount-container
+            [controlName]="'transactionAmount'"
+          ></crc-w-deposit-amount-container>
+        </div>
+
+        <div class="payment-form__provider provider">
+          <span class="provider__title">
+            {{ 'deposit.choose_bank_provider' | translate }}
+          </span>
+          <div class="providers">
+            <div
+              *ngFor="let bank of providerList"
+              class="providers__item"
+              [class.not-selected]="providerId && providerId !== bank.key"
+            >
+              <input
+                [id]="bank.key"
+                [value]="bank.key"
+                class="providers__input"
+                formControlName="providerId"
+                type="radio"
+              />
+              <label
+                [for]="bank.key"
+                [ngClass]="{
+                  'providers__label--tbc': bank.key === 'TBC_DEPOSIT',
+                  'providers__label--bog': bank.key === 'BOG_DEPOSIT',
+                  'providers__label--any': bank.key === 'ANY_DEPOSIT'
+                }"
+                class="providers__label"
+              >
+                <img
+                  *ngIf="bank.key !== 'ANY_DEPOSIT'"
+                  [src]="
+                    '/assets/icons/deposit/deposit-' +
+                    bank.logo +
+                    '-' +
+                    currentLanguage +
+                    '.svg'
+                  "
+                  alt="Bank Logo"
+                />
+
+                <span *ngIf="bank.key === 'ANY_DEPOSIT'" class="providers__any">
+                  {{ 'deposit.other_bank_cards' | translate }}
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="payment-form__separator"></div>
+
+      <div class="payment-form__footer">
+        <div class="payment-form__save">
+          <input
+            class="payment-form__save--input"
+            formControlName="activateCard"
+            id="saveCard"
+            type="checkbox"
+          />
+          <label class="mt-1" for="saveCard">{{
+            'oneclick_agreement' | translate
+          }}</label>
+        </div>
+
+        <div class="payment-form__submit">
+          <button
+            [disabled]="paymentForm.invalid"
+            class="btn btn--success"
+            type="submit"
+          >
+            {{ 'deposit.continue' | translate }}
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</crc-shared-popup>

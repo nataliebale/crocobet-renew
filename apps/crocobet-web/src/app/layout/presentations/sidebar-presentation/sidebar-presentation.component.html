@@ -1,0 +1,35 @@
+<div class="navigation">
+  <a href="/" class="navigation__logo" data-cy="navigation-logo">
+    <img src="assets/icons/logo.svg" alt="Logo" />
+  </a>
+  <ul class="navigation__list" data-cy="navigation-list">
+    <li
+      *ngFor="let menuItem of menuItems"
+      class="navigation__item"
+      data-cy="navigation-item"
+    >
+      <a
+        [routerLink]="menuItem.route"
+        routerLinkActive="active"
+        class="navigation__link"
+        data-cy="navigation-link"
+      >
+        <span
+          *ngIf="menuItem.isNew"
+          class="navigation__new"
+          data-cy="navigation-new"
+          >NEW</span
+        >
+        <img
+          class="navigation__img"
+          data-cy="navigation-img"
+          src="assets/icons/navigationMenu/{{ menuItem.imgUrl }}.svg"
+          [alt]="menuItem.langKey"
+        />
+        <span class="navigation__title" data-cy="navigation-title">{{
+          menuItem.langKey | translate
+        }}</span>
+      </a>
+    </li>
+  </ul>
+</div>

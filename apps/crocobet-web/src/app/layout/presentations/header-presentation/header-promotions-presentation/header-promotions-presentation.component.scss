@@ -1,0 +1,9 @@
+$promotion-height: 48px;
+
+.promotions {
+  height: $promotion-height;
+
+  &__img {
+    height: 100%;
+  }
+}

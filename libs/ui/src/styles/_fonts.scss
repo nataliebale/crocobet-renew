@@ -1,0 +1,17 @@
+@use 'variables';
+
+$font-path: '/assets/fonts/';
+
+@mixin register-font($name) {
+  @font-face {
+    font-family: $name;
+    src: url($font-path + $name + '.woff') format('woff');
+  }
+}
+
+@include register-font(NeueCrocoSansMedium);
+@include register-font(NeueCrocoSansRegular);
+
+* {
+  font-family: variables.$font-medium;
+}

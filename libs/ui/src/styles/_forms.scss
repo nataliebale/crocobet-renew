@@ -1,0 +1,37 @@
+// Form control
+@use 'variables';
+
+$form-control-border-color: rgba(68, 79, 93, 0.6) !default;
+$form-control-bg-color: #1c222a !default;
+$form-control-color: #96a5b8 !default;
+$form-control-placeholder-color: #444f5d !default;
+
+.form-control {
+  min-width: 184px;
+  height: 100%;
+  padding: 10px;
+  border: 1px solid $form-control-border-color;
+  border-radius: 4px;
+  background-color: $form-control-bg-color;
+  color: $form-control-color;
+
+  &::placeholder {
+    color: $form-control-placeholder-color;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.invalid {
+    border-color: rgba(variables.$color-red, 0.3);
+  }
+
+  &.success {
+    border: 1px solid variables.$color-green;
+  }
+}
+
+.form-control--sm {
+  min-width: 228px;
+}

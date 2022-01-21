@@ -1,0 +1,68 @@
+@use 'variables';
+@use 'mixins';
+
+$secondary: #323c49;
+$btn-height: 50px;
+$danger: #ff2929;
+
+.form-control-wrapper {
+  margin-bottom: 20px;
+}
+
+.form-error-message {
+  @include mixins.flex(flex-start, center);
+
+  padding: 10px;
+  border-left: 2px solid $danger;
+  background-color: rgba($danger, 0.6);
+
+  span {
+    font: 12px variables.$font-regular;
+  }
+}
+
+.input-group {
+  margin-top: 18px;
+}
+
+.custom-btn {
+  height: $btn-height;
+
+  &.btn--secondary {
+    background-color: $secondary;
+  }
+}
+
+.text {
+  color: variables.$secondary-active;
+  font: 13px variables.$font-regular;
+  cursor: pointer;
+
+  &--center {
+    text-align: center;
+  }
+}
+
+.mt-12 {
+  margin-top: 12px;
+}
+
+.mr-12 {
+  margin-right: 12px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}

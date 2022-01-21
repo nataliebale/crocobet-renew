@@ -1,0 +1,25 @@
+@use 'variables';
+
+$header-height: 60px;
+$header-padding: 0 30px;
+$header-row-gap: 30px;
+
+$header-separator-width: 2px;
+$header-separator-height: 30px;
+$header-separator-bg-color: #96a5b8;
+
+.header {
+  display: flex;
+  flex-wrap: nowrap;
+  height: $header-height;
+  padding: $header-padding;
+  background-color: variables.$secondary;
+  gap: $header-row-gap;
+
+  &__separator {
+    width: $header-separator-width;
+    height: $header-separator-height;
+    opacity: 0.2;
+    background: $header-separator-bg-color;
+  }
+}

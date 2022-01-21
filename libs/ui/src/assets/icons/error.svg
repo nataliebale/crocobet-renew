@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+    <defs>
+        <clipPath id="clip-path">
+            <path id="Rectangle_529" data-name="Rectangle 529" class="cls-1" transform="translate(1615 287)" d="M0 0h14v14H0z"/>
+        </clipPath>
+        <style>
+            .cls-1{fill:#ff2929}
+        </style>
+    </defs>
+    <g id="error_icon" data-name="error icon" transform="translate(-1615 -287)" style="clip-path:url(#clip-path)">
+        <g id="Layer_2" data-name="Layer 2" transform="translate(1614.364 286.364)">
+            <path id="Path_719" data-name="Path 719" class="cls-1" d="M7.636.636a7 7 0 1 0 7 7 7 7 0 0 0-7-7zm2.7 8.8a.636.636 0 1 1-.9.9l-1.8-1.8-1.8 1.8a.636.636 0 1 1-.9-.9l1.8-1.8-1.8-1.8a.636.636 0 1 1 .9-.9l1.8 1.8 1.8-1.8a.636.636 0 1 1 .9.9l-1.8 1.8z"/>
+        </g>
+    </g>
+</svg>

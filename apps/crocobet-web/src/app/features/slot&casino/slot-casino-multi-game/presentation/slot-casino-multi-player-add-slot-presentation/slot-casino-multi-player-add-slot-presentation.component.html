@@ -1,0 +1,24 @@
+<div class="container-fluid slot-container p-0">
+  <div class="row m-0">
+    <div class="col-12 filters p-0">
+      <div class="slot-filters row m-0 align-items-center">
+        <div class="col-9 p-0">
+          <crc-w-slot-category-filters-container></crc-w-slot-category-filters-container>
+        </div>
+        <div class="col-3 p-0">
+          <div class="slot-filters__search">
+            <crc-w-slot-shared-search-container></crc-w-slot-shared-search-container>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 p-0">
+        <crc-w-slots-provider-filters-container></crc-w-slots-provider-filters-container>
+      </div>
+      <div class="col-12 slot-games">
+        <crc-w-slots-list-container
+          [firstItemLarge]="false"
+        ></crc-w-slots-list-container>
+      </div>
+    </div>
+  </div>
+</div>
